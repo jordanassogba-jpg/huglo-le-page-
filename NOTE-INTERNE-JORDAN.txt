@@ -163,3 +163,21 @@ l'inspecteur, et par le test des résultats enrichis.
 S'il s'avère que ça ne sort pas en clair, préviens-moi. Le repli est de générer
 douze embeds head, un par fiche, ce que je peux faire par API sans toi, au prix
 d'une maintenance plus lourde.
+
+
+--- Fait ensuite
+
+Image sociale : les douze fiches ont maintenant leur champ image renseigne avec
+l'image d'en-tete du site. og:image et twitter:image sortiront donc sur les douze.
+Si une image apparait dans le corps d'une fiche, dis-le moi : je vide les douze en
+un appel et on repasse par le code.
+
+Ordre des avocats : champ ordreAvocats cree sur EXPERTISES et rempli pour les
+douze fiches, dans l'ordre des references du CMS. Pour l'Urbanisme c'est bien
+l'ordre valide par Roxane.
+
+Code : CODE-PAGES-DYNAMIQUES.txt est reecrit et simplifie. Il repond a ta question
+en tete de fichier, le code va dans le code DE LA PAGE et pas du site, et j'ai
+ajoute un garde-fou dans les deux extraits pour qu'un mauvais collage ne puisse
+rien casser. L'etape sur l'image sociale a disparu du code, elle est traitee par le
+CMS.
