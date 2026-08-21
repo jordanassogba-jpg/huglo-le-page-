@@ -27,7 +27,7 @@ logique reste la même. Les identifiants ci-dessus, eux, sont vérifiés.
 
 ORDRE CONSEILLÉ
 Fais d'abord le bloc 1, c'est le seul qui débloque une promesse faite à Roxane.
-Les blocs 2 à 8 sont de l'éditeur visuel, à regrouper en une seule session pour
+Les blocs 2 à 7 sont de l'éditeur visuel, à regrouper en une seule session pour
 ne publier qu'une fois. Le bloc 9 est de la vérification.
 
 
@@ -346,30 +346,51 @@ Je contrôlerai par API que la redirection /blank-1 vers /plan-du-site existe.
 
 
 ===============================================================================
-8. L'AFFICHAGE CONDITIONNEL DES BLOCS VIDES
+8. LES BLOCS VIDES : VÉRIFIER AVANT DE MASQUER
 ===============================================================================
 
-POURQUOI
-Roxane demandait si le gabarit permet de masquer un bloc quand son contenu est
-vide, ce qui réglerait la question sur tout le site sans lui demander d'écrire
-un texte par matière. La réponse est oui.
+CE QUE J'AVAIS ÉCRIT ET QUI ÉTAIT FAUX
+J'avais annoncé que le gabarit permet de conditionner l'affichage d'un bloc à la
+présence d'un contenu, et que ça réglerait la question sur tout le site. Je ne
+l'avais pas vérifié. La documentation Wix accessible ne confirme aucun réglage
+d'affichage conditionnel sans code. Le mail au cabinet a été corrigé.
 
-OÙ
-Éditeur, page dynamique Expertises, sur chaque bloc alimenté par le CMS.
+CE QUE DIT VRAIMENT LA DONNÉE
+J'ai relevé les champs vides des douze fiches. Deux catégories très différentes.
 
-ÉTAPES
-  1. Sélectionne le conteneur du bloc, pas le texte à l'intérieur.
-  2. Ouvre le panneau des données connectées.
-  3. Active la condition qui masque l'élément quand le champ source est vide.
-     Selon la version, elle s'appelle « Masquer si vide », « Hide if empty » ou
-     passe par les règles d'affichage conditionnel.
-  4. Refais-le pour chaque bloc optionnel du gabarit.
+  Fiches sans aucun corps de texte
+    RSE/Audits réglementaires ............ intro, bloc 1, bloc 2, faq vides
+    Protection de l'environnement ........ intro, bloc 1, bloc 2, faq, résumé vides
 
-VÉRIFICATION
-Va sur https://www.huglo-lepage.com/expertises/rse-audits-reglementaires
-C'est la fiche où Roxane a repéré les blocs vides. Aucun cadre vide ne doit
-subsister.
+  Champs optionnels vides sur presque toutes les fiches
+    contact .... vide sur 11 fiches sur 12, seule l'Urbanisme le renseigne
+    offre ...... vide sur 12 fiches sur 12
+    plainte .... vide sur 10 fiches sur 12
+    image1 ..... vide sur 12 fiches sur 12
 
+CE N'EST PAS MOI QUI AI VIDÉ CES FICHES
+Je l'ai vérifié dans la collection EXPERTISES_TEMP_RESTORE, qui est une copie
+datée des 7 au 12 août, donc antérieure à mon intervention. Les deux mêmes fiches
+y sont vides, avec exactement les mêmes champs. Aucune donnée n'a été perdue de
+mon fait.
+
+CE QU'IL FAUT EN FAIRE
+Pour les deux fiches sans corps de texte, masquer les cadres reviendrait à
+publier deux pages sans contenu, dont « Protection de l'environnement et de la
+santé » qui est la première expertise du cabinet dans l'ordre d'affichage.
+C'est une décision de contenu, pas un réglage. Le mail pose la question au
+cabinet : fournir le texte, ou retirer ces deux pages de l'index en attendant.
+
+Pour les champs réellement optionnels, la question de l'affichage conditionnel
+garde tout son sens. Avant de promettre quoi que ce soit, va vérifier dans
+l'éditeur si le panneau des données connectées propose une règle du type
+« masquer si vide » sur le conteneur. Si oui, applique-la et dis-le moi. Si non,
+la voie restante est du code Velo sur la page dynamique, Velo étant activé sur ce
+site, et il faudra chiffrer.
+
+C'est le seul point du mail où nous répondons « nous vérifions » plutôt que
+« nous faisons ». C'est délibéré, et c'est mieux qu'une troisième promesse non
+tenue.
 
 ===============================================================================
 9. DEUX VÉRIFICATIONS, PAS DES CORRECTIONS
@@ -404,7 +425,7 @@ dynamiques et repère celle qui n'est ni Expertises, ni Avocats, ni Publications
 10. PUBLIER, PUIS ME REDONNER LA MAIN
 ===============================================================================
 
-Une fois les blocs 2 à 8 faits, publie le site.
+Une fois les blocs 2 à 7 faits, publie le site.
 
 Préviens-moi ensuite. Je repasse par API pour contrôler ce qui est contrôlable
 de mon côté, à savoir la redirection de /blank-1, l'état des balises SEO des

@@ -256,10 +256,26 @@ Sur le contenu servi sans exécution de JavaScript, c'était le fond de votre
 question et la réponse est celle du point 1. Plus aucun composant HTML embed dans
 les fiches, et un balisage structuré servi en clair dans le head.
 
-Sur les blocs vides de la page RSE et audits réglementaires, le gabarit ne
-conditionne pas aujourd'hui l'affichage d'un bloc à la présence d'un contenu. C'est
-réalisable et nous le mettons en place. Cela réglera la question sur tout le site
-et vous évitera d'avoir à produire un texte court par matière.
+Sur les blocs vides de la page RSE et audits réglementaires, nous avons regardé de
+près et la réponse est plus large que votre question.
+
+Sur cette fiche, ce ne sont pas quelques blocs qui sont vides. L'introduction, les
+deux blocs de corps de page et la FAQ le sont tous les quatre. La fiche n'a donc pas
+de corps de texte. Le même constat vaut pour la fiche Protection de l'environnement
+et de la santé, que vous n'aviez pas signalée, où le résumé est vide lui aussi.
+
+Conditionner l'affichage à la présence d'un contenu masquerait les cadres, mais
+laisserait deux pages sans corps de texte, l'une d'elles étant la première de vos
+matières. Ce serait masquer le symptôme. Nous préférons vous poser la question dans
+l'autre sens : souhaitez-vous nous transmettre le contenu de ces deux fiches, ou les
+retirer de l'index le temps qu'il soit écrit ?
+
+Restent les blocs réellement optionnels, à savoir le bloc de contact, l'offre, le
+formulaire de plainte et l'image, vides sur la quasi-totalité des fiches. Le bloc de
+contact, en particulier, n'est renseigné que sur la fiche Urbanisme. Là, votre
+question garde tout son sens et nous vous répondons précisément après avoir vérifié
+ce que le gabarit autorise, avec ou sans code. Nous ne voulons pas vous annoncer une
+solution avant de l'avoir éprouvée.
 
 
 Deux choses que nous avons trouvées en passant

@@ -81,3 +81,28 @@ La règle qu'on annonce à Roxane, aucun contenu destiné aux moteurs par compos
 HTML embed, vaut pour les fiches à venir. Le champ jsonldGraph est le bon
 véhicule : on le remplit à la création de la fiche, il sort tout seul dans le head
 une fois la connexion faite.
+
+
+--- Correction apportée après vérification : les blocs vides
+
+J'avais écrit dans le mail que le gabarit permet de conditionner l'affichage d'un
+bloc à la présence d'un contenu, et qu'on le mettait en place. Je ne l'avais pas
+vérifié, la documentation Wix accessible ne le confirme pas, et je n'ai de toute
+façon pas la main sur le code de page. Le mail est corrigé.
+
+En vérifiant, j'ai trouvé plus gênant que la question posée.
+
+Deux fiches n'ont aucun corps de texte :
+  - RSE/Audits réglementaires : intro, bloc 1, bloc 2 et faq vides
+  - Protection de l'environnement et de la santé : les mêmes, plus le résumé
+
+La seconde n'avait pas été signalée par Roxane, et c'est la première expertise du
+cabinet dans l'ordre d'affichage.
+
+Ce n'est pas nous. La collection EXPERTISES_TEMP_RESTORE, copie datée du 7 au
+12 août, montre les deux mêmes fiches vides avec les mêmes champs. Le mail le dit
+sans accuser personne, il pose simplement la question du contenu.
+
+Autre chose relevée au passage : le bloc de contact n'est renseigné que sur la
+fiche Urbanisme. Sur les onze autres il est vide. Roxane a validé ce bloc au
+point 6 de son audit, elle le croit probablement présent partout.
