@@ -106,3 +106,32 @@ sans accuser personne, il pose simplement la question du contenu.
 Autre chose relevée au passage : le bloc de contact n'est renseigné que sur la
 fiche Urbanisme. Sur les onze autres il est vide. Roxane a validé ce bloc au
 point 6 de son audit, elle le croit probablement présent partout.
+
+
+--- Fait après l'accord de Roxane sur l'intervention
+
+À noter d'abord : l'accord ne débloque presque rien. La quasi-totalité de ce qui
+restait était bloqué par la technique, pas par la permission. Le branchement du
+JSON-LD, les og:type, le pied de page, les ancres, le carrousel, le sommaire et le
+renommage de /blank-1 n'ont pas d'API. Ça reste des gestes dans l'éditeur.
+
+Trois choses relevaient réellement d'un arbitrage, elles sont faites.
+
+1. Fiches avocats en double. Les douze adresses /equipe-2/ sont redirigées en 301
+   vers /avocats/. Le site passe à 93 redirections, sans chaîne ni cible morte.
+   La page dynamique /equipe-2/ n'est plus servie, la redirection prend le pas sur
+   elle. Tu peux la dépublier au passage, ce n'est plus urgent.
+
+2. Diplôme de Faustine Sigronde. La parenthèse manquante est corrigée dans le CMS,
+   et le JSON-LD d'identité a été redéployé en révision 2. Ses trois diplômes y
+   figurent désormais, contre deux avant.
+
+3. Image sociale. Le champ image1 est bien de type IMAGE et c'est lui qui alimente
+   og:image. Je l'ai rempli sur UNE fiche seulement, Droit de la commande publique,
+   avec l'image d'en-tête du site. Je n'ai pas fait les douze parce que je ne vois
+   pas le rendu : ce champ peut aussi s'afficher dans le corps de la page. Regarde
+   la fiche et dis-moi, je fais les onze autres ou je retire celle-là.
+
+Ce qui reste en attente d'une réponse du cabinet, et non d'une action de notre part :
+les dates de publication des onze fiches, le contenu des deux fiches vides, et le
+choix d'une image par matière si Roxane en veut une.

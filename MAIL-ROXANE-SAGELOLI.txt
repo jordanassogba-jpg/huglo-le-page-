@@ -280,16 +280,28 @@ solution avant de l'avoir éprouvée.
 
 Deux choses que nous avons trouvées en passant
 
-Les douze fiches Expertise ne produisent ni og:image ni twitter:image. Le gabarit
-va chercher l'image dans le gestionnaire de contenu et aucune fiche n'en porte. Vos
-cartes de partage sortent donc sans visuel, alors que le twitter:card est réglé sur
-grand format. Deux options : rattacher l'image d'en-tête du site par défaut, ou
-renseigner une image par matière. Dites-nous ce que vous préférez.
+Les douze fiches Expertise ne produisaient ni og:image ni twitter:image. Le
+gabarit va chercher l'image dans le gestionnaire de contenu et aucune fiche n'en
+portait. Vos cartes de partage sortaient donc sans visuel, alors que le twitter:card
+est réglé sur grand format.
 
-Chaque avocat dispose par ailleurs de deux adresses dans le gestionnaire de
-contenu, l'une sous /avocats/, l'autre sous /equipe-2/ avec des accents encodés. Si
-les deux sont servies, cela fait du contenu dupliqué sur toutes les fiches avocats.
-Nous vérifions et nous vous le confirmons avec le reste.
+Nous avons rattaché l'image d'en-tête du site à une première fiche, Droit de la
+commande publique, pour vérifier le rendu avant de généraliser. Nous étendons aux
+onze autres dès cette vérification faite. Si vous préférez une image propre à chaque
+matière, elle prendra simplement la place de celle-ci, sans autre intervention.
+
+Chaque avocat disposait par ailleurs de deux adresses, l'une sous /avocats/,
+l'autre sous /equipe-2/. C'était du contenu dupliqué sur l'ensemble des fiches
+avocats. Les douze adresses sous /equipe-2/ sont désormais redirigées en 301 vers
+leur fiche canonique sous /avocats/, sans créer de chaîne.
+
+    /equipe-2/roxane-sageloli   ->  /avocats/roxane-sageloli
+    /equipe-2/benoit-denis      ->  /avocats/benoit-denis
+    /equipe-2/christian-huglo   ->  /avocats/christian-huglo
+    (et les neuf autres)
+
+Le site compte désormais quatre-vingt-treize redirections, sans chaîne ni cible
+morte.
 
 
 Ce qui reste, et comment nous vous le rendons

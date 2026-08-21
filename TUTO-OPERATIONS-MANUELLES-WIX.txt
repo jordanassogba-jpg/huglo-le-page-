@@ -126,33 +126,32 @@ og:type doit valoir « profile ».
 
 
 -------------------------------------------------------------------------------
-1.d  Image sociale des fiches Expertise
+1.d  Image sociale des fiches Expertise : VÉRIFIER LE RENDU
 -------------------------------------------------------------------------------
 
-POURQUOI
-Les douze fiches ne produisent ni og:image ni twitter:image, parce que le
-gabarit va chercher l'image dans le CMS et qu'aucune fiche n'en porte. La carte
-de partage sort vide alors que le format déclaré est grand format.
+CE QUI A ÉTÉ FAIT
+Le champ image1 de la collection EXPERTISES est de type IMAGE, et c'est lui que le
+gabarit interroge pour produire og:image. Aucune fiche ne le renseignait, d'où
+l'absence d'image de partage sur les douze.
 
-OÙ
-Même écran SEO de la page dynamique Expertises.
+J'ai renseigné ce champ sur UNE SEULE fiche, en test :
 
-DEUX OPTIONS, À TRANCHER AVEC ROXANE
+    Fiche  : Droit de la Commande publique
+    URL    : https://www.huglo-lepage.com/expertises/commande-publique
+    Valeur : https://static.wixstatic.com/media/1332e6_ecd26ebf541146ea8a3f421ce73eb17f~mv2.png
 
-  Option simple
-  Dans le champ d'image sociale du gabarit, retire la valeur dynamique qui
-  pointe vers le champ image de la collection et mets à la place l'image
-  d'en-tête du site, celle qui sert déjà de partage par défaut :
-  https://static.wixstatic.com/media/1332e6_ecd26ebf541146ea8a3f421ce73eb17f~mv2.png
+CE QUE TU DOIS VÉRIFIER, ET POURQUOI JE N'AI PAS FAIT LES DOUZE
+Je n'ai pas d'accès réseau au domaine, donc je ne vois pas le rendu. Ce champ image
+peut être affiché sur la page en plus d'alimenter og:image. Ouvre la fiche et
+regarde :
 
-  Option propre
-  Ajoute une image par matière dans le champ image1 de chaque fiche de la
-  collection EXPERTISES. Le gabarit la reprendra automatiquement, sans rien
-  changer au réglage. Attention toutefois, ce champ peut être affiché sur la
-  page : vérifie le rendu sur une fiche avant de remplir les douze.
+  - si aucune image n'apparaît dans le corps de la page, dis-le moi, je remplis les
+    onze autres en une minute ;
+  - si une image apparaît là où les autres fiches n'en ont pas, dis-le moi aussi, je
+    la retire et on passe par le réglage d'image sociale du gabarit à la place.
 
-VÉRIFICATION
-Code source d'une fiche, og:image et twitter:image doivent porter une URL.
+Contrôle également le code source de cette fiche : og:image et twitter:image doivent
+désormais porter une URL.
 
 
 ===============================================================================
@@ -396,18 +395,15 @@ tenue.
 9. DEUX VÉRIFICATIONS, PAS DES CORRECTIONS
 ===============================================================================
 
-9.a  LES FICHES AVOCATS EN DOUBLE
+9.a  LES FICHES AVOCATS EN DOUBLE : TRAITÉ
 
-La collection EQUIPE porte deux champs d'URL, link-equipe-1-title en
-/avocats/... et link-equipe-2-title en /equipe-2/... avec des accents encodés.
-Si les deux pages dynamiques sont publiées, c'est du contenu dupliqué sur toutes
-les fiches avocats.
+Les douze adresses sous /equipe-2/ sont redirigées en 301 vers leur fiche canonique
+sous /avocats/. Contrôle fait après création : aucune chaîne, aucune cible morte.
+Le site compte quatre-vingt-treize redirections.
 
-Comment vérifier : ouvre
-https://www.huglo-lepage.com/equipe-2/roxane-sageloli
-Si la page s'affiche, il faut soit dépublier la page dynamique /equipe-2/, soit
-la rediriger en 301 vers /avocats/. Dis-moi ce que tu constates, je pose les
-redirections.
+Si la page dynamique /equipe-2/ existe encore dans l'éditeur, la redirection prend le
+pas sur elle et elle n'est plus servie. Tu peux la dépublier proprement quand tu
+passeras dans l'éditeur, mais ce n'est plus urgent.
 
 
 9.b  LA PAGE DYNAMIQUE DP82B
