@@ -204,10 +204,13 @@ depuis mon environnement. La documentation Wix dit que l'appel dans onReady() es
 précisément fait pour que les moteurs le lisent, mais c'est le reproche central du
 cabinet et il vaut mieux le constater que le supposer.
 
-Si le balisage n'apparaît pas dans le code source servi, préviens-moi. Le repli est
-de poser douze blocs de code personnalisé dans le head, un par fiche, que je peux
-créer par API sans toi. C'est plus lourd à maintenir, mais ça ne dépend d'aucune
-exécution de JavaScript.
+Si le balisage n'apparaît pas dans le code source servi, préviens-moi.
+
+Correction d'une chose que j'avais écrite trop vite : j'avais annoncé un repli
+consistant à poser douze blocs de code personnalisé dans le head, un par fiche. Ce
+n'est pas possible. Le ciblage par page du code personnalisé est en lecture seule
+côté API, un bloc s'applique donc forcément à tout le site. Le vrai repli, si le
+chemin B ne suffit pas, reste le chemin A.
 
 
 ===============================================================================

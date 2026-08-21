@@ -35,93 +35,71 @@ ne passera par un composant HTML embed, quel que soit le confort d'intégration.
 
 2. Les données structurées
 
-Le balisage d'identité du cabinet et des avocats est en ligne. Le balisage propre à
-chaque fiche est écrit et prêt, il attend une dernière connexion.
+Déployé. Le balisage sort désormais dans le head, en deux ensembles complémentaires.
 
-Ce qui est déjà servi
+L'identité du cabinet et des avocats
 
-Nous avons déployé un JSON-LD dans le head, par le panneau Code personnalisé, en
-position HEAD et en catégorie ESSENTIAL. Cette catégorie garantit que la balise
-figure dans le document servi immédiatement, sans dépendre d'un consentement ni
-d'une exécution de JavaScript.
+Un JSON-LD est déclaré dans le head par le panneau Code personnalisé, en position
+HEAD et en catégorie ESSENTIAL. Cette catégorie garantit que la balise figure dans
+le document servi immédiatement, sans dépendre d'un consentement ni d'une exécution
+de JavaScript.
 
     Nom       : JSON-LD, identité cabinet et avocats
     Position  : HEAD
     Catégorie : ESSENTIAL
-    Taille    : 11 191 caractères
+    Taille    : 11 297 caractères
 
-Le graphe compte onze nœuds. Un LegalService, avec l'adresse du 42 rue de
-Lisbonne, les coordonnées géographiques, le courriel, le logo et vos deux
-fondateurs. Un WebSite, dont le publisher renvoie au cabinet. Et neuf nœuds
-Person, un par avocat, chacun avec son url vers sa fiche profil, son jobTitle, ses
-sameAs, ses knowsAbout et ses hasCredential.
+Le graphe compte onze nœuds. Un LegalService, avec l'adresse du 42 rue de Lisbonne,
+les coordonnées géographiques, le courriel, le logo et vos deux fondateurs. Un
+WebSite, dont le publisher renvoie au cabinet. Et neuf nœuds Person, un par avocat,
+chacun avec son url vers sa fiche profil, son jobTitle, ses sameAs, ses knowsAbout
+et ses hasCredential.
 
     {"@type":"LegalService","@id":"https://www.huglo-lepage.com/#cabinet",
      "name":"Huglo Lepage Avocats","url":"https://www.huglo-lepage.com/",
      "address":{"@type":"PostalAddress","streetAddress":"42 rue de Lisbonne",
      "postalCode":"75008","addressLocality":"Paris","addressCountry":"FR"}}
 
-Vos cinq corrections préalables sont faites. L'adresse en 404 a disparu du code, au
-profit de https://www.huglo-lepage.com/expertises/droit-urbanisme-amenagement, sans
-barre finale. Chaque nœud porte un @id construit sur une URL réelle. Le worksFor
-des neuf avocats renvoie désormais à l'@id du cabinet, il n'y a donc plus deux
-entités là où il n'y en a qu'une. Et plus aucune variable de gabarit ne subsiste
-dans les dates.
+Les sameAs et les hasCredential sont générés directement depuis vos fiches avocats,
+sans aucune ressaisie de notre part. Les sameAs reprennent le profil LinkedIn et,
+quand il existe, le référencement Leaders League. Nous avons écarté une seule
+entrée, la mention « M1 Droit public général, Université Paris I (2021 » sur la
+fiche de Maître Sigronde, dont la parenthèse n'est pas fermée dans le gestionnaire
+de contenu. Corrigez la fiche quand vous voulez, elle sera reprise automatiquement.
 
-Sur les dates, justement, deux précisions.
+Le balisage propre à chaque fiche
 
-La fiche Urbanisme porte le 4 août 2026 en datePublished comme en dateModified.
-C'est la seule date que la page affiche, dans son bloc auteur. Si la première
-publication est antérieure, dites-le nous et nous corrigeons. Nous avons préféré
-ne pas la deviner.
-
-Les onze autres fiches ne portent pas de date, faute d'une date certaine. Nous vous
-proposons d'ajouter au gabarit un champ de date de mise à jour que vous
-alimenteriez vous-même, ce qui vous en laisserait la maîtrise.
-
-Les sameAs et les hasCredential sont générés directement depuis vos fiches
-avocats, sans aucune ressaisie de notre part. Les sameAs reprennent le profil
-LinkedIn et, quand il existe, le référencement Leaders League. Nous avons écarté
-une seule entrée, la mention « M1 Droit public général, Université Paris I (2021 »
-sur la fiche de Maître Sigronde, dont la parenthèse n'est pas fermée dans le
-gestionnaire de contenu. Corrigez la fiche quand vous voulez, elle sera reprise
-automatiquement.
-
-La BreadcrumbList et le balisage par fiche
-
-La BreadcrumbList est écrite pour les douze fiches, sur trois niveaux : Accueil,
-Expertises, puis la fiche.
-
-Le balisage propre à chaque fiche, soit le nœud WebPage, la BreadcrumbList, le
-rattachement aux avocats de la matière et, pour l'Urbanisme, les neuf questions de
-la FAQPage, est écrit dans un champ que nous avons créé sur la collection
-EXPERTISES, nommé « Balisage JSON-LD (head) ».
-
-    Urbanisme et aménagement ............... 4 868 caractères, 9 questions
-    Droit de l'énergie ..................... 1 601
-    Crédits carbone et biodiversité ........ 1 587
-    Protection de l'environnement .......... 1 546
-    Expropriation et domaine public ........ 1 528
-    Collectivités territoriales ............ 1 497
-    RSE et audits réglementaires ........... 1 477
-    Environnement industriel ............... 1 473
-    Droit pénal de l'environnement ......... 1 438
-    RSE, vigilance, audits volontaires ..... 1 363
-    Economie circulaire .................... 1 326
-    Commande publique ...................... 1 298
-
-Ce balisage est désormais en ligne. Il est déclaré dans le panneau de balisage de
-données structurées de la page dynamique, alimenté par les champs de la collection,
-et sort dans le head de chacune des douze fiches. Chaque fiche porte donc son propre
-nœud WebPage et sa propre BreadcrumbList, construits sur son adresse réelle, son
-titre et sa description, et non sur un balisage identique recopié douze fois.
+Il est déclaré dans le panneau de balisage de données structurées de la page
+dynamique, alimenté par les champs de la collection. Chaque fiche porte donc son
+propre nœud WebPage et sa propre BreadcrumbList, construits sur son adresse réelle,
+son titre et sa description, et non sur un balisage identique recopié douze fois.
+La BreadcrumbList que vous demandiez compte trois niveaux : Accueil, Expertises,
+puis la fiche.
 
 Vous pouvez le constater sur n'importe quelle fiche en affichant le code source de
 la page, sans exécution de JavaScript, et le vérifier dans le test des résultats
 enrichis de Google.
 
-Deux limites subsistent, et nous préférons vous les exposer plutôt que de les
-laisser découvrir.
+Vos cinq corrections préalables
+
+Le @type est cohérent avec le contenu, WebPage pour les fiches et LegalService pour
+le cabinet. Chaque nœud porte un @id unique construit sur une URL réelle : l'adresse
+en 404 que vous aviez relevée a disparu du code, au profit de
+https://www.huglo-lepage.com/expertises/droit-urbanisme-amenagement, sans barre
+finale. Le worksFor des neuf avocats renvoie à l'@id du cabinet, il n'y a donc plus
+deux entités là où il n'y en a qu'une. Et plus aucune variable de gabarit ne
+subsiste.
+
+Reste la question des dates, sur laquelle nous vous devons une réponse exacte. Le
+balisage actuel n'en porte aucune, et nous préférons le dire plutôt que d'afficher
+une date que nous aurions supposée. Nous avons préparé dans le gestionnaire de
+contenu un champ de date de mise à jour, à raison d'une par fiche. Celui de la
+fiche Urbanisme est renseigné au 4 août 2026, seule date que la page affiche
+elle-même, dans son bloc auteur. Dès que vous nous aurez donné les onze autres, ou
+confirmé que nous pouvons reprendre celles des blocs auteur, nous ajoutons la
+dateModified au balisage et vous en gardez la maîtrise.
+
+Deux limites, que nous préférons exposer plutôt que laisser découvrir
 
 La FAQ de la fiche Urbanisme, ses neuf questions, n'est pas portée par ce balisage.
 Le panneau de Wix accepte une variable à la place d'une valeur, mais pas à la place
