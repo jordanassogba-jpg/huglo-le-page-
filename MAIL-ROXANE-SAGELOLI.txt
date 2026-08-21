@@ -110,50 +110,43 @@ EXPERTISES, nommé « Balisage JSON-LD (head) ».
     Economie circulaire .................... 1 326
     Commande publique ...................... 1 298
 
-Reste à faire sortir ce balisage dans le head, et c'est ici que nous butons sur une
-limite de Wix qu'il faut vous exposer sans détour.
+Ce balisage est désormais en ligne. Il est déclaré dans le panneau de balisage de
+données structurées de la page dynamique, alimenté par les champs de la collection,
+et sort dans le head de chacune des douze fiches. Chaque fiche porte donc son propre
+nœud WebPage et sa propre BreadcrumbList, construits sur son adresse réelle, son
+titre et sa description, et non sur un balisage identique recopié douze fois.
 
-Ces douze fiches ne sont pas douze pages. Ce sont douze contenus servis par une
-seule et même page dynamique. L'onglet SEO de cette page n'accepte de valeur issue
-de la collection que pour le titre et la méta-description. Le champ de balisage de
-données structurées, lui, n'attend qu'un balisage figé, qui serait donc identique
-pour les douze fiches, et faux pour onze d'entre elles. Nous avons également tenté
-de réécrire ce gabarit par l'interface de programmation de Wix, qui le refuse dès
-qu'il contient une variable de collection, alors que ce sont les variables que le
-tableau de bord de Wix a lui-même créées et qui tournent en production :
+Vous pouvez le constater sur n'importe quelle fiche en affichant le code source de
+la page, sans exécution de JavaScript, et le vérifier dans le test des résultats
+enrichis de Google.
 
-    INVALID_ARGUMENT: Pattern for pageType "WIX_DATA_PAGE_ITEM" references
-    unknown variable(s): wix-data-page-item.EXPERTISES.mtaDescription,
-    wix-data-page-item.EXPERTISES.title
+Deux limites subsistent, et nous préférons vous les exposer plutôt que de les
+laisser découvrir.
 
-Passer outre nous aurait fait perdre la variable qui alimente vos douze meta
-descriptions. Nous ne l'avons évidemment pas fait.
+La FAQ de la fiche Urbanisme, ses neuf questions, n'est pas portée par ce balisage.
+Le panneau de Wix accepte une variable à la place d'une valeur, mais pas à la place
+d'une structure. Or une FAQ est une structure. Les neuf questions restent
+enregistrées dans le gestionnaire de contenu, prêtes à sortir, mais leur affichage
+supposerait un développement spécifique sur la page.
 
-Il reste une seule voie, du code sur la page dynamique. Nous l'avons écrit, il est
-prêt, et il réglerait d'un même geste le balisage par fiche, og:type, ainsi que les
-deux balises parasites que vous aviez relevées, l'ImageObject généré par Wix et le
-bloc ld+json vide. Nous ne le déploierons toutefois qu'avec votre accord, parce
-qu'il ajoute une dépendance technique sur une page que vous éditez vous-mêmes, et
-parce que nous vous devons une appréciation honnête du gain.
+og:type se heurte à la même frontière, la valeur étant portée par le gabarit de la
+page dynamique et non par la fiche.
 
-Ce qui conditionne la reconnaissance de vos avocats comme entités identifiées,
-c'est le bloc que vous désigniez vous-même comme décisif : les nœuds Person avec
-leurs sameAs, leurs hasCredential, leurs knowsAbout et leur worksFor rattaché à
-l'@id du cabinet. Celui-là est en ligne, sur l'ensemble des pages du site, et il
-n'a demandé aucun code. Le balisage par fiche y ajoute le fil d'Ariane et la FAQ,
-utiles, mais d'un poids sans commune mesure avec ce qui est déjà servi.
-
-Nous concentrons l'effort sur les corrections qui produisent l'essentiel de
-l'effet. Dites-nous ce que vous préférez sur ce point précis, nous suivrons votre
-décision.
+Nous ne vous proposons pas ce développement aujourd'hui, et nous vous devons la
+raison. Ce qui conditionne la reconnaissance de vos avocats comme entités
+identifiées, c'est le bloc que vous désigniez vous-même comme décisif : les nœuds
+Person avec leurs sameAs, leurs hasCredential, leurs knowsAbout et leur worksFor
+rattaché à l'@id du cabinet. Celui-là est en ligne, sur l'ensemble des pages du
+site. Le nœud de page et le fil d'Ariane viennent de le rejoindre. La FAQ et
+og:type y ajouteraient un affinage, sans commune mesure avec ce qui est désormais
+servi. Si vous souhaitez malgré tout que nous les traitions, dites-le nous et nous
+le ferons.
 
 
 3. Les corrections annoncées et non faites
 
-Sur og:type, vous avez raison, ce n'était pas fait et ce ne l'est toujours pas. La
-valeur est portée par ce même gabarit de page dynamique et se heurte donc à la même
-limite. Elle est incluse dans le code évoqué au point 2 et suivra la décision que
-vous prendrez sur celui-ci. Précisons, pour que votre arbitrage se fasse en
+Sur og:type, vous avez raison, ce n'était pas fait et ce ne l'est toujours pas,
+pour la raison exposée au point 2. Précisons, pour que votre arbitrage se fasse en
 connaissance de cause, que og:type gouverne l'aperçu affiché lors d'un partage sur
 les réseaux sociaux, et non la façon dont la page est comprise ou classée.
 
@@ -166,9 +159,19 @@ sont du texte de page, mis en forme par les styles du site. Les avocats rattach�
 la fiche apparaissent dans l'ordre que vous aviez validé, Maître Sageloli en
 premier, puis Maître Denis, Maître Saintaman et Maître Bégel.
 
-L'ordre de présentation des avocats est désormais enregistré matière par matière
-dans le gestionnaire de contenu, et non plus déduit d'un ordre unique valable pour
-tout le cabinet. Pour l'urbanisme, il est bien celui que vous aviez validé.
+Sur l'ordre d'affichage du carrousel, nous devons vous dire que nous ne pouvons pas
+le régler. Un carrousel Wix trie ses cartes sur un champ de la collection des
+avocats, et ce champ ne porte qu'un ordre unique, valable pour tout le cabinet. La
+plateforme n'offre aucun tri propre à chaque matière. Nous avons enregistré cet
+ordre matière par matière dans le gestionnaire de contenu, il est prêt, et pour
+l'urbanisme il est bien celui que vous aviez validé. Mais l'exploiter dans le
+carrousel supposerait un développement spécifique.
+
+Nous vous le signalons sans le déplorer outre mesure, et pour la raison que vous
+donniez vous-même : le carrousel affiche des noms sans matière, sans barreau et
+sans référencement, et ne produit pas de signal exploitable. Le bloc textuel, lui,
+qui porte ce signal, présente bien les quatre avocats dans l'ordre que vous aviez
+validé, Maître Sageloli en première position.
 
 Sur les ancres du sommaire, votre remarque appelle une réponse franche plutôt
 qu'une promesse. Les identifiants de section sont générés par l'éditeur de Wix, et
@@ -344,18 +347,13 @@ Les opérations ci-dessous passent par l'éditeur ou le tableau de bord. Nous le
 regroupons en une seule intervention pour ne pas multiplier les publications sur
 votre site.
 
-    1. Déploiement du code sur les pages dynamiques, si vous le validez : balisage
-       par fiche, og:type, et disparition des deux balises parasites.
-    2. Extension de l'image sociale aux onze autres fiches, une fois le rendu de la
-       première validé par vos soins.
-    3. Suppression du H1 du bloc newsletter du pied de page.
-    4. Hiérarchie du pied de page et du menu.
-    5. Libellés des ancres « Add », renseignés et non masqués.
-    6. Bloc « Nos avocats » : suppression du titre « Équipe dédiée », remise en
-       ordre de la hiérarchie, carrousel placé sous le bloc textuel et branché sur
-       l'ordre par matière désormais enregistré.
-    7. Renommage de la page /blank-1 et redirection 301.
-    8. Contrôle de l'intégrité du sommaire, inscrit à notre procédure.
+    1. Suppression du H1 du bloc newsletter du pied de page.
+    2. Hiérarchie du pied de page et du menu.
+    3. Libellés des ancres « Add », renseignés et non masqués.
+    4. Bloc « Nos avocats » : suppression du titre « Équipe dédiée » et remise en
+       ordre de la hiérarchie de titres, carrousel placé sous le bloc textuel.
+    5. Renommage de la page /blank-1 et redirection 301.
+    6. Contrôle de l'intégrité du sommaire, inscrit à notre procédure.
 
 Chacune vous sera confirmée séparément, avec son extrait de code source ou sa
 capture. Nous avons bien noté que la mention « Intégré » n'est plus une réponse
