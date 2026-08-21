@@ -1,4 +1,47 @@
 ===============================================================================
+LIRE CECI D'ABORD : POURQUOI LE PANNEAU WIX REFUSE LA VARIABLE
+===============================================================================
+
+Ce que tu as vu à l'écran est normal, et ce n'est pas une erreur de ta part.
+
+La case « Rédigez votre balisage au format JSON-LD » est validée par Wix au moment
+où tu écris, pas au moment où la page est servie. À cet instant, la case ne contient
+pas du JSON : elle contient une puce de variable. Wix ne sait pas ce qu'il y aura
+dedans une fois la page affichée, il voit quelque chose qui n'est pas un objet JSON,
+et il refuse.
+
+Autrement dit, la variable est acceptée seulement À L'INTÉRIEUR d'un JSON déjà
+valide, à la place d'une valeur. Jamais seule.
+
+Cela laisse deux chemins, et ils ne se valent pas.
+
+
+CHEMIN A, RECOMMANDÉ : LE CODE DE PAGE (étapes 0 à 3 ci-dessous)
+  Trois gestes. Couvre les douze fiches, le fil d'Ariane, og:type, et la FAQ de la
+  fiche Urbanisme. C'est le seul chemin qui fait sortir les neuf questions.
+
+CHEMIN B, SANS CODE : LE GABARIT JSON À TROUS (tout en bas de ce fichier)
+  Tu colles un JSON valide dans la case, puis tu remplaces sept emplacements par des
+  puces de variable. Ça marche pour les douze fiches, mais ça ne peut pas porter la
+  FAQ, parce qu'une FAQ est une structure et non une valeur.
+
+
+===============================================================================
+AVANT TOUT, DEUX CLICS QUI RÈGLENT UN REPROCHE DU CABINET
+===============================================================================
+
+Sur la capture, la section « Balisage de données structurées » contient déjà une
+entrée nommée « Balisage d'image ». C'est elle qui produit l'ImageObject généré
+automatiquement par Wix, celui que Roxane a relevé au point 2 de son audit et qui
+déclare la photo de carrousel de Benoît Denis comme image de la page.
+
+Supprime cette entrée. C'est deux clics, ça ne demande ni code ni arbitrage, et ça
+fait tomber un des défauts de sa liste.
+
+Fais-le que tu choisisses le chemin A ou le chemin B.
+
+
+===============================================================================
 CODE À COLLER DANS LES PAGES DYNAMIQUES
 ===============================================================================
 
@@ -165,3 +208,74 @@ Si le balisage n'apparaît pas dans le code source servi, préviens-moi. Le repl
 de poser douze blocs de code personnalisé dans le head, un par fiche, que je peux
 créer par API sans toi. C'est plus lourd à maintenir, mais ça ne dépend d'aucune
 exécution de JavaScript.
+
+
+===============================================================================
+CHEMIN B. LE GABARIT JSON À TROUS, SI TU PRÉFÈRES ÉVITER LE CODE
+===============================================================================
+
+Dans la fenêtre « Ajouter un nouveau balisage » :
+
+  1. Nom : Balisage de page et fil d'Ariane
+  2. Dans la case, colle le JSON ci-dessous TEL QUEL. Il est valide, Wix
+     l'acceptera et le voyant rouge disparaîtra.
+  3. Puis remplace chacun des sept repères par une puce de variable, en
+     sélectionnant le repère et en insérant la variable correspondante :
+
+         ADRESSE_DE_LA_FICHE  ->  l'URL de la page d'element (4 fois)
+         TITRE_DE_LA_FICHE    ->  le champ « title » de EXPERTISES (2 fois)
+         META_DE_LA_FICHE     ->  le champ « mtaDescription » de EXPERTISES (1 fois)
+
+     Garde bien les guillemets autour de chaque puce.
+
+-------------------------------------------------------------------------------
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "ADRESSE_DE_LA_FICHE#webpage",
+      "url": "ADRESSE_DE_LA_FICHE",
+      "name": "TITRE_DE_LA_FICHE",
+      "description": "META_DE_LA_FICHE",
+      "inLanguage": "fr",
+      "isPartOf": { "@id": "https://www.huglo-lepage.com/#website" },
+      "about": { "@id": "https://www.huglo-lepage.com/#cabinet" },
+      "publisher": { "@id": "https://www.huglo-lepage.com/#cabinet" },
+      "breadcrumb": { "@id": "ADRESSE_DE_LA_FICHE#breadcrumb" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "ADRESSE_DE_LA_FICHE#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.huglo-lepage.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Expertises",
+          "item": "https://www.huglo-lepage.com/expertise"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "TITRE_DE_LA_FICHE",
+          "item": "ADRESSE_DE_LA_FICHE"
+        }
+      ]
+    }
+  ]
+}
+-------------------------------------------------------------------------------
+
+CE QUE CE CHEMIN NE FAIT PAS
+  - la FAQ de la fiche Urbanisme, ses neuf questions ne sortiront pas ;
+  - og:type, qui reste alors a corriger separement.
+
+Le champ « Balisage JSON-LD (head) » que j'ai rempli dans le CMS ne sert pas dans
+ce chemin. Laisse-le, il ne gêne pas, et il servira si tu passes au chemin A plus
+tard.
