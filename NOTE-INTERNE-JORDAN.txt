@@ -1,83 +1,83 @@
-# Note interne, avant envoi à Roxane
+=== Note interne, avant envoi à Roxane
 
-## À faire avant d'envoyer
+--- À faire avant d'envoyer
 
-- Renseigner la date d'exécution ferme en tête du compte rendu. C'est le seul
+  - Renseigner la date d'exécution ferme en tête du compte rendu. C'est le seul
   champ que je n'ai pas rempli, je ne l'invente pas.
-- Confirmer avec Roxane la date de première publication de la fiche Urbanisme.
-  J'ai mis le 4 août 2026 en `datePublished` et `dateModified`, parce que c'est
+  - Confirmer avec Roxane la date de première publication de la fiche Urbanisme.
+  J'ai mis le 4 août 2026 en datePublished et dateModified, parce que c'est
   la seule date que la page affiche ("Dernière mise à jour le 4 août 2026", bloc
-  auteur). Si la publication est antérieure, il faut corriger le `datePublished`.
-- Vérifier la page en ligne. Je n'ai pas d'accès réseau au domaine depuis cet
+  auteur). Si la publication est antérieure, il faut corriger le datePublished.
+  - Vérifier la page en ligne. Je n'ai pas d'accès réseau au domaine depuis cet
   environnement, toutes mes vérifications sont des relectures par l'API après
   écriture. Le rendu à l'écran n'a pas été contrôlé.
 
-## Ce qui est déjà en ligne
+--- Ce qui est déjà en ligne
 
-- **robots.txt** personnalisé, les 7 agents nommés, tous en `Allow: /`.
+  - robots.txt personnalisé, les 7 agents nommés, tous en Allow: /.
   Le reste du fichier Wix par défaut est conservé à l'identique.
-- **JSON-LD d'identité** en `HEAD`, catégorie `ESSENTIAL`, 11 191 caractères.
+  - JSON-LD d'identité en HEAD, catégorie ESSENTIAL, 11 191 caractères.
   Panneau Code personnalisé, embed nommé "JSON-LD — Identite cabinet et avocats".
   Contient LegalService + WebSite + 9 Person. Il s'applique à tout le site, c'est
-  voulu : `pageFilter` est en lecture seule côté API, on ne peut pas cibler une
+  voulu : pageFilter est en lecture seule côté API, on ne peut pas cibler une
   page par programmation.
   Ne pas toucher à l'autre embed, "Personnalisé", c'est la vérification Google.
-- **13 redirections corrigées** sur 80. 5 pointaient vers une URL morte à cause
-  d'un `&#39;`, 1 vers une URL encodée morte, 7 formaient des chaînes.
-- **Meta description** de /politique-confidentialite, retour à la ligne supprimé,
+  - 13 redirections corrigées sur 80. 5 pointaient vers une URL morte à cause
+  d'un &#39;, 1 vers une URL encodée morte, 7 formaient des chaînes.
+  - Meta description de /politique-confidentialite, retour à la ligne supprimé,
   écrite en publié et en brouillon.
-- **2 titres de fiche** détourés de leur espace finale.
-- **faqJsonld** de la fiche Urbanisme supprimé. C'était le dernier composant HTML
+  - 2 titres de fiche détourés de leur espace finale.
+  - faqJsonld de la fiche Urbanisme supprimé. C'était le dernier composant HTML
   du site. Les 9 questions sont reprises dans le nouveau champ, rien n'est perdu.
-- **Nouveau champ CMS** sur EXPERTISES : `jsonldGraph`, libellé "Balisage JSON-LD
+  - Nouveau champ CMS sur EXPERTISES : jsonldGraph, libellé "Balisage JSON-LD
   (head)", type TEXTE. Rempli pour les 12 fiches.
 
-## L'opération manuelle qui reste, et pourquoi
+--- L'opération manuelle qui reste, et pourquoi
 
 L'API REST de Wix refuse de réécrire le gabarit SEO des pages dynamiques dès qu'il
 contient une variable de collection, alors que ce sont les variables que le
 tableau de bord a créées et qui tournent en prod. Erreur littérale :
 
-```
+
 INVALID_ARGUMENT: Pattern for pageType "WIX_DATA_PAGE_ITEM" references unknown
 variable(s): wix-data-page-item.EXPERTISES.mtaDescription,
 wix-data-page-item.EXPERTISES.title
-```
+
 
 Réécrire quand même reviendrait à perdre les 12 meta descriptions. Donc à la main,
-sur l'écran SEO de la page dynamique Expertises (page id `snatn`) :
+sur l'écran SEO de la page dynamique Expertises (page id snatn) :
 
 1. Champ de données structurées, connecter le champ CMS "Balisage JSON-LD (head)".
-2. `og:type` = `article`.
+2. og:type = article.
 3. Image sociale, choisir une source (aucune fiche ne porte d'image, d'où
    l'absence d'og:image sur les 12 fiches).
 
-Puis sur la page dynamique des avocats (page id `ejtvw`) : `og:type` = `profile`.
+Puis sur la page dynamique des avocats (page id ejtvw) : og:type = profile.
 
 Après connexion, tester le rendu sur une fiche avant de généraliser : je n'ai pas
 pu vérifier si Wix échappe les guillemets du champ texte quand il l'injecte dans
-le `<script>`. Si ça sort échappé, il faudra passer par un embed head par page.
+le <script>. Si ça sort échappé, il faudra passer par un embed head par page.
 
-## À vérifier de ton côté
+--- À vérifier de ton côté
 
-- **Fiches avocats en double.** La collection EQUIPE porte deux champs d'URL,
-  `link-equipe-1-title` en `/avocats/...` et `link-equipe-2-title` en
-  `/equipe-2/...` avec accents encodés. Si les deux pages dynamiques sont
+  - Fiches avocats en double. La collection EQUIPE porte deux champs d'URL,
+  link-equipe-1-title en /avocats/... et link-equipe-2-title en
+  /equipe-2/... avec accents encodés. Si les deux pages dynamiques sont
   publiées, c'est du duplicate sur toutes les fiches avocats.
-- **Page dynamique `dp82b`.** Il existe un 4e gabarit SEO, description "Expertise
+  - Page dynamique dp82b. Il existe un 4e gabarit SEO, description "Expertise
   en {{...}}". À identifier, ça ressemble à une ancienne page Expertise encore
-  servie. Voir aussi la collection `EXPERTISES_TEMP_RESTORE`.
-- **Fiche de Faustine Sigronde.** Le champ formation contient
+  servie. Voir aussi la collection EXPERTISES_TEMP_RESTORE.
+  - Fiche de Faustine Sigronde. Le champ formation contient
   "M1 Droit public général, Université Paris I (2021" sans parenthèse fermante.
   Je l'ai écartée du JSON-LD. Corrige la fiche, elle sera reprise
   automatiquement au prochain déploiement.
-- **`/blank-1`** est la seule page statique restée en URL par défaut. Les autres
-  (`blank-2`, `blank-7`, `fullscreen-page`...) ne sont plus servies, elles n'ont
+  - /blank-1 est la seule page statique restée en URL par défaut. Les autres
+  (blank-2, blank-7, fullscreen-page...) ne sont plus servies, elles n'ont
   plus que des redirections.
 
-## Rappel de méthode
+--- Rappel de méthode
 
 La règle qu'on annonce à Roxane, aucun contenu destiné aux moteurs par composant
-HTML embed, vaut pour les fiches à venir. Le champ `jsonldGraph` est le bon
+HTML embed, vaut pour les fiches à venir. Le champ jsonldGraph est le bon
 véhicule : on le remplit à la création de la fiche, il sort tout seul dans le head
 une fois la connexion faite.
