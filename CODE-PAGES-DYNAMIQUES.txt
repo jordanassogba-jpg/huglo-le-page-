@@ -1,0 +1,182 @@
+===============================================================================
+CODE À COLLER DANS LES PAGES DYNAMIQUES
+Remplace l'étape 1.a du tutoriel, qui était fausse
+===============================================================================
+
+POURQUOI CE CHANGEMENT
+Tu as raison : le champ de balisage de données structurées de Wix n'accepte pas
+de valeur dynamique issue de la collection. Il attend du JSON figé. Sur une page
+dynamique qui sert douze fiches différentes, un JSON figé n'a aucun sens.
+
+La voie qui reste est le code, et elle est documentée par Wix :
+
+    seo.setStructuredData()  https://dev.wix.com/docs/sdk/frontend-modules/seo/set-structured-data
+    seo.setMetaTags()        https://dev.wix.com/docs/sdk/frontend-modules/seo/set-meta-tags
+    location.path()          https://dev.wix.com/docs/sdk/frontend-modules/location/path
+
+Trois points de la documentation qui comptent pour nous :
+
+  - « You should always set the structured data inside the onReady() event
+    handler to ensure search engines can read it. » Le balisage est donc bien
+    destiné à être lu par les moteurs, et non posé après coup côté navigateur.
+
+  - « The structured data you set overwrites any structured data information set
+    earlier. » Autrement dit, notre balisage remplace l'ImageObject généré
+    automatiquement par Wix et le bloc vide, les deux que le cabinet avait
+    relevés. Ils disparaissent sans autre intervention.
+
+  - « The meta tags you set overwrite any meta tag information set earlier. »
+    Donc pas de doublon d'og:type : notre valeur remplace celle du gabarit.
+
+Bonne nouvelle au passage : cette voie règle d'un coup le balisage par fiche,
+og:type, l'ImageObject parasite et le bloc ld+json vide.
+
+
+===============================================================================
+ÉTAPE 0. INSTALLER LE PAQUET
+===============================================================================
+
+Le code utilise les paquets officiels Wix. Ils s'installent depuis l'éditeur, par
+le gestionnaire de paquets du panneau de code, une seule fois pour le site.
+
+    @wix/site-seo
+    @wix/site-location
+
+Si le gestionnaire de paquets propose déjà ces paquets comme installés, passe
+directement à l'étape 1.
+
+
+===============================================================================
+ÉTAPE 1. PAGE DYNAMIQUE EXPERTISES
+===============================================================================
+
+Ouvre l'éditeur, va sur la page dynamique des Expertises, ouvre le panneau de
+code de la page, et colle ceci. Ne le mets pas dans le code du site, mais bien
+dans le code de cette page.
+
+-------------------------------------------------------------------------------
+import { seo } from '@wix/site-seo';
+import { location } from '@wix/site-location';
+import wixData from 'wix-data';
+
+$w.onReady(async () => {
+  try {
+    // Reconstitue l'adresse de la fiche affichee, par exemple
+    // /expertises/droit-urbanisme-amenagement
+    const prefix = location.prefix();
+    const path = location.path();
+    const slug = '/' + [prefix, ...path].filter(Boolean).join('/');
+
+    // Retrouve la fiche correspondante dans la collection
+    const res = await wixData
+      .query('EXPERTISES')
+      .eq('link-expertises-title', slug)
+      .limit(1)
+      .find();
+
+    const item = res.items[0];
+    if (!item || !item.jsonldGraph) {
+      console.warn('Pas de balisage JSON-LD pour', slug);
+      return;
+    }
+
+    // Injecte le balisage propre a la fiche
+    await seo.setStructuredData([JSON.parse(item.jsonldGraph)]);
+
+    // Corrige og:type sur les pages piliers
+    await seo.setMetaTags([{ property: 'og:type', content: 'article' }]);
+  } catch (err) {
+    console.error('Balisage JSON-LD non applique :', err);
+  }
+});
+-------------------------------------------------------------------------------
+
+Publie, puis vérifie sur la fiche Urbanisme :
+https://www.huglo-lepage.com/expertises/droit-urbanisme-amenagement
+
+Dans le code source, tu dois trouver :
+
+  - un bloc ld+json contenant "@type":["WebPage","FAQPage"] et les neuf
+    questions ;
+  - og:type valant article, en une seule occurrence ;
+  - le title et la meta description inchangés.
+
+Ce dernier point est important. Contrôle-le avant de passer à l'étape 3.
+
+
+===============================================================================
+ÉTAPE 2. PAGE DYNAMIQUE AVOCATS
+===============================================================================
+
+Même chose sur la page dynamique des Avocats. Ici il n'y a pas de balisage par
+fiche à injecter, les avocats sont déjà décrits dans le JSON-LD d'identité que
+j'ai posé dans le head du site. Seul og:type est à corriger.
+
+-------------------------------------------------------------------------------
+import { seo } from '@wix/site-seo';
+
+$w.onReady(async () => {
+  try {
+    await seo.setMetaTags([{ property: 'og:type', content: 'profile' }]);
+  } catch (err) {
+    console.error('og:type non applique :', err);
+  }
+});
+-------------------------------------------------------------------------------
+
+Vérification : https://www.huglo-lepage.com/avocats/roxane-sageloli
+og:type doit valoir profile.
+
+
+===============================================================================
+ÉTAPE 3. L'IMAGE SOCIALE, SEULEMENT SI L'ÉTAPE 1 EST PROPRE
+===============================================================================
+
+Si, après l'étape 1, le title et la meta description sont intacts dans le code
+source, alors setMetaTags se comporte bien tag par tag et on peut lui confier
+aussi l'image de partage. Remplace la ligne setMetaTags de l'étape 1 par :
+
+-------------------------------------------------------------------------------
+    const IMG = 'https://static.wixstatic.com/media/1332e6_ecd26ebf541146ea8a3f421ce73eb17f~mv2.png';
+
+    await seo.setMetaTags([
+      { property: 'og:type', content: 'article' },
+      { property: 'og:image', content: IMG },
+      { name: 'twitter:image', content: IMG }
+    ]);
+-------------------------------------------------------------------------------
+
+Dans ce cas, préviens-moi : je retire le champ image que j'avais renseigné en
+test sur la fiche Droit de la commande publique, il ne servira plus.
+
+Si en revanche la meta description a disparu après l'étape 1, ne fais pas
+l'étape 3 et dis-le moi. On repassera par le champ image de la collection, que
+j'aurai alors à remplir sur les onze fiches restantes.
+
+
+===============================================================================
+CE QUE JE NE PEUX PAS GARANTIR, ET COMMENT LE LEVER EN CINQ MINUTES
+===============================================================================
+
+Je n'ai pas d'accès réseau au domaine, je ne peux donc pas voir le résultat.
+Deux choses restent à confirmer par toi, sur le code source de la page publiée.
+
+1. Que le balisage sort bien dans le document servi, et pas seulement après
+   exécution du JavaScript. C'est ce que la documentation annonce, et c'est
+   toute la raison du onReady(), mais c'est précisément le reproche du cabinet
+   et il faut le vérifier plutôt que le supposer.
+
+   Comment trancher sans ambiguïté : ouvre le code source par « afficher le code
+   source de la page », pas par l'inspecteur d'éléments. L'inspecteur montre le
+   document après exécution du JavaScript, le code source montre ce qui a été
+   servi. Le test des résultats enrichis de Google tranche également, il te dit
+   ce qu'il a lu.
+
+2. Que le JSON-LD d'identité du cabinet, celui que j'ai posé dans le head par le
+   code personnalisé, coexiste bien avec celui-ci. Les deux mécanismes sont
+   distincts et ne devraient pas se gêner, mais vérifie que le code source
+   contient bien les deux blocs : celui du LegalService et des neuf avocats, et
+   celui de la fiche.
+
+Si l'un des deux points ne passe pas, dis-le moi, il reste une solution de repli
+que je peux appliquer sans toi.

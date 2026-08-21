@@ -135,3 +135,31 @@ Trois choses relevaient réellement d'un arbitrage, elles sont faites.
 Ce qui reste en attente d'une réponse du cabinet, et non d'une action de notre part :
 les dates de publication des onze fiches, le contenu des deux fiches vides, et le
 choix d'une image par matière si Roxane en veut une.
+
+
+--- Correction : le champ de donnees structurees n'accepte pas de variable
+
+Tu as buté sur mon étape 1.a et tu avais raison. Wix ne propose les valeurs
+dynamiques que pour le titre SEO, la méta-description et parfois le partage
+social. Le champ de balisage de données structurées attend du JSON figé.
+
+La voie qui reste est le code sur la page dynamique, et elle est documentée :
+seo.setStructuredData() et seo.setMetaTags() du paquet @wix/site-seo, plus
+location.path() de @wix/site-location. Le code est prêt dans
+CODE-PAGES-DYNAMIQUES.txt.
+
+Trois choses jouent en notre faveur dans la doc :
+  - setStructuredData doit être appelé dans onReady() « to ensure search engines
+    can read it », c'est donc bien prévu pour les moteurs ;
+  - il écrase le balisage antérieur, donc l'ImageObject auto de Wix et le bloc
+    ld+json vide disparaissent tout seuls ;
+  - setMetaTags écrase aussi, donc pas de doublon d'og:type.
+
+Ce que je ne peux pas garantir sans voir la page : que le balisage sorte dans le
+document servi et pas seulement après exécution du JavaScript. C'est le reproche
+central du cabinet, donc à vérifier par « afficher le code source », pas par
+l'inspecteur, et par le test des résultats enrichis.
+
+S'il s'avère que ça ne sort pas en clair, préviens-moi. Le repli est de générer
+douze embeds head, un par fiche, ce que je peux faire par API sans toi, au prix
+d'une maintenance plus lourde.

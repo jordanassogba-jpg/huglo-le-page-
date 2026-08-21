@@ -40,90 +40,29 @@ le balisage par fiche, les deux og:type et l'image sociale.
 
 
 -------------------------------------------------------------------------------
-1.a  Connecter le balisage JSON-LD aux fiches Expertise
+1.a à 1.c  BALISAGE JSON-LD ET og:type : VOIR LE FICHIER CODE-PAGES-DYNAMIQUES
 -------------------------------------------------------------------------------
 
-POURQUOI
-Le graphe par fiche (WebPage, BreadcrumbList, FAQPage pour l'Urbanisme) est
-déjà écrit dans le CMS pour les douze fiches. Il ne sort pas encore dans le head
-parce que rien ne le relie à la page.
+CORRECTION
+J'avais indiqué de connecter le champ « Balisage JSON-LD (head) » au champ de
+données structurées de l'onglet SEO, par un bouton de valeur dynamique. Ce bouton
+n'existe pas à cet endroit : Wix ne propose les valeurs dynamiques que pour le
+titre SEO, la méta-description et parfois le partage social. Le champ de données
+structurées attend du JSON figé, ce qui n'a pas de sens sur une page dynamique qui
+sert douze fiches.
 
-OÙ
-Tableau de bord du site, section Marketing et SEO, puis les réglages SEO des
-pages. Choisis la page dynamique des Expertises. Tu peux aussi y arriver depuis
-l'éditeur, en sélectionnant la page dynamique Expertises puis son panneau SEO.
+LA VOIE RETENUE
+Du code sur la page dynamique, avec les API SEO documentées par Wix. Le code
+complet, les étapes et les vérifications sont dans le fichier
 
-ÉTAPES
-  1. Ouvre les réglages SEO de la page dynamique Expertises.
-  2. Descends jusqu'au bloc des données structurées, parfois nommé « Balisage de
-     données structurées » ou « Structured data markup ».
-  3. Le champ attend du JSON. Utilise le bouton d'insertion de valeur dynamique,
-     celui qui propose les champs de la collection, et choisis
-     « Balisage JSON-LD (head) ».
-  4. Le champ doit contenir uniquement la variable, sans balise <script> autour.
-     Wix ajoute lui-même la balise.
-  5. Enregistre.
+    CODE-PAGES-DYNAMIQUES.txt
 
-VÉRIFICATION, À FAIRE TOUT DE SUITE
-Ouvre la fiche Urbanisme en ligne :
-https://www.huglo-lepage.com/expertises/droit-urbanisme-amenagement
-Affiche le code source, cherche « ld+json ». Tu dois voir apparaître un bloc
-contenant "@type":["WebPage","FAQPage"] et les neuf questions.
-Puis colle l'URL dans le test des résultats enrichis de Google et dans
-validator.schema.org. Ce sont les deux captures que Roxane attend.
+Il couvre d'un seul geste ce que 1.a, 1.b, 1.c et une partie de 1.d prévoyaient
+séparément : le balisage par fiche, og:type en article sur les Expertises,
+og:type en profile sur les Avocats, et la disparition de l'ImageObject parasite
+et du bloc ld+json vide que le cabinet avait relevés.
 
-LE PIÈGE À SURVEILLER
-Wix peut échapper les guillemets du champ texte au moment de l'injection. Si le
-code source montre &quot; au lieu de ", le balisage sera invalide. Dans ce cas,
-dis-le moi : on bascule sur un embed head par fiche, ce qui marche mais demande
-douze embeds au lieu d'un branchement.
-
-Ne teste qu'une fiche avant de considérer que c'est bon. Si l'Urbanisme sort
-proprement, les onze autres suivront, elles utilisent le même mécanisme.
-
-
--------------------------------------------------------------------------------
-1.b  og:type sur les fiches Expertise
--------------------------------------------------------------------------------
-
-POURQUOI
-Il vaut « website » sur des pages de contenu éditorial. Roxane attend
-« article ».
-
-OÙ
-Même écran que le 1.a.
-
-ÉTAPES
-  1. Dans les réglages SEO de la page dynamique Expertises, ouvre la partie des
-     réglages avancés, ou la partie « Réseaux sociaux » selon le libellé.
-  2. Cherche le champ og:type. S'il n'est pas exposé, passe par les balises
-     personnalisées et ajoute :
-
-         <meta property="og:type" content="article">
-
-  3. Enregistre.
-
-VÉRIFICATION
-Code source de n'importe quelle fiche Expertise, chercher og:type. Une seule
-occurrence doit apparaître, avec la valeur « article ».
-
-ATTENTION
-S'il en apparaît deux, c'est que la balise personnalisée s'ajoute au lieu de
-remplacer. Il faut alors désactiver la valeur d'origine dans le gabarit, pas
-empiler.
-
-
--------------------------------------------------------------------------------
-1.c  og:type sur les fiches avocats
--------------------------------------------------------------------------------
-
-Même opération, sur la page dynamique des Avocats (ejtvw), avec la valeur
-« profile » au lieu de « article ».
-
-VÉRIFICATION
-Code source de https://www.huglo-lepage.com/avocats/roxane-sageloli
-og:type doit valoir « profile ».
-
+Ne fais donc plus rien dans l'onglet SEO pour ces trois points.
 
 -------------------------------------------------------------------------------
 1.d  Image sociale des fiches Expertise : VÉRIFIER LE RENDU
