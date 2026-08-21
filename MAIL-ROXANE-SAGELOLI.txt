@@ -110,34 +110,52 @@ EXPERTISES, nommé « Balisage JSON-LD (head) ».
     Economie circulaire .................... 1 326
     Commande publique ...................... 1 298
 
-Reste à connecter ce champ au champ de balisage de données structurées de l'onglet
-SEO de la page dynamique Expertises. C'est la voie que vous nous indiquiez, et
-c'est bien celle que nous prenons.
+Reste à faire sortir ce balisage dans le head, et c'est ici que nous butons sur une
+limite de Wix qu'il faut vous exposer sans détour.
 
-Un mot sur le pourquoi de ce reliquat, parce que nous préférons vous le dire
-plutôt que de le laisser sans explication. Nous automatisons ce type d'écriture
-par l'interface de programmation de Wix. Or celle-ci refuse d'écrire le gabarit SEO
-des pages dynamiques dès qu'il contient une variable de collection, alors que ce
-sont précisément les variables que le tableau de bord de Wix a créées et qui
-tournent en production.
+Ces douze fiches ne sont pas douze pages. Ce sont douze contenus servis par une
+seule et même page dynamique. L'onglet SEO de cette page n'accepte de valeur issue
+de la collection que pour le titre et la méta-description. Le champ de balisage de
+données structurées, lui, n'attend qu'un balisage figé, qui serait donc identique
+pour les douze fiches, et faux pour onze d'entre elles. Nous avons également tenté
+de réécrire ce gabarit par l'interface de programmation de Wix, qui le refuse dès
+qu'il contient une variable de collection, alors que ce sont les variables que le
+tableau de bord de Wix a lui-même créées et qui tournent en production :
 
     INVALID_ARGUMENT: Pattern for pageType "WIX_DATA_PAGE_ITEM" references
     unknown variable(s): wix-data-page-item.EXPERTISES.mtaDescription,
     wix-data-page-item.EXPERTISES.title
 
 Passer outre nous aurait fait perdre la variable qui alimente vos douze meta
-descriptions. Nous ne l'avons évidemment pas fait. Cette dernière étape se fera
-donc à la main, et nous en profiterons pour régler les deux points ci-dessous, qui
-tiennent au même écran.
+descriptions. Nous ne l'avons évidemment pas fait.
+
+Il reste une seule voie, du code sur la page dynamique. Nous l'avons écrit, il est
+prêt, et il réglerait d'un même geste le balisage par fiche, og:type, ainsi que les
+deux balises parasites que vous aviez relevées, l'ImageObject généré par Wix et le
+bloc ld+json vide. Nous ne le déploierons toutefois qu'avec votre accord, parce
+qu'il ajoute une dépendance technique sur une page que vous éditez vous-mêmes, et
+parce que nous vous devons une appréciation honnête du gain.
+
+Ce qui conditionne la reconnaissance de vos avocats comme entités identifiées,
+c'est le bloc que vous désigniez vous-même comme décisif : les nœuds Person avec
+leurs sameAs, leurs hasCredential, leurs knowsAbout et leur worksFor rattaché à
+l'@id du cabinet. Celui-là est en ligne, sur l'ensemble des pages du site, et il
+n'a demandé aucun code. Le balisage par fiche y ajoute le fil d'Ariane et la FAQ,
+utiles, mais d'un poids sans commune mesure avec ce qui est déjà servi.
+
+Nous concentrons l'effort sur les corrections qui produisent l'essentiel de
+l'effet. Dites-nous ce que vous préférez sur ce point précis, nous suivrons votre
+décision.
 
 
 3. Les corrections annoncées et non faites
 
 Sur og:type, vous avez raison, ce n'était pas fait et ce ne l'est toujours pas. La
-valeur est portée par le gabarit des pages dynamiques, donc par l'écran que nous
-venons d'évoquer. Nous passons og:type à article sur les fiches Expertise et à
-profile sur les fiches avocats, et nous vous adressons la capture du code source
-une fois l'opération faite.
+valeur est portée par ce même gabarit de page dynamique et se heurte donc à la même
+limite. Elle est incluse dans le code évoqué au point 2 et suivra la décision que
+vous prendrez sur celui-ci. Précisons, pour que votre arbitrage se fasse en
+connaissance de cause, que og:type gouverne l'aperçu affiché lors d'un partage sur
+les réseaux sociaux, et non la façon dont la page est comprise ou classée.
 
 Sur le sommaire, les encadrés et le bloc « Nos avocats », les corrections de
 contenu sont en place et nous les avons revérifiées. Le sommaire de la fiche
@@ -147,6 +165,19 @@ l'urbanisme et de l'aménagement » sous son intitulé complet. Les quatre encad
 sont du texte de page, mis en forme par les styles du site. Les avocats rattachés à
 la fiche apparaissent dans l'ordre que vous aviez validé, Maître Sageloli en
 premier, puis Maître Denis, Maître Saintaman et Maître Bégel.
+
+L'ordre de présentation des avocats est désormais enregistré matière par matière
+dans le gestionnaire de contenu, et non plus déduit d'un ordre unique valable pour
+tout le cabinet. Pour l'urbanisme, il est bien celui que vous aviez validé.
+
+Sur les ancres du sommaire, votre remarque appelle une réponse franche plutôt
+qu'une promesse. Les identifiants de section sont générés par l'éditeur de Wix, et
+un sommaire qui fait défiler la page vers une section s'appuie nécessairement sur
+eux. Il n'existe pas, sur cette plateforme, d'autre mécanisme permettant un
+sommaire interactif. Nous retenons donc la solution que vous proposiez vous-même à
+titre subsidiaire : contrôler l'intégrité du sommaire après chaque intervention sur
+la page. Nous l'inscrivons à notre procédure de mise en ligne des fiches et nous
+vous le confirmons à chaque livraison.
 
 Les libellés d'ancres et la hiérarchie de titres du carrousel ne se modifient que
 dans l'éditeur visuel. Ils sont au calendrier en fin de message.
@@ -272,10 +303,13 @@ retirer de l'index le temps qu'il soit écrit ?
 
 Restent les blocs réellement optionnels, à savoir le bloc de contact, l'offre, le
 formulaire de plainte et l'image, vides sur la quasi-totalité des fiches. Le bloc de
-contact, en particulier, n'est renseigné que sur la fiche Urbanisme. Là, votre
-question garde tout son sens et nous vous répondons précisément après avoir vérifié
-ce que le gabarit autorise, avec ou sans code. Nous ne voulons pas vous annoncer une
-solution avant de l'avoir éprouvée.
+contact, en particulier, n'est renseigné que sur la fiche Urbanisme.
+
+Sur ceux-là, nous avons parcouru les réglages du gabarit et la documentation de
+Wix, et la réponse à votre question est négative : aucun réglage ne permet, sur une
+page dynamique, de conditionner l'affichage d'un bloc à la présence d'un contenu.
+Seul du code le permettrait, et nous le mentionnons par souci d'exactitude, non
+pour vous le proposer aujourd'hui.
 
 
 Deux choses que nous avons trouvées en passant
@@ -306,23 +340,22 @@ morte.
 
 Ce qui reste, et comment nous vous le rendons
 
-Les dix opérations ci-dessous passent par l'éditeur ou le tableau de bord. Nous les
+Les opérations ci-dessous passent par l'éditeur ou le tableau de bord. Nous les
 regroupons en une seule intervention pour ne pas multiplier les publications sur
 votre site.
 
-    1.  Connexion du champ « Balisage JSON-LD (head) » à l'onglet SEO de la page
-        dynamique Expertises.
-    2.  og:type à article sur les fiches Expertise, à profile sur les fiches
-        avocats.
-    3.  Image sociale des fiches Expertise, selon votre choix.
-    4.  Suppression du H1 du bloc newsletter du pied de page.
-    5.  Hiérarchie du pied de page et du menu.
-    6.  Libellés des ancres « Add », renseignés et non masqués.
-    7.  Bloc « Nos avocats », suppression du titre « Équipe dédiée », remise en
-        ordre de la hiérarchie, carrousel placé sous le bloc textuel.
-    8.  Ancres stables du sommaire, en remplacement des identifiants générés.
-    9.  Renommage de la page /blank-1 et redirection 301.
-    10. Affichage conditionnel des blocs vides.
+    1. Déploiement du code sur les pages dynamiques, si vous le validez : balisage
+       par fiche, og:type, et disparition des deux balises parasites.
+    2. Extension de l'image sociale aux onze autres fiches, une fois le rendu de la
+       première validé par vos soins.
+    3. Suppression du H1 du bloc newsletter du pied de page.
+    4. Hiérarchie du pied de page et du menu.
+    5. Libellés des ancres « Add », renseignés et non masqués.
+    6. Bloc « Nos avocats » : suppression du titre « Équipe dédiée », remise en
+       ordre de la hiérarchie, carrousel placé sous le bloc textuel et branché sur
+       l'ordre par matière désormais enregistré.
+    7. Renommage de la page /blank-1 et redirection 301.
+    8. Contrôle de l'intégrité du sommaire, inscrit à notre procédure.
 
 Chacune vous sera confirmée séparément, avec son extrait de code source ou sa
 capture. Nous avons bien noté que la mention « Intégré » n'est plus une réponse
@@ -331,6 +364,11 @@ acceptable, et elle ne le sera plus de notre part.
 Les captures du test des résultats enrichis de Google, du validateur schema.org et
 de la Search Console vous parviendront une fois ces dix points en ligne, pour
 qu'elles portent sur l'état final et vous évitent une relecture supplémentaire.
+
+[À CONSERVER SEULEMENT SI LA CAPTURE SEARCH CONSOLE PEUT ÊTRE JOINTE]
+Nous relevons par ailleurs que les premiers signaux constatés depuis les
+corrections sont orientés à la hausse. La capture correspondante vous parviendra
+avec le reste.
 
 Nous vous confirmons enfin qu'aucune nouvelle fiche ne sera mise en ligne avant que
 tout cela soit effectif.

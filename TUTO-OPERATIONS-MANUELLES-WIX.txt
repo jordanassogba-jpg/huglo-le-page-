@@ -152,39 +152,76 @@ ni du menu.
 4. LES ANCRES « ADD »
 ===============================================================================
 
-POURQUOI
-C'est le libellé par défaut d'un composant de lien Wix laissé non renseigné. Le
-libellé est masqué en CSS, mais le nom accessible du lien reste « Add ». C'est
-ce que lisent les moteurs et les lecteurs d'écran.
+D'ABORD, DE QUOI ON PARLE
 
-LE POINT CLÉ
-Il faut RENSEIGNER le libellé, pas le masquer davantage.
+Sur Wix, quand on pose un bouton ou un lien, il arrive avec un texte par défaut :
+le mot « Add ». Normalement on le remplace tout de suite par le vrai texte. Ici, ce
+remplacement n'a jamais été fait, et quelqu'un a masqué le mot en CSS pour qu'il ne
+se voie pas à l'écran.
 
-OÙ
-Éditeur. Répartition relevée lors de l'audit :
+Le mot est donc invisible pour un visiteur, mais il est toujours dans la page. Un
+moteur de recherche et un lecteur d'écran, eux, lisent « Add ». Résultat : trente-
+huit liens du site s'appellent « Add » au lieu de porter le nom de l'avocat ou de
+l'expertise vers laquelle ils pointent.
 
-    Lien « Revenir aux expertises » (comp-lyg0cjcr) ...  1
-    Cartes avocats du carrousel .......................  4
-    Menu burger (comp-lx1uf4nn) .......................  8
-    Page /expertise, vignettes expertises ............. 12
-    Page /expertise, vignettes avocats ................ 13
+Masquer davantage ne sert à rien. Il faut écrire le vrai texte.
 
-ÉTAPES
-  1. Sélectionne le composant de lien concerné.
-  2. Ouvre ses réglages et cherche le champ de texte du lien, souvent nommé
-     « Libellé », « Texte du bouton » ou « Link label ».
-  3. Remplace « Add » par le texte réel :
-       - vers une fiche avocat, le nom de l'avocat, par exemple
-         « Roxane Sageloli » ;
-       - vers une expertise, l'intitulé de l'expertise, par exemple
-         « Droit pénal de l'environnement » ;
-       - pour le lien de retour, « Revenir aux expertises ».
-  4. Sur les vignettes générées à partir du CMS, ne saisis pas le texte à la
-     main : connecte le libellé au champ de la collection. Pour les avocats
-     c'est le champ title de EQUIPE, pour les expertises le champ title de
-     EXPERTISES. Un seul réglage couvre alors toutes les vignettes du répéteur.
-  5. Si le libellé ne doit pas être visible à l'écran, garde-le masqué
-     visuellement mais renseigné. Ne le vide pas.
+DEUX CAS, ET UN SEUL EST FASTIDIEUX
+
+Cas 1, les liens uniques. Le lien « Revenir aux expertises » et les huit entrées du
+menu burger. Neuf liens au total, chacun avec son propre texte à écrire une fois.
+
+  1. Dans l'éditeur, ouvre le panneau des calques, à gauche. C'est la liste de tous
+     les éléments de la page, y compris ceux qui sont masqués.
+  2. Repère l'élément de lien concerné et clique dessus. Il se sélectionne dans la
+     page.
+  3. Double-clique dessus pour entrer en édition de texte, efface « Add », écris le
+     vrai texte.
+  4. Si le double-clic n'ouvre rien, c'est un bouton : ouvre son panneau de
+     réglages, il y a un champ de texte, écris-le dedans.
+
+  Textes à écrire :
+     lien de retour ......... Revenir aux expertises
+     entrées du menu ........ l'intitulé déjà affiché pour chacune
+
+Cas 2, les vignettes alimentées par le CMS. Les douze vignettes d'expertise, les
+treize vignettes d'avocat, les quatre cartes du carrousel. Ne les fais pas une par
+une, ce serait vingt-neuf fois le même geste et ça se recasserait à la prochaine
+fiche ajoutée.
+
+  1. Clique une fois sur la grille de vignettes pour sélectionner le répéteur.
+  2. Clique une seconde fois pour entrer dedans, puis sélectionne le bouton ou le
+     lien à l'intérieur d'UNE vignette.
+  3. Cherche l'icône de connexion au CMS, celle qui ressemble à un petit éclair ou
+     à une prise, en haut à droite de l'élément sélectionné.
+  4. Dans le panneau qui s'ouvre, il y a une ligne « Texte » ou « Label ».
+     Connecte-la au champ de la collection :
+         vignettes d'avocat ..... EQUIPE, champ « title »
+         vignettes d'expertise ... EXPERTISES, champ « title »
+  5. Un seul réglage suffit : les autres vignettes se remplissent toutes seules, et
+     les fiches futures aussi.
+
+SI TU NE TROUVES PAS L'ÉLÉMENT
+
+C'est le cas le plus probable, puisque le texte est masqué et donc invisible dans
+la page. Ne perds pas une heure dessus. Écris au support Wix, ils voient ton
+éditeur. Message à copier tel quel :
+
+    Bonjour,
+    Sur mon site Wix Studio, plusieurs boutons et liens ont conservé leur libellé
+    par défaut « Add », qui a été masqué en CSS mais reste présent dans le code de
+    la page. Je souhaite renseigner le vrai libellé, et non le masquer.
+    Pouvez-vous m'indiquer où se règle le texte de ces éléments, et comment
+    connecter ce texte à un champ de ma collection CMS pour les éléments qui sont
+    dans un répéteur ?
+    Merci.
+
+CE QUE ÇA PÈSE VRAIMENT, POUR RELATIVISER
+
+C'est un point d'accessibilité et de qualité de maillage. Ce n'est pas ce qui
+décide du classement d'une page. Si ça bloque, ça peut rester au calendrier sans
+mettre en péril le reste : le mail au cabinet le présente comme une opération
+d'éditeur programmée, et c'est exactement ce que c'est.
 
 VÉRIFICATION
 Après publication, code source de /expertise, chercher « >Add< ».
@@ -195,35 +232,43 @@ Zéro occurrence attendue.
 5. LE BLOC « NOS AVOCATS » ET LE CARROUSEL
 ===============================================================================
 
-POURQUOI
-Le bloc textuel a été ajouté, mais l'ancien carrousel est resté avec sa
-structure d'origine : un H5 « Équipe dédiée » placé après les noms en H4, ce qui
-inverse la hiérarchie.
+CE QUE J'AI FAIT DE MON CÔTÉ
+J'ai créé un champ d'ordre propre à chaque matière dans la collection EXPERTISES :
 
-OÙ
-Éditeur, page dynamique Expertises, section « Nos avocats ».
-Composant identifié : comp-lycuzo1k11 pour le H5 « Équipe dédiée ».
+    Champ  : ordreAvocats
+    Libellé: « Ordre des avocats (par expertise) »
+    Contenu: les adresses des fiches avocats, dans l'ordre, séparées par des virgules
 
-ÉTAPES
-  1. Supprime le titre « Équipe dédiée ». Il vient d'une version antérieure et
-     fait doublon avec le H2 du bloc textuel.
-  2. Vérifie que le H2 « Nos avocats en droit de l'urbanisme et de
-     l'aménagement » figure bien avant les noms.
-  3. Passe les noms d'avocats du carrousel de H4 à H3, pour qu'ils soient
-     subordonnés au H2 et non au même niveau que les sections de la page.
-  4. Déplace le carrousel sous le bloc textuel. C'est ce que Roxane a demandé au
-     point 7 de son mail : le bloc textuel porte le signal, le carrousel reste
-     pour la vue d'ensemble.
-  5. L'ordre d'affichage du carrousel suit aujourd'hui le champ « ordre » de la
-     collection EQUIPE, qui est un ordre cabinet et non un ordre par matière.
-     Deux solutions : soit tu tries manuellement le carrousel sur la référence
-     de la fiche, soit on ajoute un champ d'ordre par expertise. Dis-moi si tu
-     veux que je crée ce champ, c'est faisable par API en quelques minutes.
+Il est rempli pour les douze fiches. Pour l'Urbanisme, l'ordre enregistré est bien
+celui que Roxane a validé : Roxane Sageloli, Benoît Denis, Valérie Saintaman,
+Théophile Bégel.
+
+CE QUE JE NE PEUX PAS FAIRE, ET POURQUOI
+Supprimer le titre « Équipe dédiée », déplacer le carrousel et changer une balise
+H4 en H3 sont des modifications de la structure de la page. Wix n'expose aucune
+interface de programmation pour ça. Ce n'est pas une question de permission : il
+n'existe tout simplement pas de commande pour le faire à distance. Ces trois gestes
+sont dans l'éditeur, il n'y a pas de contournement.
+
+ÉTAPES DANS L'ÉDITEUR
+  1. Sélectionne le titre « Équipe dédiée » et supprime-le. Il vient d'une version
+     antérieure et fait doublon avec le H2 du bloc textuel.
+     Composant repéré lors de l'audit : comp-lycuzo1k11
+  2. Vérifie que le H2 « Nos avocats en droit de l'urbanisme et de l'aménagement »
+     figure bien avant les noms.
+  3. Sélectionne un nom d'avocat dans le carrousel, et dans le panneau de texte
+     passe la balise de H4 à H3. Dans un répéteur, le changement s'applique aux
+     autres cartes.
+  4. Déplace le carrousel sous le bloc textuel.
+  5. Pour l'ordre d'affichage, c'est le seul point qui demande du code, parce qu'un
+     répéteur Wix trie sur un champ de la collection des avocats et non sur un ordre
+     propre à la matière. Si tu veux qu'on le branche sur le champ ordreAvocats que
+     j'ai créé, dis-le moi et je t'écris le bout de code, sur le modèle de celui de
+     CODE-PAGES-DYNAMIQUES.txt.
 
 VÉRIFICATION
 Sur la fiche Urbanisme, l'ordre attendu est Roxane Sageloli, Benoît Denis,
-Valérie Saintaman, Théophile Bégel. C'est déjà l'ordre stocké dans le CMS, je
-l'ai vérifié.
+Valérie Saintaman, Théophile Bégel.
 
 
 ===============================================================================
