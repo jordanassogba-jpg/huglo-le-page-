@@ -21,7 +21,7 @@ CHEMIN A, RECOMMANDÉ : LE CODE DE PAGE (étapes 0 à 3 ci-dessous)
   fiche Urbanisme. C'est le seul chemin qui fait sortir les neuf questions.
 
 CHEMIN B, SANS CODE : LE GABARIT JSON À TROUS (tout en bas de ce fichier)
-  Tu colles un JSON valide dans la case, puis tu remplaces sept emplacements par des
+  Tu colles un JSON valide dans la case, puis tu remplaces huit emplacements par des
   puces de variable. Ça marche pour les douze fiches, mais ça ne peut pas porter la
   FAQ, parce qu'une FAQ est une structure et non une valeur.
 
@@ -219,12 +219,12 @@ Dans la fenêtre « Ajouter un nouveau balisage » :
   1. Nom : Balisage de page et fil d'Ariane
   2. Dans la case, colle le JSON ci-dessous TEL QUEL. Il est valide, Wix
      l'acceptera et le voyant rouge disparaîtra.
-  3. Puis remplace chacun des sept repères par une puce de variable, en
+  3. Puis remplace chacun des huit repères par une puce de variable, en
      sélectionnant le repère et en insérant la variable correspondante :
 
-         ADRESSE_DE_LA_FICHE  ->  l'URL de la page d'element (4 fois)
-         TITRE_DE_LA_FICHE    ->  le champ « title » de EXPERTISES (2 fois)
-         META_DE_LA_FICHE     ->  le champ « mtaDescription » de EXPERTISES (1 fois)
+         ADRESSE_DE_LA_FICHE  ->  l'URL de la page d'element        (5 fois)
+         TITRE_DE_LA_FICHE    ->  le champ affiche « Title »        (2 fois)
+         META_DE_LA_FICHE     ->  le champ « Meta Description »     (1 fois)
 
      Garde bien les guillemets autour de chaque puce.
 
