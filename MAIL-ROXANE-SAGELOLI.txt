@@ -1,118 +1,101 @@
-Objet : Site huglo-lepage.com, suite donnée à votre audit, point par point
+Objet : Site huglo-lepage.com, reprise de vos points et état des corrections
 
 Bonjour Maître,
 
-Votre constat sur la méthode d'intégration était exact, et il portait sur un
-point de fond. Nous l'avons repris à la racine plutôt que corrigé au cas par cas.
+Vous aviez raison, et sur un point qui n'était pas de détail. La méthode
+d'intégration que nous avions retenue rendait effectivement une partie du contenu
+et la totalité du balisage invisibles aux moteurs. Nous l'avons reprise à la
+racine, plutôt que de corriger fiche par fiche.
 
-Vous trouverez ci-dessous la reprise de chacun de vos points, avec son élément de
-preuve. Ces éléments sont des relectures du site effectuées après correction. Les
-captures d'outils externes que vous demandez, test des résultats enrichis,
-validateur schema.org et Search Console, vous parviendront séparément une fois
-faite l'opération décrite au point 2, afin qu'elles portent sur l'état final et
-non sur un état intermédiaire.
+Nous reprenons ci-dessous chacun de vos points, avec l'élément de preuve
+correspondant. Vous verrez que nous avons élargi le contrôle au-delà de votre
+relevé, notamment sur les redirections, où nous avons trouvé des défauts que votre
+lecture du code source ne pouvait pas voir.
 
-Date d'exécution ferme pour le solde des points : [À COMPLÉTER]
+Date d'exécution pour le solde des points : [À COMPLÉTER]
 
 
-1. CONTENU RENDU INVISIBLE PAR LES COMPOSANTS HTML
+1. Le contenu inséré par composant HTML
 
-Traité.
+C'est réglé.
 
-Le site ne comporte plus aucun composant HTML embed dans le contenu des fiches
-Expertise. Le contrôle a porté sur les douze fiches et, pour chacune, sur tous
-les champs de contenu : introduction, les deux blocs de corps de page, FAQ, bloc
-de contact, résumé, texte, offre et bloc plainte.
-
-Relevé après correction :
+Nous avons repassé les douze fiches Expertise et, pour chacune, tous les champs de
+contenu : introduction, les deux blocs de corps de page, FAQ, bloc de contact,
+résumé, texte, offre et bloc plainte.
 
     Composants HTML restants dans la collection EXPERTISES : 0
 
-Le dernier subsistant portait le balisage FAQ de la fiche Urbanisme. Il a été
-supprimé au cours de cette intervention. Son contenu n'est pas perdu : les neuf
-questions sont reprises dans le balisage traité au point 2.
+Le dernier qui subsistait portait le balisage FAQ de la fiche Urbanisme. Nous
+l'avons supprimé. Ses neuf questions ne sont pas perdues, elles sont reprises dans
+le balisage dont nous parlons au point suivant.
 
-Sur le fond, votre remarque est devenue une règle de production chez nous. Aucun
-contenu destiné à être lu par les moteurs ne passe par un composant HTML embed,
-quel qu'en soit le confort d'intégration.
+Nous en avons fait une règle de production. Plus aucun contenu destiné aux moteurs
+ne passera par un composant HTML embed, quel que soit le confort d'intégration.
 
 
-2. DONNÉES STRUCTURÉES
+2. Les données structurées
 
-Déployé pour l'identité du cabinet et des avocats. Préparé, et en attente d'une
-connexion, pour le balisage propre à chaque fiche.
+Le balisage d'identité du cabinet et des avocats est en ligne. Le balisage propre à
+chaque fiche est écrit et prêt, il attend une dernière connexion.
 
-Ce qui est en ligne
+Ce qui est déjà servi
 
-Un balisage JSON-LD est déployé dans le head du site, par le panneau Code
-personnalisé de Wix, en position HEAD et en catégorie ESSENTIAL. Cette catégorie
-signifie que la balise figure dans le document servi immédiatement, sans dépendre
-d'un consentement ni de l'exécution de JavaScript. Ce n'est ni un composant HTML
-embed, ni une iframe.
+Nous avons déployé un JSON-LD dans le head, par le panneau Code personnalisé, en
+position HEAD et en catégorie ESSENTIAL. Cette catégorie garantit que la balise
+figure dans le document servi immédiatement, sans dépendre d'un consentement ni
+d'une exécution de JavaScript.
 
     Nom       : JSON-LD, identité cabinet et avocats
     Position  : HEAD
     Catégorie : ESSENTIAL
     Taille    : 11 191 caractères
 
-Il contient un @graph de onze nœuds : un LegalService portant l'@id
-https://www.huglo-lepage.com/#cabinet, avec dénomination, adresse du 42 rue de
-Lisbonne, coordonnées géographiques, courriel, logo, zone d'intervention et les
-deux fondateurs référencés par leur @id ; un WebSite dont le publisher pointe vers
-l'@id du LegalService ; et neuf nœuds Person, un par avocat, chacun avec son @id,
-son url vers sa fiche profil, son jobTitle, ses sameAs, ses knowsAbout et ses
-hasCredential.
-
-Extrait du code servi :
+Le graphe compte onze nœuds. Un LegalService, avec l'adresse du 42 rue de
+Lisbonne, les coordonnées géographiques, le courriel, le logo et vos deux
+fondateurs. Un WebSite, dont le publisher renvoie au cabinet. Et neuf nœuds
+Person, un par avocat, chacun avec son url vers sa fiche profil, son jobTitle, ses
+sameAs, ses knowsAbout et ses hasCredential.
 
     {"@type":"LegalService","@id":"https://www.huglo-lepage.com/#cabinet",
      "name":"Huglo Lepage Avocats","url":"https://www.huglo-lepage.com/",
      "address":{"@type":"PostalAddress","streetAddress":"42 rue de Lisbonne",
      "postalCode":"75008","addressLocality":"Paris","addressCountry":"FR"}}
 
-Vos cinq corrections préalables
+Vos cinq corrections préalables sont faites. L'adresse en 404 a disparu du code, au
+profit de https://www.huglo-lepage.com/expertises/droit-urbanisme-amenagement, sans
+barre finale. Chaque nœud porte un @id construit sur une URL réelle. Le worksFor
+des neuf avocats renvoie désormais à l'@id du cabinet, il n'y a donc plus deux
+entités là où il n'y en a qu'une. Et plus aucune variable de gabarit ne subsiste
+dans les dates.
 
-Le @type est cohérent avec le contenu. Le cabinet est en LegalService, chaque
-fiche Expertise en WebPage, et la fiche Urbanisme, qui porte une FAQ, en WebPage
-et FAQPage.
+Sur les dates, justement, deux précisions.
 
-Les @id sont uniques et résolvables, chacun construit sur une URL réelle du site.
-L'adresse en 404 que vous aviez relevée n'apparaît plus nulle part. L'URL retenue
-est https://www.huglo-lepage.com/expertises/droit-urbanisme-amenagement, sans
-barre finale.
+La fiche Urbanisme porte le 4 août 2026 en datePublished comme en dateModified.
+C'est la seule date que la page affiche, dans son bloc auteur. Si la première
+publication est antérieure, dites-le nous et nous corrigeons. Nous avons préféré
+ne pas la deviner.
 
-Les dates sont au format ISO réel, aucune variable de gabarit ne subsiste. La
-fiche Urbanisme porte datePublished et dateModified au 4 août 2026, date que la
-page indique elle-même dans son bloc auteur. Si la date de première publication
-diffère de celle de dernière mise à jour, merci de nous l'indiquer, nous la
-corrigerons. Nous n'avons pas voulu la supposer. Les onze autres fiches ne portent
-aucune date, faute d'une date certaine. Nous vous proposons d'ajouter au gabarit
-un champ de date de mise à jour, que vous alimenteriez.
+Les onze autres fiches ne portent pas de date, faute d'une date certaine. Nous vous
+proposons d'ajouter au gabarit un champ de date de mise à jour que vous
+alimenteriez vous-même, ce qui vous en laisserait la maîtrise.
 
-Les sameAs et hasCredential sont générés depuis vos fiches avocats, sans ressaisie.
-Les sameAs reprennent le profil LinkedIn et, le cas échéant, le référencement
-Leaders League. Les hasCredential reprennent les diplômes et certificats
-renseignés. Une entrée a été écartée volontairement, la mention « M1 Droit public
-général, Université Paris I (2021 » sur la fiche de Maître Faustine Sigronde, dont
-la parenthèse n'est pas fermée dans le gestionnaire de contenu. Une fois la fiche
-corrigée, l'entrée sera reprise automatiquement.
+Les sameAs et les hasCredential sont générés directement depuis vos fiches
+avocats, sans aucune ressaisie de notre part. Les sameAs reprennent le profil
+LinkedIn et, quand il existe, le référencement Leaders League. Nous avons écarté
+une seule entrée, la mention « M1 Droit public général, Université Paris I (2021 »
+sur la fiche de Maître Sigronde, dont la parenthèse n'est pas fermée dans le
+gestionnaire de contenu. Corrigez la fiche quand vous voulez, elle sera reprise
+automatiquement.
 
-Le worksFor pointe vers l'@id du LegalService pour les neuf avocats. Le défaut que
-vous aviez relevé, un LegalService sans @id conduisant à reconstituer deux entités
-distinctes, ne peut plus se produire : le worksFor ne contient plus qu'une
-référence.
+La BreadcrumbList et le balisage par fiche
 
-La BreadcrumbList et le balisage propre à chaque fiche
-
-La BreadcrumbList que vous demandiez est écrite pour les douze fiches, avec trois
-niveaux : Accueil, Expertises, puis la fiche.
+La BreadcrumbList est écrite pour les douze fiches, sur trois niveaux : Accueil,
+Expertises, puis la fiche.
 
 Le balisage propre à chaque fiche, soit le nœud WebPage, la BreadcrumbList, le
 rattachement aux avocats de la matière et, pour l'Urbanisme, les neuf questions de
-la FAQPage, est écrit dans un champ dédié du gestionnaire de contenu, créé pour
-cet usage sur la collection EXPERTISES et nommé « Balisage JSON-LD (head) ».
-
-Longueur du balisage écrit, par fiche :
+la FAQPage, est écrit dans un champ que nous avons créé sur la collection
+EXPERTISES, nommé « Balisage JSON-LD (head) ».
 
     Urbanisme et aménagement ............... 4 868 caractères, 9 questions
     Droit de l'énergie ..................... 1 601
@@ -127,127 +110,119 @@ Longueur du balisage écrit, par fiche :
     Economie circulaire .................... 1 326
     Commande publique ...................... 1 298
 
-Il reste une opération pour que ce balisage sorte dans le head : connecter ce
-champ au champ de balisage de données structurées de l'onglet SEO de la page
-dynamique Expertises. C'est exactement la voie que vous indiquiez. Elle se fait
-dans le tableau de bord, pour une raison technique que nous préférons vous exposer.
+Reste à connecter ce champ au champ de balisage de données structurées de l'onglet
+SEO de la page dynamique Expertises. C'est la voie que vous nous indiquiez, et
+c'est bien celle que nous prenons.
 
-L'interface de programmation de Wix refuse d'écrire le gabarit SEO des pages
-dynamiques dès lors qu'il utilise des variables de collection, alors même que ce
-sont les variables que le tableau de bord de Wix a lui-même créées et qui sont en
-production. Message d'erreur littéral :
+Un mot sur le pourquoi de ce reliquat, parce que nous préférons vous le dire
+plutôt que de le laisser sans explication. Nous automatisons ce type d'écriture
+par l'interface de programmation de Wix. Or celle-ci refuse d'écrire le gabarit SEO
+des pages dynamiques dès qu'il contient une variable de collection, alors que ce
+sont précisément les variables que le tableau de bord de Wix a créées et qui
+tournent en production.
 
     INVALID_ARGUMENT: Pattern for pageType "WIX_DATA_PAGE_ITEM" references
     unknown variable(s): wix-data-page-item.EXPERTISES.mtaDescription,
     wix-data-page-item.EXPERTISES.title
 
-Passer outre supposerait d'abandonner la variable qui alimente vos douze meta
-descriptions. Nous ne l'avons pas fait. La connexion sera donc faite à la main, et
-c'est à cette occasion que seront réglés les deux points ci-dessous, qui dépendent
-du même écran.
+Passer outre nous aurait fait perdre la variable qui alimente vos douze meta
+descriptions. Nous ne l'avons évidemment pas fait. Cette dernière étape se fera
+donc à la main, et nous en profiterons pour régler les deux points ci-dessous, qui
+tiennent au même écran.
 
 
-3. CORRECTIONS ANNONCÉES ET NON FAITES
+3. Les corrections annoncées et non faites
 
-og:type. Non corrigé à ce jour, pour la raison exposée ci-dessus : la valeur est
-portée par le gabarit des pages dynamiques. La correction consiste à porter
-og:type à article sur le gabarit des fiches Expertise et à profile sur celui des
-fiches avocats. Nous vous adressons la capture du code source une fois faite.
+Sur og:type, vous avez raison, ce n'était pas fait et ce ne l'est toujours pas. La
+valeur est portée par le gabarit des pages dynamiques, donc par l'écran que nous
+venons d'évoquer. Nous passons og:type à article sur les fiches Expertise et à
+profile sur les fiches avocats, et nous vous adressons la capture du code source
+une fois l'opération faite.
 
-Liens fractionnés, ancres « Add », bloc « Nos avocats », sommaire. Les corrections
-de contenu sont en place et nous les avons revérifiées. Le sommaire de la fiche
-Urbanisme comporte bien douze entrées, la douzième étant « Nos avocats en droit de
-l'urbanisme et de l'aménagement », et l'entrée « Notre accompagnement » porte bien
-son intitulé complet. Les quatre encadrés sont du texte de page, mis en forme par
-les styles du site. Les avocats rattachés à la fiche sont, dans cet ordre,
-Maître Roxane Sageloli, Maître Benoît Denis, Maître Valérie Saintaman et
-Maître Théophile Bégel.
+Sur le sommaire, les encadrés et le bloc « Nos avocats », les corrections de
+contenu sont en place et nous les avons revérifiées. Le sommaire de la fiche
+Urbanisme compte bien douze entrées, avec « Nos avocats en droit de l'urbanisme et
+de l'aménagement » en dernière position et « Notre accompagnement en droit de
+l'urbanisme et de l'aménagement » sous son intitulé complet. Les quatre encadrés
+sont du texte de page, mis en forme par les styles du site. Les avocats rattachés à
+la fiche apparaissent dans l'ordre que vous aviez validé, Maître Sageloli en
+premier, puis Maître Denis, Maître Saintaman et Maître Bégel.
 
-Les libellés d'ancres et la hiérarchie de titres du carrousel ne sont pas
-modifiables autrement que dans l'éditeur visuel. Ils figurent au calendrier.
+Les libellés d'ancres et la hiérarchie de titres du carrousel ne se modifient que
+dans l'éditeur visuel. Ils sont au calendrier en fin de message.
 
 
-4. TRAITEMENT DE L'ANCIEN SITE
+4. L'ancien site
 
-Audit complet réalisé, treize redirections défectueuses corrigées.
+Nous avons repris les quatre-vingts redirections du site, et pas seulement les deux
+que vous citiez.
 
-Le site compte quatre-vingts redirections. Nous les avons toutes reprises, et non
-seulement les deux que vous citiez.
-
-Sur ces deux adresses, la redirection existe et couvre la forme avec barre finale,
-la documentation de Wix précisant qu'un chemin ne différant d'un autre que par une
-barre finale est considéré comme le même chemin :
+Sur ces deux adresses, la redirection existe bien, et elle couvre la forme avec
+barre finale, Wix considérant qu'un chemin ne différant que par une barre finale
+est le même chemin.
 
     /category/nos-publications/commentaire-doctrine-2  ->  /publication
     /equipe/benjamin-huglo/benjamin_huglo_lepage-2     ->  /avocats/benjamin-huglo
 
-L'audit a en revanche révélé deux séries de défauts que votre relevé ne pouvait pas
-voir, puisqu'ils portaient sur la cible et non sur la source.
+L'audit a en revanche fait apparaître deux séries de défauts que votre lecture ne
+pouvait pas repérer, puisqu'ils portaient sur la destination et non sur la source.
 
-Cinq redirections pointaient vers une adresse morte, une apostrophe ayant été
-écrite en entité HTML &#39; dans l'URL de destination. Une sixième pointait vers
-une adresse à la fois encodée et porteuse de la même entité. Toutes corrigées.
+Six redirections pointaient vers une adresse morte, une apostrophe ayant été
+écrite en entité HTML &#39; dans l'URL de destination, et l'une d'elles cumulait
+en plus un encodage d'accent. Elles renvoyaient donc vers le vide. Corrigées.
 
-Sept redirections formaient des chaînes de deux à trois sauts successifs, ce qui
-dilue le signal transmis. Exemple :
+Sept autres formaient des chaînes de deux à trois sauts, ce qui dilue le signal
+transmis et ralentit l'arrivée sur la page.
 
     Avant : /blank-2 -> /expertises-item -> /landing-expertises -> /expertise
     Après : /blank-2 -> /expertise
 
-Contrôle après correction, sur les quatre-vingts redirections :
+Après correction, sur l'ensemble des quatre-vingts :
 
     Chaînes de redirection restantes  : 0
     Cibles comportant une entité HTML : 0
 
-Les points relatifs aux sous-domaines www2 et dev, ainsi qu'aux demandes de
-suppression en Search Console, ne relèvent pas du site Wix. Ils sont traités
-séparément et les captures vous parviendront avec le reste.
+Les sous-domaines www2 et dev, ainsi que les demandes de suppression en Search
+Console, ne relèvent pas du site Wix lui-même. Nous les traitons en parallèle et
+les captures vous parviendront avec le reste.
 
 
-5. DÉFAUTS AFFECTANT L'ENSEMBLE DU SITE
+5. Les défauts affectant tout le site
 
-URL des fiches Expertises. Traité et vérifié. Les douze adresses sont normalisées,
-sans accent, sans apostrophe et sans caractère encodé, par exemple
-/expertises/droit-penal-de-l-environnement, /expertises/economie-circulaire ou
-/expertises/rse-audits-reglementaires. Les anciennes adresses accentuées sont
-redirigées en 301, et ces redirections ont été revérifiées lors de l'audit du
-point 4.
+Les URL des fiches Expertises sont normalisées, sans accent, sans apostrophe et
+sans caractère encodé. Les anciennes adresses sont redirigées en 301, et nous
+avons revérifié ces redirections lors de l'audit ci-dessus.
 
-Meta descriptions. Les douze meta descriptions des fiches Expertise ont été
-contrôlées caractère par caractère, pour le retour à la ligne, l'espace de début,
-l'espace de fin et le double espace. Aucun défaut ne subsiste. Le contrôle a été
-étendu aux seize pages statiques et un défaut y a été trouvé, puis corrigé : la
-meta description de la page Politique de confidentialité commençait par un retour
-à la ligne.
+Les meta descriptions ont été contrôlées caractère par caractère sur les douze
+fiches, pour le retour à la ligne, les espaces de début et de fin et le double
+espace. Plus aucun défaut. Nous avons étendu le contrôle aux seize pages statiques
+et nous y avons trouvé un dernier cas, la meta description de la page Politique de
+confidentialité, qui commençait par un retour à la ligne. Corrigé.
 
-Titres. Deux intitulés de fiche comportaient une espace finale qui se reportait
-dans la balise title. Corrigés : « RSE/Audits réglementaires » et
+Deux intitulés de fiche comportaient une espace finale qui se reportait dans la
+balise title. Corrigés également, sur « RSE/Audits réglementaires » et
 « Economie circulaire ».
 
-Pages à URL par défaut. Sur les seize pages statiques du site, une seule conserve
-une adresse au format par défaut de l'éditeur, /blank-1, qui porte le titre
-« Plan du site ». Les autres adresses relevées précédemment ne sont plus servies.
-Le renommage se fait dans l'éditeur, avec redirection 301, et figure au calendrier.
+Sur les pages à URL par défaut, il n'en reste qu'une, /blank-1, qui porte le titre
+« Plan du site ». Les autres ne sont plus servies. Son renommage passe par
+l'éditeur, avec redirection 301, et figure au calendrier.
 
-Second H1 et hiérarchie du pied de page. Non corrigés à ce jour. Ces éléments
-appartiennent à l'ossature du site et se modifient exclusivement dans l'éditeur
-visuel. Ils figurent au calendrier.
+Le second H1 du bloc newsletter et la hiérarchie du pied de page ne sont pas
+corrigés à ce jour. Ils appartiennent à l'ossature du site et ne se modifient que
+dans l'éditeur. Ils sont au calendrier.
 
 
-7. RÉPONSES À VOS QUESTIONS
+7. Vos questions
 
-robots.txt. Le fichier était resté celui de Wix par défaut, jamais personnalisé.
-Aucun des sept agents que vous citez n'y était nommé, ils étaient donc autorisés
-implicitement par la directive Allow: /. Votre analyse était exacte.
+Sur le robots.txt, votre analyse était juste. Le fichier était resté celui de Wix
+par défaut, et aucun des sept agents n'y était nommé, ils étaient donc autorisés
+implicitement.
 
-Le fichier a été personnalisé pour que leur traitement soit écrit et non plus
-implicite. Leur autorisation d'accès est inchangée, seule sa formulation l'est. Ce
-choix nous paraît cohérent avec l'objectif que vous poursuivez, un agent bloqué ne
-pouvant pas citer vos fiches. Si le cabinet souhaite au contraire fermer l'accès à
-tout ou partie de ces agents, la modification tient en une ligne par agent et nous
-la faisons à votre demande.
-
-Le bloc désormais servi, à la suite des directives Wix conservées à l'identique :
+Nous l'avons personnalisé pour que leur traitement soit écrit noir sur blanc. Leur
+accès reste ouvert, seule la formulation change. Cela nous paraît cohérent avec ce
+que vous recherchez, un agent bloqué ne pouvant pas citer vos fiches. Si le cabinet
+préfère au contraire fermer l'accès à tout ou partie d'entre eux, c'est une ligne
+par agent et nous le faisons à votre demande.
 
     # Agents des moteurs generatifs et des modeles de langage
     # Acces autorise a l'ensemble du site, decision du cabinet.
@@ -274,61 +249,67 @@ Le bloc désormais servi, à la suite des directives Wix conservées à l'identi
 
     Sitemap: https://www.huglo-lepage.com/sitemap.xml
 
-Le contenu littéral intégral du fichier vous est joint.
+Le fichier complet est en pièce jointe, avec les directives Wix que nous avons
+conservées à l'identique.
 
-Contenu servi sans exécution de JavaScript. C'était le fond de votre question, et
-la réponse est celle du point 1 : plus aucun composant HTML embed dans les fiches,
-et un balisage structuré servi en clair dans le head.
+Sur le contenu servi sans exécution de JavaScript, c'était le fond de votre
+question et la réponse est celle du point 1. Plus aucun composant HTML embed dans
+les fiches, et un balisage structuré servi en clair dans le head.
 
-Blocs vides de la page RSE et audits réglementaires. Le gabarit ne conditionne pas
-aujourd'hui l'affichage d'un bloc à la présence d'un contenu. Cette condition est
-réalisable et nous la mettons en place. Elle réglera la question sur l'ensemble du
-site et vous évitera d'avoir à produire un texte court par matière.
-
-
-DEUX POINTS QUE VOUS N'AVIEZ PAS RELEVÉS
-
-Image sociale des fiches Expertise. Les seize pages statiques produisent bien un
-og:image et un twitter:image. Les douze fiches Expertise n'en produisent aucun,
-parce que le gabarit va chercher l'image de la fiche dans le gestionnaire de
-contenu et qu'aucune fiche n'en porte. La carte de partage sort donc sans visuel
-alors que le twitter:card est en summary_large_image. Deux solutions au choix du
-cabinet : rattacher l'image d'en-tête du site par défaut, ou renseigner une image
-par matière. Nous attendons votre préférence.
-
-Fiches avocats en double. Chaque avocat dispose de deux adresses dans le
-gestionnaire de contenu, l'une sous /avocats/, l'autre sous /equipe-2/ avec des
-accents encodés. Si les deux sont servies, il s'agit de contenu dupliqué sur
-l'ensemble des fiches avocats. Nous le vérifions et vous le confirmons avec le
-reste.
+Sur les blocs vides de la page RSE et audits réglementaires, le gabarit ne
+conditionne pas aujourd'hui l'affichage d'un bloc à la présence d'un contenu. C'est
+réalisable et nous le mettons en place. Cela réglera la question sur tout le site
+et vous évitera d'avoir à produire un texte court par matière.
 
 
-CE QUI RESTE
+Deux choses que nous avons trouvées en passant
 
-Les dix opérations suivantes se font dans l'éditeur visuel ou le tableau de bord.
-Nous les regroupons en une seule intervention pour ne pas multiplier les
-publications.
+Les douze fiches Expertise ne produisent ni og:image ni twitter:image. Le gabarit
+va chercher l'image dans le gestionnaire de contenu et aucune fiche n'en porte. Vos
+cartes de partage sortent donc sans visuel, alors que le twitter:card est réglé sur
+grand format. Deux options : rattacher l'image d'en-tête du site par défaut, ou
+renseigner une image par matière. Dites-nous ce que vous préférez.
 
-    1. Connexion du champ « Balisage JSON-LD (head) » à l'onglet SEO de la page
-       dynamique Expertises.
-    2. og:type à article sur les fiches Expertise, à profile sur les fiches
-       avocats.
-    3. Image sociale des fiches Expertise, selon votre choix.
-    4. Suppression du H1 du bloc newsletter du pied de page.
-    5. Hiérarchie du pied de page et du menu.
-    6. Libellés des ancres « Add », par le renseignement du libellé et non par
-       son masquage.
-    7. Bloc « Nos avocats », suppression du titre « Équipe dédiée », remise en
-       ordre de la hiérarchie, carrousel placé sous le bloc textuel.
-    8. Ancres stables du sommaire, en remplacement des identifiants générés.
-    9. Renommage de la page /blank-1 et redirection 301.
+Chaque avocat dispose par ailleurs de deux adresses dans le gestionnaire de
+contenu, l'une sous /avocats/, l'autre sous /equipe-2/ avec des accents encodés. Si
+les deux sont servies, cela fait du contenu dupliqué sur toutes les fiches avocats.
+Nous vérifions et nous vous le confirmons avec le reste.
+
+
+Ce qui reste, et comment nous vous le rendons
+
+Les dix opérations ci-dessous passent par l'éditeur ou le tableau de bord. Nous les
+regroupons en une seule intervention pour ne pas multiplier les publications sur
+votre site.
+
+    1.  Connexion du champ « Balisage JSON-LD (head) » à l'onglet SEO de la page
+        dynamique Expertises.
+    2.  og:type à article sur les fiches Expertise, à profile sur les fiches
+        avocats.
+    3.  Image sociale des fiches Expertise, selon votre choix.
+    4.  Suppression du H1 du bloc newsletter du pied de page.
+    5.  Hiérarchie du pied de page et du menu.
+    6.  Libellés des ancres « Add », renseignés et non masqués.
+    7.  Bloc « Nos avocats », suppression du titre « Équipe dédiée », remise en
+        ordre de la hiérarchie, carrousel placé sous le bloc textuel.
+    8.  Ancres stables du sommaire, en remplacement des identifiants générés.
+    9.  Renommage de la page /blank-1 et redirection 301.
     10. Affichage conditionnel des blocs vides.
 
-Chacune vous sera confirmée individuellement, avec son extrait de code source ou
-sa capture, et non par la mention « Intégré ».
+Chacune vous sera confirmée séparément, avec son extrait de code source ou sa
+capture. Nous avons bien noté que la mention « Intégré » n'est plus une réponse
+acceptable, et elle ne le sera plus de notre part.
 
-Nous vous confirmons enfin qu'aucune nouvelle fiche ne sera mise en ligne avant
-que l'ensemble de ces points soit effectif.
+Les captures du test des résultats enrichis de Google, du validateur schema.org et
+de la Search Console vous parviendront une fois ces dix points en ligne, pour
+qu'elles portent sur l'état final et vous évitent une relecture supplémentaire.
+
+Nous vous confirmons enfin qu'aucune nouvelle fiche ne sera mise en ligne avant que
+tout cela soit effectif.
 
 Nous restons à votre disposition et vous prions d'agréer, Maître, l'expression de
 nos salutations les meilleures.
+
+Jordan Assogba
+SEO Monkey
+jordan.assogba@seo-monkey.fr
