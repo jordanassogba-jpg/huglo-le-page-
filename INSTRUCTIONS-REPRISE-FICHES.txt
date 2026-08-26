@@ -1,0 +1,212 @@
+===============================================================================
+REPRISE DES TROIS FICHES : DROIT PENAL DE L'ENVIRONNEMENT, ENVIRONNEMENT
+INDUSTRIEL, CREDITS CARBONE ET BIODIVERSITE
+===============================================================================
+
+Instructions annoncees lors de notre derniere reunion.
+Etablies le [DATE A COMPLETER], sur l'etat du site au 26 aout 2026.
+
+
+-------------------------------------------------------------------------------
+CE QUE LE RELEVE MONTRE, ET POURQUOI CES TROIS FICHES SOUS-PERFORMENT
+-------------------------------------------------------------------------------
+
+Nous avons compare vos douze fiches entre elles avant d'ecrire ces
+instructions. Le constat est net, et il ne porte pas sur la qualite juridique de
+vos textes.
+
+Sur les douze fiches, une seule porte une FAQ : celle du droit de l'urbanisme.
+
+    Fiches portant une FAQ dans leur balisage : 1 sur 12
+
+C'est aussi la seule a porter une date de mise a jour, un auteur nomme, un bloc
+de contact renseigne, et des references a votre propre jurisprudence signalees
+comme telles.
+
+C'est enfin la fiche que vous avez le plus travaillee, et celle dont vous nous
+dites qu'elle fonctionne.
+
+L'ecart entre elle et les trois fiches a reprendre n'est donc pas un ecart de
+competence, il est un ecart de forme. Il se comble.
+
+
+-------------------------------------------------------------------------------
+LE STANDARD DE PRODUCTION, ETABLI SUR LA FICHE URBANISME
+-------------------------------------------------------------------------------
+
+Nous prenons la fiche Urbanisme comme reference, non par principe mais parce
+qu'elle est la seule dont le comportement est observable.
+
+Sept elements la distinguent. Ce sont les sept a reprendre sur chacune des trois
+fiches.
+
+1. UNE FAQ DE HUIT A DIX QUESTIONS
+
+   Ce sont les questions que vos clients posent au telephone avant de vous
+   confier un dossier. Pas des questions de manuel.
+
+   Chaque reponse : un paragraphe autonome, qui se comprend sorti de la page.
+   Elle enonce la solution, puis cite sa base legale ou sa decision, dans le
+   corps du texte et non en note.
+
+   Point important, et c'est celui de votre dernier message : ces reponses
+   partiront telles quelles dans les moteurs generatifs, sous votre signature.
+   Nous n'en balisons donc que des extraits litteraux. Ecrivez-les en
+   consequence, c'est-a-dire de facon a pouvoir etre citees mot pour mot.
+
+2. UNE BASE LEGALE OU UNE DECISION DANS CHAQUE REPONSE
+
+   La fiche Urbanisme cite l'article R. 424-17, l'article L. 600-5-1, l'article
+   L. 600-7, la loi Climat et resilience. C'est ce qui la rend citable.
+   Une reponse sans reference est une reponse interchangeable.
+
+3. VOTRE PROPRE JURISPRUDENCE, SIGNALEE COMME TELLE
+
+   La fiche Urbanisme porte deux mentions "jurisprudence du cabinet", sur une
+   decision de la cour administrative d'appel de Versailles et sur une decision
+   du tribunal administratif de Montpellier.
+
+   C'est le seul signal qu'aucun concurrent ne peut recopier. Chacune des trois
+   fiches doit en porter au moins deux.
+
+4. UN SOMMAIRE QUI COUVRE TOUTE LA PAGE
+
+   La fiche Urbanisme en compte douze entrees, la derniere etant le bloc de vos
+   avocats. Il donne au lecteur la carte de la page, et aux moteurs la structure
+   de la matiere.
+
+5. UN BLOC "NOS AVOCATS EN ..." EN TEXTE, PAS EN CARROUSEL
+
+   Nom, fonction, matieres, barreau et annee d'inscription, referencements. La
+   fiche Urbanisme le fait pour quatre avocats. Le carrousel, lui, n'affiche que
+   des noms et ne produit aucun signal exploitable.
+
+   L'ordre des avocats par matiere est deja enregistre pour les douze fiches
+   dans le gestionnaire de contenu, champ "Ordre des avocats (par expertise)".
+
+6. UN BLOC DE CONTACT RENSEIGNE
+
+   Il n'est aujourd'hui rempli que sur la fiche Urbanisme. Sur les onze autres,
+   le cadre est vide.
+
+7. UNE DATE DE MISE A JOUR VISIBLE
+
+   Elle nous permet de porter dateModified dans le balisage, et elle dit au
+   lecteur que la fiche est tenue.
+
+
+-------------------------------------------------------------------------------
+CE QUE NOUS ATTENDONS DE VOUS, FICHE PAR FICHE
+-------------------------------------------------------------------------------
+
+Nous n'ecrivons pas votre droit. Ce que nous vous demandons, ce sont les
+matieres premieres ci-dessous. Nous faisons ensuite la mise en forme, le
+balisage et la mise en ligne.
+
+Pour chacune des trois fiches :
+
+    - huit a dix questions avec leur reponse redigee, base legale incluse ;
+    - deux a quatre de vos decisions, avec juridiction, date et numero, et
+      l'accord de les citer ;
+    - le texte du bloc de contact ;
+    - la date de derniere mise a jour a afficher ;
+    - la confirmation de l'ordre des avocats a afficher.
+
+Les axes ci-dessous sont tires de vos propres meta descriptions et du
+positionnement que vous avez retenu. Ils ne sont la que pour amorcer la liste de
+questions, a vous de la trancher.
+
+
+FICHE 1. DROIT PENAL DE L'ENVIRONNEMENT
+    /expertises/droit-penal-de-l-environnement
+    Avocats enregistres : Benoit Denis, Valerie Saintaman, Theophile Begel
+
+    Axes deja revendiques par la fiche : ecocide, ICPE, CJIPE, refere penal,
+    defense devant les poles specialises et les juridictions regionales.
+
+    Ce sont exactement des sujets a forte demande de reponse directe. Une
+    entreprise qui recoit une convocation cherche une reponse en une phrase,
+    puis un cabinet. C'est le meilleur terrain des trois pour la FAQ.
+
+    Pistes de questions a arbitrer : ce que risque une entreprise poursuivie,
+    la difference entre la responsabilite de la personne morale et celle du
+    dirigeant, ce qu'est une CJIPE et quand elle est negociable, ce qu'implique
+    un refere penal, comment se prepare une perquisition environnementale,
+    quelle est la portee du delit d'ecocide.
+
+
+FICHE 2. ENVIRONNEMENT INDUSTRIEL ET INSTALLATIONS CLASSEES
+    /expertises/environnement-industriel
+    Avocats enregistres : Benoit Denis, Valerie Saintaman, Faustine Sigronde
+
+    Axes deja revendiques : ICPE, Seveso, sites et sols pollues, friches,
+    dechets, REACH, PFAS.
+
+    C'est la fiche ou votre classement au Palmares du Droit 2026 a le plus de
+    valeur, et ou le sujet PFAS est le plus recherche aujourd'hui. La fiche le
+    mentionne mais ne le traite pas.
+
+    Pistes : qui porte l'obligation de remise en etat et jusqu'a quand, ce qui
+    change quand un site devient une friche, comment se conteste un arrete de
+    mise en demeure prefectoral, ce que la reglementation PFAS impose
+    aujourd'hui a un exploitant, comment se repartit la responsabilite entre
+    ancien et nouvel exploitant, ce qu'un changement d'exploitant declenche.
+
+
+FICHE 3. CREDITS CARBONE ET CREDITS BIODIVERSITE
+    /expertises/credits-marches-carbone
+    Avocats enregistres : Roxane Sageloli, Corinne Lepage, Benoit Denis,
+    Valerie Saintaman, Benjamin Huglo
+
+    Axes deja revendiques : quotas SEQE-UE, CBAM, CRCF, Label bas-carbone,
+    article 6 de l'Accord de Paris, credits biodiversite.
+
+    C'est la fiche la plus technique et la moins concurrencee des trois. Peu de
+    cabinets francais traitent le CRCF et les credits biodiversite. En
+    contrepartie, c'est celle dont le vocabulaire est le plus opaque : chaque
+    sigle doit etre defini a sa premiere occurrence, dans la page.
+
+    Pistes : ce qu'est un credit carbone et ce qui en fait un actif opposable,
+    ce que le CBAM impose a un importateur et depuis quand, ce que le CRCF
+    change pour un porteur de projet, quelles garanties exiger dans un contrat
+    d'achat de credits, ce qu'est un credit biodiversite et quel est son statut
+    juridique aujourd'hui, quel risque de greenwashing pese sur une allegation
+    de neutralite.
+
+
+-------------------------------------------------------------------------------
+CE QUE NOUS FAISONS DES QUE NOUS RECEVONS CES ELEMENTS
+-------------------------------------------------------------------------------
+
+    1. Integration du texte dans le gestionnaire de contenu, sans aucun
+       composant HTML. C'est desormais notre regle de production.
+    2. Construction du sommaire et des ancres, avec des identifiants lisibles
+       et stables.
+    3. Mise a jour du champ de balisage de la fiche : FAQPage, dates, auteur,
+       rattachement aux avocats de la matiere.
+    4. Controle de la fidelite des reponses balisees au texte de la page. Nous
+       verifions par programme que chaque reponse balisee est un extrait
+       litteral et contigu du texte affiche. C'est ce controle que nous venons
+       de mettre en place sur la fiche Urbanisme.
+    5. Relecture du sommaire apres intervention, qui est desormais inscrite a
+       notre procedure.
+
+Delai indicatif, une fois les elements recus : une fiche par semaine, la
+premiere servant de reference a valider avant d'enchainer les deux autres.
+
+
+-------------------------------------------------------------------------------
+UNE DEMANDE QUI RESTE OUVERTE ET QUI N'EST PAS DANS CES TROIS FICHES
+-------------------------------------------------------------------------------
+
+Deux autres fiches n'ont aucun corps de texte, ni introduction, ni blocs de
+contenu, ni FAQ :
+
+    RSE/Audits reglementaires
+    Protection de l'environnement et de la sante
+
+La seconde est la premiere de vos matieres dans l'ordre d'affichage du site.
+
+Nous vous avions pose la question et elle reste ouverte : nous transmettez-vous
+leur contenu, ou les retirons-nous de l'index le temps qu'il soit ecrit ? Les
+laisser en ligne vides est la seule option que nous ne recommandons pas.

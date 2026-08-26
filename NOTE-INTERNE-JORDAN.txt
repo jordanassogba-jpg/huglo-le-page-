@@ -181,3 +181,97 @@ en tete de fichier, le code va dans le code DE LA PAGE et pas du site, et j'ai
 ajoute un garde-fou dans les deux extraits pour qu'un mauvais collage ne puisse
 rien casser. L'etape sur l'image sociale a disparu du code, elle est traitee par le
 CMS.
+
+
+===============================================================================
+SESSION DU 26 AOUT 2026, APRES LE SECOND MAIL DU CABINET
+===============================================================================
+
+--- Ce que j'ai trouve et qui change le diagnostic
+
+Le bloc ld+json vide et l'ImageObject de Benoit Denis ne sont pas de nous.
+Ils viennent tous les deux du gabarit PAR DEFAUT de la page dynamique, qui porte
+deux entrees de balisage :
+
+    schemaType wix-data-page-item-images-preset   -> l'ImageObject
+    schemaType wix-data-page-item-videos-preset   -> l'objet vide {}
+
+Le videos-preset se resout en {} parce qu'aucune fiche n'a de video. C'est tout.
+On les supprime dans le tableau de bord, section balisage de donnees structurees
+de la page snatn. Deux clics. C'etait deja dans CODE-PAGES-DYNAMIQUES.txt mais on
+ne savait pas que ca reglait AUSSI le {}.
+
+/blank-1 : c'est moi qui ai casse la page Plan du site. La redirection
+/blank-1 -> / creee le 21 aout a 12h11 prime sur la page servie au meme chemin,
+donc la page t12vr est devenue inatteignable. Jordan a tranche : on ne veut plus
+de cette page. Je l'ai passee en noindex sur les deux revisions, publiee et
+enregistree, donc elle sort de pages-sitemap.xml. La redirection reste.
+Si le cabinet redemande un plan du site, il faudra une nouvelle page.
+
+Double espace dans la meta description des fiches avocats. Le gabarit ecrivait
+"de {{...prenom}}  chez" avec deux espaces, et le champ prenom de Corinne Lepage
+avait une espace finale, donc trois espaces sur sa fiche. On avait annonce au
+cabinet "plus aucun defaut" sur les meta descriptions apres controle caractere par
+caractere. Le controle n'avait pas couvert les descriptions produites par gabarit.
+C'est dit dans le mail, sans se cacher derriere le gabarit.
+
+Onze redirections sur quatre-vingt-treize ont une source tronquee, du genre
+/wp-content/uploads/2021/05/Arr ou ...2020/02/Instruction-du-Gouvernement...
+Elles ne peuvent matcher aucune URL. Neuf ont une jumelle correcte creee plus
+tard. Le vrai compte de redirections utiles est 82. Je ne les ai pas supprimees,
+on n'a pas la liste des URL de l'ancien site pour savoir ce qu'elles visaient.
+
+--- Les quatre canaux testes pour le graphe par fiche, avec les erreurs exactes
+
+1. Code personnalise : pageFilter est readOnly cote API, et le panneau cible des
+   PAGES. Les 12 fiches = 1 page (snatn). Plus un plafond html maxLength 15000.
+2. Item SEO Tags, celui que la doc designe expressement pour ca :
+   UNSUPPORTED_ITEM_TYPE, "itemType WIX_DATA_PAGE_ITEM-snatn has no SEO data
+   extractor". Blog et boutique acceptes, page CMS non.
+3. SEO Patterns sur snatn : INVALID_PATTERN, il refuse
+   wix-data-page-item.EXPERTISES.mtaDescription et .title, les variables memes que
+   le tableau de bord a creees et qui tournent en prod. Le pageId etait bien passe
+   au niveau racine du body, ce n'etait donc pas mon erreur d'appel de la
+   derniere fois. L'API et le tableau de bord n'ont pas le meme vocabulaire.
+   Ecrire ce gabarit par API = perdre les 12 meta descriptions.
+4. SEO Patterns sur ejtvw, les avocats : ca passe, parce que leur titre n'utilise
+   que main-collection-primary-field. J'ai donc mis og:type=profile en ligne, et
+   corrige le double espace au passage. Fait.
+
+Conclusion : pour les Expertises, il n'y a PAS de voie API. Ni pour le graphe, ni
+pour og:type. C'est le tableau de bord ou le code de page, comme avant, mais
+maintenant on peut le prouver ligne par ligne. Le cabinet demandait l'obstacle par
+ecrit, il est dans OBSTACLE-TECHNIQUE-JSONLD.txt.
+
+--- Fait en ligne, verifie
+
+  robots.txt : Disallow *?lightbox= repris dans les 11 sections nommees.
+  CCBot, meta-externalagent, Amazonbot, Bytespider nommes en Allow: / sur
+  arbitrage valide par Jordan. Relu apres ecriture, conforme.
+
+  jsonldGraph de la fiche Urbanisme : les 6 reponses reprises en extraits
+  litteraux. Verifie par un script qui teste l'appartenance de chaque chaine au
+  texte du champ faq, puis relu par requete filtree : la nouvelle phrase CDPENAF
+  est presente, l'ancienne reformulation est absente. Graphe passe de 4868 a 7122.
+
+  og:type=profile sur ejtvw. Titre inchange au caractere pres.
+
+  t12vr en noindex, revision publiee et revision enregistree.
+
+--- Ce que je n'ai pas fait, expres
+
+Je n'ai touche aucune des deux balises google-site-verification. On ne sait pas
+laquelle est vivante et en supprimer une au hasard peut couper un acces Search
+Console. La question est posee au cabinet, avec l'origine de chacune.
+
+Je n'ai pas supprime les 11 redirections tronquees, meme raison de prudence.
+
+Je n'ai pas mis de dates dans le calendrier. Trois champs [A COMPLETER], plus la
+date d'execution en tete des livrables. C'est a toi, je ne les invente pas.
+
+--- Petit point a surveiller
+
+Le champ prenom de la collection EQUIPE contient le nom complet, pas le prenom,
+pour les douze avocats. Ce n'est pas genant maintenant que la description utilise
+main-collection-primary-field, mais si quelqu'un se sert un jour de prenom en
+croyant avoir un prenom, il aura le nom complet.

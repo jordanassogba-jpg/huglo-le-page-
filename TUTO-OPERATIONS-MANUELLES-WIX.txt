@@ -51,18 +51,52 @@ titre SEO, la méta-description et parfois le partage social. Le champ de donné
 structurées attend du JSON figé, ce qui n'a pas de sens sur une page dynamique qui
 sert douze fiches.
 
+MISE À JOUR DU 26 AOÛT 2026, APRÈS TEST DES QUATRE CANAUX
+
+og:type EN PROFILE SUR LES AVOCATS : FAIT, PAR API, RIEN À FAIRE
+Le gabarit de la page dynamique des avocats (ejtvw) n'utilisait, pour son titre,
+qu'une variable que l'API accepte. J'ai donc pu l'étendre à distance. og:type
+vaut profile en ligne, le titre est inchangé au caractère près, et j'ai corrigé
+au passage le double espace de la méta description.
+
+SUR LES EXPERTISES, IL N'Y A AUCUNE VOIE API. C'EST DÉMONTRÉ, PAS SUPPOSÉ
+Les quatre canaux et leurs messages d'erreur littéraux sont dans
+
+    OBSTACLE-TECHNIQUE-JSONLD.txt
+
+Le résumé utile pour toi : l'API des gabarits refuse les variables
+wix-data-page-item.EXPERTISES.mtaDescription et .title, qui sont celles que le
+tableau de bord a créées et qui tournent en production. Écrire ce gabarit par API
+supposerait donc de renoncer à la balise de description, et le gabarit Wix par
+défaut n'en porte aucune. On perdrait les douze méta descriptions. J'ai vérifié
+en réécrivant le gabarit à l'identique, avec le pageId au bon endroit cette
+fois : c'est bien refusé.
+
+Le tableau de bord, lui, accepte ces variables. La voie est donc manuelle, et
+elle est double.
+
 LA VOIE RETENUE
-Du code sur la page dynamique, avec les API SEO documentées par Wix. Le code
-complet, les étapes et les vérifications sont dans le fichier
+Deux gestes, dans cet ordre.
 
-    CODE-PAGES-DYNAMIQUES.txt
+  a. Tableau de bord, gabarit SEO de la page snatn : og:type en article, et le
+     JSON à trous de BALISAGE-A-COLLER.json pour le WebPage et le fil d'Ariane
+     des douze fiches. Sans publication, effet immédiat. Ne porte pas la FAQ.
 
-Il couvre d'un seul geste ce que 1.a, 1.b, 1.c et une partie de 1.d prévoyaient
-séparément : le balisage par fiche, og:type en article sur les Expertises,
-og:type en profile sur les Avocats, et la disparition de l'ImageObject parasite
-et du bloc ld+json vide que le cabinet avait relevés.
+  b. Code sur la page dynamique, qui porte tout, FAQ comprise. Le code complet,
+     les étapes et les vérifications sont dans
 
-Ne fais donc plus rien dans l'onglet SEO pour ces trois points.
+         CODE-PAGES-DYNAMIQUES.txt
+
+Fais a d'abord. C'est une visite du tableau de bord, sans code, et ça met en
+ligne onze fiches qui n'ont aujourd'hui aucun nœud de page. b viendra ensuite et
+remplacera a sans effet nuisible.
+
+CE QUI TOMBE AUSSI, ET QUE NOUS N'AVIONS PAS COMPRIS
+La suppression des deux entrées du gabarit par défaut (préréglage d'image et
+préréglage de vidéo) règle DEUX défauts du cabinet et pas un seul. Le préréglage
+d'image produit l'ImageObject isolé de Benoît Denis. Le préréglage de vidéo
+produit le <script type="application/ld+json">{}</script>, parce qu'aucune fiche
+ne porte de vidéo. Le bloc vide n'était donc pas notre graphe amputé.
 
 -------------------------------------------------------------------------------
 1.d  Image sociale des fiches Expertise : VÉRIFIER LE RENDU
@@ -304,28 +338,34 @@ procédure de mise en ligne des fiches.
 
 
 ===============================================================================
-7. RENOMMER LA PAGE /BLANK-1
+7. LA PAGE /BLANK-1 : TRAITÉ, PLUS RIEN À FAIRE DANS L'ÉDITEUR
 ===============================================================================
 
-POURQUOI
-C'est la dernière page du site restée à l'adresse par défaut de l'éditeur. Elle
-porte le titre « Plan du site ».
+CE QUI S'EST PASSÉ EN RÉALITÉ
+Il ne s'agissait pas seulement d'un slug par défaut. Une redirection de /blank-1
+vers la racine, que j'avais créée le 21 août, prenait le pas sur la page servie
+au même chemin. La page « Plan du site » était donc devenue inatteignable, tout
+en restant dans pages-sitemap.xml. C'est ce que le cabinet a constaté sous deux
+formes distinctes : /plan-du-site en 404, et /blank-1 qui sert l'accueil.
 
-OÙ
-Éditeur, gestionnaire de pages.
+ARBITRAGE RETENU
+Le cabinet ne veut plus de cette page. Elle est donc passée en noindex, sur la
+révision publiée et sur la révision enregistrée, et elle est sortie de
+pages-sitemap.xml. La redirection vers l'accueil reste en place.
 
-ÉTAPES
-  1. Ouvre le gestionnaire de pages et sélectionne la page « Plan du site ».
-  2. Ouvre ses réglages, onglet SEO, et modifie le slug de blank-1 vers
-     plan-du-site.
-  3. Wix propose en général de créer la redirection automatiquement. Accepte.
-  4. Si elle n'est pas proposée, dis-le moi, je crée la 301 par API en une
-     minute.
-  5. Pense à corriger le lien « Site map » du pied de page, qui pointe
-     aujourd'hui vers sitemap.xml au lieu de la page Plan du site.
+    pages-sitemap.xml : treize adresses au lieu de quatorze
 
-VÉRIFICATION
-Je contrôlerai par API que la redirection /blank-1 vers /plan-du-site existe.
+CE QUI RESTE, ET SEULEMENT SI LE CABINET LE DEMANDE
+Le lien « Site map » du pied de page pointe vers le fichier XML, qui n'est pas
+fait pour un lecteur humain, et son libellé est en anglais. La question est posée
+dans le mail. Deux issues possibles :
+
+  - le cabinet veut un plan du site : on crée une nouvelle page à
+    /plan-du-site, et on corrige le lien et son libellé ;
+  - le cabinet n'en veut pas : on retire le lien du pied de page.
+
+Dans les deux cas, c'est un geste de la session d'éditeur, à faire une fois la
+réponse reçue. Ne fais rien avant.
 
 
 ===============================================================================

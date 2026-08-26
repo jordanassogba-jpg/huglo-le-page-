@@ -1,0 +1,196 @@
+===============================================================================
+FICHE URBANISME, FAQ : CORRESPONDANCE DU BALISAGE AU TEXTE DE LA PAGE
+===============================================================================
+
+Etabli le [DATE A COMPLETER]. Fiche /expertises/droit-urbanisme-amenagement.
+
+Vous releviez que sur les neuf reponses, trois seulement reprenaient le texte
+de la page mot a mot. Le releve etait exact. Les six autres sont reprises
+ci-dessous, et ne portent plus que des extraits litteraux et contigus du
+paragraphe affiche, arretes sur une fin de phrase.
+
+Les trois reponses que vous avez verifiees comme litterales n'ont pas ete
+touchees. Nous ne vous imposons pas une seconde relecture de ce qui etait juste.
+
+Chaque reprise est verifiee par programme : la chaine balisee doit etre
+presente telle quelle dans le texte de la page, en partir du debut du
+paragraphe, et se terminer sur une ponctuation de fin de phrase. Le controle
+passe sur les six.
+
+-------------------------------------------------------------------------------
+Que fait un avocat en droit de l'urbanisme ?
+-------------------------------------------------------------------------------
+  DEFAUT RELEVE
+    reformulation, et reference aux reglementations connexes amputee
+
+  AVANT, dans le balisage
+    Un avocat en droit de l'urbanisme sécurise le projet avant son dépôt et
+    le défend ensuite devant le juge. En amont, il vérifie sa conformité au
+    document d'urbanisme applicable et aux réglementations connexes. En
+    aval, il intervient devant les juridictions administratives.
+
+  APRES, dans le balisage
+    Un avocat en droit de l'urbanisme sécurise le projet avant son dépôt et
+    le défend ensuite devant le juge. En amont, il vérifie sa conformité au
+    document d'urbanisme applicable et aux réglementations connexes (code du
+    patrimoine, code de l'environnement, loi Littoral, etc.), audite le
+    dossier de demande et anticipe les points de fragilité contentieuse. En
+    aval, il intervient devant les juridictions administratives, qu'il
+    s'agisse de contester un refus de permis, de défendre une autorisation
+    obtenue contre un recours de tiers, ou de représenter la collectivité
+    dont le document d'urbanisme est attaqué.
+
+  CONTROLE
+    extrait litteral du texte de la page ... oui
+    part du debut du paragraphe ........... oui
+    longueur ............................. 606 caracteres (avant : 272)
+
+-------------------------------------------------------------------------------
+Combien de temps un permis de construire reste-t-il valable ?
+-------------------------------------------------------------------------------
+  DEFAUT RELEVE
+    troncature close par un point ajoute, reference C. urb., art. R. 424-17 supprimee
+
+  AVANT, dans le balisage
+    Trois ans à compter de la notification ou de la naissance de la décision
+    tacite, le permis devenant caduc si les travaux ne sont pas entrepris
+    dans ce délai, ou s'ils sont interrompus pendant plus d'un an.
+
+  APRES, dans le balisage
+    Trois ans à compter de la notification ou de la naissance de la décision
+    tacite, le permis devenant caduc si les travaux ne sont pas entrepris
+    dans ce délai, ou s'ils sont interrompus pendant plus d'un an (C. urb.,
+    art. R. 424-17). Le titulaire peut contester la caducité en établissant
+    qu’il a dans ce délai réalisé des travaux substantiels, même s’ils se
+    sont échelonnés dans le temps (CAA Versailles, 29 février 2024, n°
+    22VE00712 : jurisprudence du cabinet).
+
+  CONTROLE
+    extrait litteral du texte de la page ... oui
+    part du debut du paragraphe ........... oui
+    longueur ............................. 462 caracteres (avant : 205)
+
+-------------------------------------------------------------------------------
+Comment contester un permis de construire delivre a un tiers ?
+-------------------------------------------------------------------------------
+  DEFAUT RELEVE
+    troncature close par un point ajoute, fin de phrase supprimee
+
+  AVANT, dans le balisage
+    Le recours doit être formé dans les deux mois à compter du premier jour
+    d'une période continue de deux mois d'affichage sur le terrain, et
+    notifié à l'auteur comme au titulaire de l'autorisation par lettre
+    recommandée dans les quinze jours francs.
+
+  APRES, dans le balisage
+    Le recours doit être formé dans les deux mois à compter du premier jour
+    d'une période continue de deux mois d'affichage sur le terrain, et
+    notifié à l'auteur comme au titulaire de l'autorisation par lettre
+    recommandée dans les quinze jours francs, cette notification étant une
+    formalité insusceptible de régularisation. L'obligation de notification
+    vise aussi bien les autorisations que les refus et les retraits. Le
+    recours gracieux, depuis la loi Huwart du 26 novembre 2025, ne proroge
+    plus ce délai.
+
+  CONTROLE
+    extrait litteral du texte de la page ... oui
+    part du debut du paragraphe ........... oui
+    longueur ............................. 502 caracteres (avant : 247)
+
+-------------------------------------------------------------------------------
+Que faire face a un recours qui parait abusif ?
+-------------------------------------------------------------------------------
+  DEFAUT RELEVE
+    troncature close par un point ajoute, reference C. urb., art. L. 600-7 supprimee
+
+  AVANT, dans le balisage
+    Le bénéficiaire d'un permis peut demander au juge administratif, par
+    mémoire distinct, la condamnation du requérant à des dommages et
+    intérêts lorsque le recours a été mis en œuvre dans des conditions
+    traduisant un comportement abusif et lui a causé un préjudice.
+
+  APRES, dans le balisage
+    Le bénéficiaire d'un permis peut demander au juge administratif, par
+    mémoire distinct, la condamnation du requérant à des dommages et
+    intérêts lorsque le recours a été mis en œuvre dans des conditions
+    traduisant un comportement abusif et lui a causé un préjudice (C. urb.,
+    art. L. 600-7). La loi ELAN a assoupli ce texte, qui n'exige plus un
+    préjudice excessif et ne présume plus que les associations de protection
+    de l'environnement agissent dans les limites de leurs intérêts
+    légitimes. En pratique, cette demande reconventionnelle demeure
+    néanmoins rarement accueillie, le comportement abusif s'appréciant très
+    strictement.
+
+  CONTROLE
+    extrait litteral du texte de la page ... oui
+    part du debut du paragraphe ........... oui
+    longueur ............................. 626 caracteres (avant : 263)
+
+-------------------------------------------------------------------------------
+Que faire face a un avis defavorable de la CDPENAF sur un projet agrivoltaique ?
+-------------------------------------------------------------------------------
+  DEFAUT RELEVE
+    reformulation, la page dit l'inverse en deux phrases distinctes
+
+  AVANT, dans le balisage
+    Un avis conforme défavorable de la CDPENAF lie l'autorité instructrice
+    mais n'est pas insusceptible de critique si la commission a excédé ses
+    compétences légales.
+
+  APRES, dans le balisage
+    Un avis conforme défavorable de la CDPENAF lie l’autorité instructrice
+    et conduit en pratique au refus de l’autorisation. Il n’est pas pour
+    autant insusceptible de critique. La CDPENAF ne dispose pas d’un pouvoir
+    d’appréciation discrétionnaire. Lorsqu’elle est saisie d'un projet
+    d'installation agrivoltaïque au sens de l'article L. 314-36 du code de
+    l'énergie, elle ne peut fonder son avis que sur les critères prévus par
+    ce seul article et ses textes d’application. Elle n'est pas compétente
+    pour apprécier la suffisance de l'étude d'impact, les incidences sur un
+    site Natura 2000, la nécessité d'une dérogation espèces protégées,
+    l'importance de la superficie du projet ou ses effets cumulatifs.
+    Lorsqu'elle sort de ce périmètre, son avis est illégal.
+
+  CONTROLE
+    extrait litteral du texte de la page ... oui
+    part du debut du paragraphe ........... oui
+    longueur ............................. 754 caracteres (avant : 162)
+
+-------------------------------------------------------------------------------
+Qu'est-ce que le sursis a statuer ZAN et comment le motiver ?
+-------------------------------------------------------------------------------
+  DEFAUT RELEVE
+    reformulation, base legale supprimee
+
+  AVANT, dans le balisage
+    Le sursis à statuer « ZAN » est la faculté de différer la décision sur
+    une demande d'autorisation dont la consommation d'espaces serait de
+    nature à compromettre l'atteinte des objectifs de réduction assignés au
+    document d'urbanisme.
+
+  APRES, dans le balisage
+    Le sursis à statuer « ZAN » est la faculté, ouverte aux communes et aux
+    intercommunalités par l'article 194 IV 14° de la loi Climat et
+    résilience du 22 août 2021 dans sa rédaction issue de la loi n° 2023-630
+    du 20 juillet 2023, de différer leur décision sur une demande
+    d'autorisation dont la consommation d'espaces naturels, agricoles et
+    forestiers serait de nature à compromettre l'atteinte des objectifs de
+    réduction assignés au document d'urbanisme en cours d'élaboration ou de
+    modification. Sa motivation doit être chiffrée, l'ampleur du projet ou
+    la faiblesse des capacités résiduelles étant appuyées le cas échéant sur
+    un raisonnement par cumul des autorisations déjà délivrées.
+
+  CONTROLE
+    extrait litteral du texte de la page ... oui
+    part du debut du paragraphe ........... oui
+    longueur ............................. 685 caracteres (avant : 232)
+
+-------------------------------------------------------------------------------
+RECAPITULATIF
+-------------------------------------------------------------------------------
+  Reponses au total ................................. 9
+  Reponses litterales avant reprise ................ 3
+  Reponses reprises .................................. 6
+  Reponses litterales apres reprise ................. 9
+
+  Longueur du graphe de la fiche avant .......... 4 868 caracteres
+  Longueur du graphe de la fiche apres .......... 7 122 caracteres

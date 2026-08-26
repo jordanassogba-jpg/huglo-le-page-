@@ -1,0 +1,227 @@
+===============================================================================
+POURQUOI LE GRAPHE PAR FICHE NE PEUT PAS ETRE SERVI PAR LE PANNEAU DE CODE
+PERSONNALISE, ET PAR QUEL CANAL IL LE SERA
+===============================================================================
+
+Annexe technique a notre reponse du [DATE A COMPLETER].
+Site : huglo-lepage.com, Wix Studio.
+Page dynamique des Expertises : identifiant snatn.
+Page dynamique des Avocats : identifiant ejtvw.
+
+Vous nous demandiez de servir le graphe propre a chaque fiche par le panneau de
+code personnalise, en position HEAD et en categorie ESSENTIAL, avec un bloc
+conditionne a l'adresse de la page, et, a defaut, de vous exposer par ecrit
+l'obstacle technique precis qui s'y oppose.
+
+Nous vous devons cette seconde reponse. La voici, avec les elements de preuve.
+
+Nous avons teste quatre canaux, dont le votre. Trois refusent, pour des raisons
+differentes et verifiables. Le quatrieme fonctionne et c'est celui que nous
+retenons.
+
+
+-------------------------------------------------------------------------------
+1. LE PANNEAU DE CODE PERSONNALISE : LE CIBLAGE N'EXISTE PAS A L'ECHELLE DE LA
+   FICHE
+-------------------------------------------------------------------------------
+
+Votre raisonnement est juste sur un point : ce panneau emet bien en clair, dans
+le document servi, sans dependre d'une execution de JavaScript. C'est bien lui
+qui porte aujourd'hui le graphe d'identite.
+
+Ce qu'il ne sait pas faire, c'est distinguer vos douze fiches.
+
+Le panneau cible des pages. Or vos douze fiches Expertise ne sont pas douze
+pages. Ce sont douze enregistrements de la collection EXPERTISES, affiches par
+une seule et meme page dynamique, celle dont l'identifiant est snatn. Pour la
+plateforme, il n'y a la qu'une page. Un bloc pose sur elle est donc servi a
+l'identique sur les douze adresses, et le panneau n'offre aucune condition sur
+l'adresse effectivement demandee.
+
+Cote programmation, la meme limite est ecrite noir sur blanc dans le contrat de
+l'interface. Le champ qui porte le ciblage d'un bloc de code personnalise est
+declare en lecture seule :
+
+    pageFilter : "Page IDs where the custom embed should be loaded.
+                  By default, custom embeds are applied to all site pages."
+                  readOnly : true
+
+    (reference : Custom Embeds API, entite CustomEmbed)
+
+Nous ne pouvons donc meme pas fixer par programmation le ciblage a l'echelle de
+la page, et a plus forte raison pas a l'echelle de la fiche. Le ciblage par page
+reste possible a la main dans l'editeur, mais il ne resout rien ici : la page
+qu'il cible est celle qui sert les douze fiches.
+
+
+-------------------------------------------------------------------------------
+2. ET LE VOLUME NE PASSE PAS DAVANTAGE
+-------------------------------------------------------------------------------
+
+A supposer le point 1 surmonte, un second plafond arrete la meme voie. Le
+contenu d'un bloc de code personnalise est limite a quinze mille caracteres :
+
+    html : maxLength 15000
+
+    (meme reference)
+
+Vous evaluez le graphe d'identite a 11 191 caracteres. Nous en mesurons 11 297,
+et il occupe un bloc a lui seul. Le graphe de la seule fiche Urbanisme en compte
+7 122 depuis la reprise des reponses de la FAQ dont nous parlons dans le mail.
+
+Cette seule fiche, ajoutee au graphe d'identite, depasse donc deja ce qu'un bloc
+peut porter. Les douze demanderaient plusieurs blocs.
+
+Et c'est la que les deux limites se rejoignent, pour un resultat pire que le
+silence actuel : chaque bloc etant servi sur l'ensemble du site, vos douze
+graphes seraient emis sur toutes vos pages a la fois. Votre page d'accueil
+declarerait douze noeuds WebPage, chacun donnant une autre adresse comme etant
+la sienne, et douze fils d'Ariane concurrents. Nous ne vous proposerons pas cela.
+
+
+-------------------------------------------------------------------------------
+3. LE CANAL QUE LA DOCUMENTATION DESIGNE POUR CET USAGE REFUSE NOTRE TYPE DE PAGE
+-------------------------------------------------------------------------------
+
+Il existe une interface faite exactement pour ce que vous demandez : ecrire les
+balises d'un element pris isolement, dont une balise de donnees structurees. Sa
+documentation est explicite, et elle va dans votre sens :
+
+    "There is currently no way to set site-wide, every-page structured data
+     through any of these APIs, write a per-page script tag through the
+     Item SEO Tags API instead."
+
+Nous avons donc appele cette interface sur la fiche Urbanisme. Reponse :
+
+    INVALID_ARGUMENT: Unsupported itemType "WIX_DATA_PAGE_ITEM-snatn".
+    Supported types: BLOG_CATEGORY, BLOG_POST, BOOKINGS_SERVICE,
+    CHALLENGES_PAGE, EVENTS_PAGE, PORTFOLIO_COLLECTIONS, PORTFOLIO_PROJECTS,
+    RESTAURANTS_MENU_PAGE, STATIC_PAGE, STORES_CATEGORY, STORES_PRODUCT,
+    STORES_SUB_CATEGORY, TABLE_RESERVATIONS_EXPERIENCE
+
+    detail : itemType "WIX_DATA_PAGE_ITEM-snatn" has no SEO data extractor
+
+Un article de blog est dans la liste. Une fiche produit de boutique aussi. Une
+page batie sur une collection du gestionnaire de contenu, non. C'est
+precisement notre cas, et c'est une limite de la plateforme, pas un choix
+d'implementation de notre part.
+
+
+-------------------------------------------------------------------------------
+4. LE GABARIT DE LA PAGE DYNAMIQUE REFUSE D'ETRE REECRIT PAR PROGRAMMATION
+-------------------------------------------------------------------------------
+
+Restait le gabarit SEO de la page dynamique, qui est l'endroit ou vivent
+aujourd'hui votre balise title et votre meta description. Nous pouvions esperer
+y ajouter og:type et une balise de donnees structurees.
+
+L'ecriture est refusee, et pour un motif inattendu : l'interface rejette les
+variables memes que le tableau de bord a creees et qui tournent en production.
+
+Requete : reecriture du gabarit de la page snatn, a l'identique, sans rien
+changer. Reponse :
+
+    INVALID_ARGUMENT: Pattern for pageType "WIX_DATA_PAGE_ITEM" references
+    unknown variable(s): wix-data-page-item.EXPERTISES.mtaDescription,
+    wix-data-page-item.EXPERTISES.title
+
+Autrement dit, le tableau de bord sait fabriquer des variables que l'interface
+de programmation ne sait pas relire. Les deux ne partagent pas le meme
+vocabulaire.
+
+La consequence est directe. Ecrire quoi que ce soit dans ce gabarit par
+programmation suppose de renvoyer la liste complete de ses balises, donc de
+renoncer a celles qui portent ces deux variables. Le gabarit fourni par defaut
+par la plateforme, lui, ne comporte aucune balise de description. Vos douze meta
+descriptions disparaitraient donc du jour au lendemain.
+
+Nous ne faisons pas cet echange.
+
+Une nuance, et elle est a votre avantage : cette limite est celle de
+l'interface de programmation, pas celle du tableau de bord. Le tableau de bord,
+lui, accepte ces variables. Le gabarit peut donc etre etendu a la main, et c'est
+la voie retenue au point 6.
+
+
+-------------------------------------------------------------------------------
+5. LES DEUX DEFAUTS QUE VOUS RELEVEZ DANS LE HEAD VIENNENT DU MEME ENDROIT, ET
+   CE N'EST PAS NOTRE GRAPHE
+-------------------------------------------------------------------------------
+
+C'est le point sur lequel nous avons appris quelque chose, et il explique vos
+deux observations d'un coup.
+
+Le gabarit fourni par defaut pour une page dynamique porte deux entrees de
+donnees structurees, que nous avons lues telles quelles :
+
+    script application/ld+json, schemaType wix-data-page-item-images-preset
+    script application/ld+json, schemaType wix-data-page-item-videos-preset
+
+Sur la fiche Urbanisme, la premiere se resout en un noeud ImageObject construit
+sur l'image de la fiche. C'est votre ImageObject isole, sans @id et sans
+rattachement : il est genere par la plateforme, pas ecrit par nous.
+
+La seconde se resout en un objet vide, la fiche ne portant aucune video. C'est
+votre <script type="application/ld+json">{}</script>.
+
+Ces deux entrees apparaissent nommement dans la section de balisage de donnees
+structurees de la page dynamique, dans le tableau de bord. Les supprimer se fait
+la, en deux clics, sans code et sans arbitrage. C'est au calendrier.
+
+Nous vous devons de le dire clairement : l'objet vide n'etait donc pas notre
+graphe ampute. Notre graphe n'etait pas emis du tout, ce qui est le constat que
+vous faisiez, et il n'a jamais rien eu a voir avec ce bloc vide.
+
+
+-------------------------------------------------------------------------------
+6. CE QUI EST DONC RETENU
+-------------------------------------------------------------------------------
+
+Deux gestes dans le tableau de bord et l'editeur, sur la seule page dynamique
+des Expertises. Aucun n'est un contournement, les deux sont documentes.
+
+  a. Dans le gabarit SEO de la page, ou les variables de collection sont
+     acceptees : og:type a article, et une balise de donnees structurees portant
+     un WebPage et une BreadcrumbList batis sur l'adresse reelle, le titre et la
+     description de la fiche. Douze fiches, douze balisages distincts, un seul
+     gabarit. Le JSON pret a coller est dans BALISAGE-A-COLLER.json.
+
+     Cette voie ne peut pas porter la FAQ. Le panneau accepte une variable a la
+     place d'une valeur, pas a la place d'une structure, et une FAQ est une
+     structure. Votre lecture etait exacte.
+
+  b. Du code sur la page dynamique, pour porter la totalite du graphe stocke,
+     FAQ comprise. La plateforme construit ses pages sur son serveur, et sa
+     documentation prescrit l'appel dans onReady() "to ensure search engines can
+     read it". Le meme appel ecrase le balisage anterieur, ce qui fait tomber
+     du meme coup les deux entrees du point 5.
+
+     Le code est dans CODE-PAGES-DYNAMIQUES.txt.
+
+Le point b rend le point a inutile. Nous vous proposons quand meme les deux,
+dans cet ordre, parce que le point a se fait en une visite du tableau de bord et
+sans developpement, et qu'il vaut mieux que vos douze fiches portent leur noeud
+WebPage et leur fil d'Ariane des cette semaine que d'attendre le reste.
+
+Sur la verification, nous retenons votre methode : affichage du code source de
+la page, et non inspecteur d'elements. C'est la seule qui etablisse ce qui est
+servi.
+
+
+-------------------------------------------------------------------------------
+7. CE QUI EST DEJA FAIT PAR PROGRAMMATION, SANS ATTENDRE
+-------------------------------------------------------------------------------
+
+  - og:type a profile sur les fiches avocats. Le gabarit de leur page dynamique
+    n'utilisait, pour son titre, qu'une variable que l'interface accepte. Nous
+    avons donc pu l'etendre. Verifiable des maintenant dans le code source de
+    n'importe quelle fiche avocat.
+
+  - Les six reponses de la FAQ de la fiche Urbanisme, reprises en extraits
+    strictement litteraux du texte de la page. Detail dans le mail.
+
+  - robots.txt : l'exclusion des adresses de lightbox est reprise dans chacune
+    des sections nommees, et les quatre agents dont vous demandiez l'arbitrage y
+    sont nommes.
+
+  - /blank-1 sorti de l'index et donc de pages-sitemap.xml.

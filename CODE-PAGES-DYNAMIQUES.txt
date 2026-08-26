@@ -30,13 +30,24 @@ CHEMIN B, SANS CODE : LE GABARIT JSON À TROUS (tout en bas de ce fichier)
 AVANT TOUT, DEUX CLICS QUI RÈGLENT UN REPROCHE DU CABINET
 ===============================================================================
 
-Sur la capture, la section « Balisage de données structurées » contient déjà une
-entrée nommée « Balisage d'image ». C'est elle qui produit l'ImageObject généré
-automatiquement par Wix, celui que Roxane a relevé au point 2 de son audit et qui
-déclare la photo de carrousel de Benoît Denis comme image de la page.
+La section « Balisage de données structurées » de la page dynamique contient deux
+entrées venues du gabarit Wix par défaut. Nous les avons lues par API :
 
-Supprime cette entrée. C'est deux clics, ça ne demande ni code ni arbitrage, et ça
-fait tomber un des défauts de sa liste.
+    schemaType wix-data-page-item-images-preset
+    schemaType wix-data-page-item-videos-preset
+
+La première produit l'ImageObject généré automatiquement, celui qui déclare la
+photo de Benoît Denis comme image de la page, sans @id et sans rattachement.
+
+La seconde produit le <script type="application/ld+json">{}</script> que le
+cabinet relève dans son second message. Elle se résout en objet vide parce
+qu'aucune fiche ne porte de vidéo.
+
+Supprime les deux. C'est quatre clics, ça ne demande ni code ni arbitrage, et ça
+fait tomber DEUX défauts de sa liste, pas un.
+
+À noter, parce que ça change ce que nous avions écrit : le bloc vide n'était donc
+pas notre graphe amputé. Notre graphe n'était pas émis du tout.
 
 Fais-le que tu choisisses le chemin A ou le chemin B.
 
@@ -125,9 +136,17 @@ $w.onReady(async () => {
 ÉTAPE 2. PAGE DYNAMIQUE AVOCATS
 ===============================================================================
 
-Même endroit, sur la page dynamique des Avocats. Ici il n'y a pas de balisage à
-injecter : les avocats sont déjà décrits dans le JSON-LD d'identité que j'ai posé
-dans le head du site. Seul og:type est à corriger.
+FAIT PAR API LE 26 AOÛT 2026. NE COLLE PLUS CE CODE.
+
+og:type vaut déjà profile sur les fiches avocats. Le gabarit SEO de leur page
+dynamique n'utilisait, pour son titre, qu'une variable que l'API accepte, j'ai
+donc pu l'étendre à distance, sans éditeur et sans publication.
+
+Le code ci-dessous est conservé pour mémoire seulement. Le coller ferait doublon
+avec le gabarit, sans bénéfice.
+
+Pour mémoire : les avocats sont par ailleurs déjà décrits dans le JSON-LD
+d'identité posé dans le head du site.
 
 -------------------------------------------------------------------------------
 import { seo } from '@wix/site-seo';

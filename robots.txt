@@ -1,0 +1,75 @@
+User-agent: *
+Allow: /
+Disallow: *?lightbox=
+
+# Optimization for Google Ads Bot
+User-agent: AdsBot-Google-Mobile
+User-agent: AdsBot-Google
+Disallow: /_partials*
+Disallow: /pro-gallery-webapp/v1/galleries/*
+
+# Block PetalBot
+User-agent: PetalBot
+Disallow: /
+
+# Crawl delay for overly enthusiastic bots
+User-agent: dotbot
+Crawl-delay: 10
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+# Agents des moteurs generatifs et des modeles de langage
+# Acces autorise a l'ensemble du site, decision du cabinet Huglo Lepage Avocats.
+# Une section nommee remplace la section generique pour l'agent concerne : le
+# Disallow ci-dessous reprend donc, pour chacun, l'exclusion des URL de lightbox
+# declaree dans la section generique.
+
+User-agent: GPTBot
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: Google-Extended
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: *?lightbox=
+
+# Agents dont le cabinet demandait l'arbitrage explicite.
+# Traitement aligne sur celui des agents ci-dessus : acces ouvert, lightbox exclue.
+# Fermer l'un d'eux se fait en remplacant son Allow: / par Disallow: /
+
+User-agent: CCBot
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: Amazonbot
+Allow: /
+Disallow: *?lightbox=
+
+User-agent: Bytespider
+Allow: /
+Disallow: *?lightbox=
+
+Sitemap: https://www.huglo-lepage.com/sitemap.xml
