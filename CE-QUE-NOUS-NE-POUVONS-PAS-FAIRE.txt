@@ -1,0 +1,90 @@
+===============================================================================
+CE QUI N'EST PAS FAISABLE DE NOTRE CÔTÉ, ET POURQUOI
+Note interne, à garder sous la main quand Roxane relance
+===============================================================================
+
+1. LE BALISAGE PAR FICHE PAR LE PANNEAU DE CODE PERSONNALISÉ
+
+Impossible. Le panneau cible des pages, pas des adresses. Les douze fiches sont
+douze contenus d'une seule page dynamique, qui porte un identifiant unique. Un bloc
+posé là sort à l'identique sur les douze. Conditionner dans le bloc voudrait dire
+du JavaScript navigateur, ce que le cabinet refuse.
+
+Ce n'est pas une question de droits : le ciblage par page est en lecture seule côté
+API, et de toute façon il n'existe qu'un identifiant pour les douze.
+
+Seule voie : seo.setStructuredData() dans le code de la page dynamique. Ça demande
+un collage dans l'éditeur, nous ne pouvons pas le faire à distance.
+
+
+2. og:type
+
+Impossible par API. La valeur vient du gabarit de la page dynamique, et l'API Wix
+refuse de réécrire ce gabarit dès qu'il contient une variable de collection. Erreur
+littérale, à ressortir si on nous la demande :
+
+    INVALID_ARGUMENT: Pattern for pageType "WIX_DATA_PAGE_ITEM" references
+    unknown variable(s): wix-data-page-item.EXPERTISES.mtaDescription,
+    wix-data-page-item.EXPERTISES.title
+
+Passer outre ferait perdre les douze meta descriptions. Le code de page le règle.
+
+
+3. TOUT CE QUI TOUCHE À LA STRUCTURE D'UNE PAGE
+
+Impossible par API, sans exception. Wix n'expose aucune commande pour modifier la
+structure d'une page à distance. Cela couvre :
+
+  - le H1 du bloc newsletter et la hiérarchie du pied de page ;
+  - les H5 du menu et la colonne PUBLICATIONS sans titre ;
+  - l'absence de H2 sur la page d'accueil ;
+  - les libellés d'ancres « Add » ;
+  - la suppression du titre « Équipe dédiée » et le passage des noms de H4 à H3 ;
+  - le déplacement du carrousel ;
+  - les identifiants d'ancre du sommaire ;
+  - la suppression de l'entrée « Balisage d'image » dans le panneau.
+
+Tout cela est de l'éditeur. Ce n'est pas une limite de permission.
+
+
+4. L'ORDRE DU CARROUSEL PAR MATIÈRE
+
+Impossible sans code. Un répéteur Wix trie sur un champ de la collection des
+avocats, et ce champ ne porte qu'un ordre unique pour tout le cabinet. Le champ
+ordreAvocats est créé et rempli pour les douze fiches, il attend d'être exploité.
+
+
+5. L'AFFICHAGE CONDITIONNEL DES BLOCS VIDES
+
+Aucun réglage ne le permet sur une page dynamique. Seul du code le ferait.
+
+
+6. L'ANCIEN SITE
+
+Nous n'avons pas les accès. Nous ne pouvons donc produire ni l'inventaire des
+anciennes adresses, ni traiter www2 et dev, ni déposer les demandes de suppression
+en Search Console. Ce que nous pouvons donner : l'état des 93 redirections en place
+sur le site actuel.
+
+
+7. LA VÉRIFICATION EN LIGNE
+
+Nous n'avons pas d'accès réseau au domaine depuis nos outils. Toutes nos
+vérifications sont des relectures par API après écriture. Le contrôle du rendu et
+du code source servi se fait de votre côté.
+
+
+===============================================================================
+CE QUI A ÉTÉ FAIT DEPUIS LE DERNIER MAIL
+===============================================================================
+
+  - robots.txt : exclusion des lightbox reprise dans les 12 groupes nommés,
+    et arbitrage de CCBot, meta-externalagent, Bytespider, Amazonbot.
+  - /blank-1 redirigé en 301 vers la racine.
+  - Les 9 réponses de la FAQ reconstruites en extraits littéraux du texte publié,
+    par extraction automatique, avec vérification que chaque réponse est bien un
+    préfixe exact du texte de la page. Les références amputées sont rétablies.
+  - Champ dateMaj créé, renseigné au 4 août 2026 pour l'Urbanisme.
+  - Champ ordreAvocats créé et rempli pour les 12 fiches.
+  - Image sociale renseignée sur les 12 fiches.
+  - 12 redirections /equipe-2/ vers /avocats/.

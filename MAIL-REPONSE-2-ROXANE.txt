@@ -1,0 +1,142 @@
+Objet : Re, site huglo-lepage.com, suite de vos vérifications
+
+Bonjour Maître,
+
+Vos vérifications sont exactes sur tous les points, y compris celui que nous
+n'avions pas vu. Voici où nous en sommes, en distinguant ce qui est corrigé depuis
+votre message de ce qui reste, et pourquoi.
+
+Date d'exécution pour le solde : [À COMPLÉTER]
+
+
+1. Le balisage par fiche n'est pas servi
+
+Vous avez raison, et votre diagnostic est le bon. Le panneau de balisage n'émet pas
+le graphe : ce que vous voyez entre les balises Open Graph et Twitter est le bloc
+vide que Wix produit par défaut. Le travail est fait, sa livraison échoue.
+
+Vous nous demandez de le servir par le canal du code personnalisé, avec un bloc
+conditionné à l'adresse de la page. Nous vous devons l'obstacle précis, comme vous
+le demandez.
+
+Le panneau de code personnalisé cible des pages, et non des adresses. Or vos douze
+fiches ne sont pas douze pages : ce sont douze contenus servis par une seule page
+dynamique, qui porte un identifiant unique. Un bloc déposé dans ce panneau et
+restreint à cette page serait donc émis à l'identique sur les douze fiches, ce qui
+reviendrait à déclarer douze fois le même nœud WebPage sur douze adresses
+différentes. Conditionner à l'intérieur du bloc supposerait du JavaScript exécuté
+par le navigateur, c'est-à-dire exactement ce que vous refusez à juste titre. C'est
+pour la même raison que le graphe d'identité, lui, passe sans difficulté : il est
+identique sur toutes les pages, il n'a rien à conditionner.
+
+La voie qui fonctionne est l'interface SEO documentée par Wix, appelée dans le code
+de la page dynamique. Wix précise que l'appel doit être fait dans onReady()
+« to ensure search engines can read it », et cette interface remplace le balisage
+que Wix génère par défaut. Trois conséquences pour vous :
+
+  - chaque fiche émet son propre graphe, construit sur son adresse ;
+  - la FAQ redevient possible, la limite que nous vous décrivions ne valant que
+    pour le panneau ;
+  - le bloc vide et le nœud ImageObject isolé que vous relevez disparaissent, étant
+    précisément ce que ce mécanisme remplace.
+
+Le code est écrit. Nous le déployons dès votre accord, et og:type est inclus dans
+le même geste, en « article » sur les fiches Expertise et en « profile » sur les
+fiches avocats.
+
+
+2. La fidélité des réponses de la FAQ
+
+Votre relevé est juste, et le point est sérieux. Les neuf réponses ont été
+reprises. Chacune est désormais un extrait littéral de la page, obtenu par
+extraction automatique du texte publié et non par reformulation, coupé sur une fin
+de phrase et sans troncature de référence.
+
+Les six réponses que vous signaliez sont rétablies dans leur intégralité. Les
+références amputées sont revenues : (C. urb., art. R. 424-17) sur la validité du
+permis, (C. urb., art. L. 600-7) sur le recours abusif, la mention de la
+notification comme formalité insusceptible de régularisation. La réponse relative à
+la CDPENAF reprend désormais votre texte mot pour mot, « lie l'autorité instructrice
+et conduit en pratique au refus de l'autorisation. Il n'est pas pour autant
+insusceptible de critique », suivi du raisonnement sur la compétence liée. Celle
+relative au sursis à statuer « ZAN » rétablit la base légale, l'article 194 IV 14°
+de la loi Climat et résilience dans sa rédaction issue de la loi du 20 juillet 2023.
+
+Nous vous soumettons ces neuf réponses avant toute mise en ligne. Elles engagent
+votre signature, elles ne partiront pas sans votre validation.
+
+
+3. Corrigé depuis votre message
+
+Le robots.txt. Votre remarque est fondée, une section nommée remplace bien la
+section générique. Les sept agents avaient perdu l'exclusion des lightbox, elle est
+reprise dans chacun. Nous avons par ailleurs arbitré les quatre agents que vous
+citez, CCBot, meta-externalagent, Bytespider et Amazonbot, en leur appliquant le
+même traitement qu'aux sept premiers, autorisation d'accès et exclusion des
+lightbox, par cohérence avec la décision déjà prise. Douze groupes nommés portent
+désormais l'exclusion. Un mot de votre part suffit pour fermer l'un d'eux.
+
+/blank-1. Cette page servait le contenu de la page d'accueil. Elle est désormais
+redirigée en 301 vers la racine, elle ne duplique donc plus rien et sortira du
+sitemap à sa prochaine génération.
+
+
+4. Vos questions
+
+La page « Plan du site » n'existe pas. C'est la réponse exacte, et elle explique
+votre 404. La page qui portait ce titre était /blank-1, dont le contenu était celui
+de l'accueil. Le lien « Site map » du pied de page pointe vers le fichier XML,
+lequel s'adresse aux moteurs et non aux visiteurs. Deux options, à votre choix :
+renommer ce lien en français en assumant qu'il mène au fichier XML, ou construire
+une véritable page de plan du site. Dites-nous ce que vous préférez.
+
+Les deux balises google-site-verification. Elles sont bien deux, de valeurs
+différentes, l'une posée dans les réglages SEO du site, l'autre dans le code
+personnalisé :
+
+    o3_kXYahzM3BOvM-aj3DHzTPJSGAFRDF5c6i4Horflg
+    rh34Kr1r_7qnekVhqlAkLgfL2eIu_LtuTolxIMrxHYI
+
+Nous ne savons pas laquelle correspond à la propriété Search Console que vous
+utilisez, et nous ne voulons pas supprimer celle qui vous sert. Indiquez-nous
+laquelle conserver, nous retirons l'autre.
+
+L'ancien site. Nous devons vous dire franchement que nous n'avons pas les accès à
+l'ancien site. Nous ne pouvons donc pas en produire l'inventaire exhaustif des
+adresses : nous n'intervenons que sur le nouveau. Ce que nous pouvons vous
+transmettre, et qui accompagne ce message, est l'état complet des redirections en
+place sur le site actuel, soit quatre-vingt-treize entrées, sans chaîne ni cible
+morte. Pour le reste, www2 qui répond en 401 et dev dont le certificat ne couvre
+pas le nom relèvent de l'hébergement et non du site Wix. Si le cabinet nous ouvre
+ces accès, nous traitons ces deux sous-domaines et les demandes de suppression en
+Search Console.
+
+
+5. Le calendrier que vous demandez
+
+Vous avez raison, il ne vous a pas été transmis. Le voici.
+
+    Déploiement du balisage par fiche et d'og:type ......... [DATE]
+    Libellés des ancres « Add » ........................... [DATE]
+    Hiérarchie du pied de page, du menu et de l'accueil .... [DATE]
+    Bloc « Nos avocats » et carrousel ..................... [DATE]
+    Instructions de reprise des trois fiches ci-dessous .... [DATE]
+
+Sur les ancres « Add », nous prenons acte de votre remarque, y compris sur le
+critère 6.1 du RGAA, qui est fondée. Les liens vers les fiches avocats porteront le
+nom de l'avocat, ceux vers les expertises l'intitulé de l'expertise, renseignés et
+non masqués.
+
+Sur la hiérarchie, nous avons bien noté que le pied de page reste imparfait, que la
+colonne PUBLICATIONS n'est balisée par aucun titre, et que la page d'accueil ne
+comporte aucun H2 quand ses titres de sections sont en H5. Ces trois points sont
+traités ensemble lors de la même intervention.
+
+Sur les fiches pénal de l'environnement, environnement industriel et crédits
+carbone, les instructions de reprise vous parviennent séparément à la date
+ci-dessus.
+
+Nous restons à votre disposition et vous prions d'agréer, Maître, l'expression de
+nos salutations les meilleures.
+
+Nicolas Manès & Jordan Assogba
