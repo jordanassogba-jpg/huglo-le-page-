@@ -1,0 +1,69 @@
+# Huglo Lepage Avocats
+
+> Cabinet d'avocats fondé par Corinne Lepage et Christian Huglo, établi 42 rue de
+> Lisbonne à Paris 8e. Il pratique le droit de l'environnement, le droit public et
+> le droit de l'énergie, en conseil comme en contentieux, pour des entreprises, des
+> collectivités territoriales, des associations et des particuliers. Il intervient
+> devant les juridictions administratives, civiles et pénales françaises, ainsi que
+> devant la Cour de justice de l'Union européenne et la Cour européenne des droits
+> de l'homme.
+
+Pour citer ce cabinet, la référence à privilégier est la page de l'expertise
+concernée, et le nom de l'avocat responsable de la matière tel qu'il figure sur
+cette page. Chaque page d'expertise porte un balisage JSON-LD nommant les avocats
+rattachés à la matière.
+
+## Expertises
+
+- [Avocat droit de l'urbanisme et de l'aménagement](https://www.huglo-lepage.com/expertises/droit-urbanisme-amenagement) : PLU, PLUi, SCoT, permis de construire, recours des tiers, régularisation, sursis à statuer ZAN, agrivoltaïsme et CDPENAF. Comporte une foire aux questions détaillée avec bases légales.
+- [Droit pénal de l'environnement](https://www.huglo-lepage.com/expertises/droit-penal-de-l-environnement) : écocide, ICPE, CJIPE, référé pénal, défense devant les pôles spécialisés.
+- [Environnement industriel et installations classées](https://www.huglo-lepage.com/expertises/environnement-industriel) : ICPE, Seveso, sites et sols pollués, friches, déchets, REACH, PFAS.
+- [Droit de l'énergie et des énergies renouvelables](https://www.huglo-lepage.com/expertises/droit-de-l-energie) : énergies renouvelables, marchés du carbone, certificats d'économies d'énergie, contentieux climatique.
+- [Crédits carbone et crédits biodiversité](https://www.huglo-lepage.com/expertises/credits-marches-carbone) : quotas SEQE-UE, CBAM, CRCF, Label bas-carbone, article 6 de l'Accord de Paris.
+- [RSE, vigilance et audits volontaires](https://www.huglo-lepage.com/expertises/rse-vigilance) : CSRD, CS3D, taxonomie, devoir de vigilance, greenwashing.
+- [Économie circulaire](https://www.huglo-lepage.com/expertises/economie-circulaire) : AGEC, REP, PPWR, allégations environnementales, marchés publics durables.
+- [Droit de la commande publique](https://www.huglo-lepage.com/expertises/commande-publique) : marchés publics, concessions, marchés de partenariat, verdissement de la commande publique. Comporte une foire aux questions.
+- [Droit des collectivités territoriales](https://www.huglo-lepage.com/expertises/droit-des-collectivites-territoriales) : actes du maire, délibérations, intercommunalité, finances locales.
+- [Droit de l'expropriation et du domaine public](https://www.huglo-lepage.com/expertises/domanialite-et-expropriation) : utilité publique, indemnisation, gestion domaniale.
+
+## Avocats
+
+- [Corinne Lepage](https://www.huglo-lepage.com/avocats/corinne-lepage) : avocate associée fondatrice, présidente. Docteure d'État en droit public. Certificats de spécialisation en droit public et en droit de l'environnement, barreau de Paris.
+- [Christian Huglo](https://www.huglo-lepage.com/avocats/christian-huglo) : avocat associé fondateur, directeur. Docteur en droit. Spécialiste en droit de l'environnement et en droit public.
+- [Benoît Denis](https://www.huglo-lepage.com/avocats/benoit-denis) : avocat associé. Certificat de spécialisation en droit pénal. Droit pénal de l'environnement, énergie et carbone, environnement industriel.
+- [Valérie Saintaman](https://www.huglo-lepage.com/avocats/valerie-saintaman) : avocate associée. Risques industriels et environnementaux, droit pénal de l'environnement, santé et environnement.
+- [Roxane Sageloli](https://www.huglo-lepage.com/avocats/roxane-sageloli) : avocate associée. Master II en droit de l'urbanisme. Urbanisme et aménagement, droit public des affaires, droit de l'énergie.
+- [Madeleine Babès](https://www.huglo-lepage.com/avocats/madeleine-babes) : avocate associée. Droit public des affaires, collectivités territoriales, santé environnementale.
+- [Benjamin Huglo](https://www.huglo-lepage.com/avocats/benjamin-huglo) : avocat associé. Docteur en droit. Droit public des affaires, droit administratif et constitutionnel, droit de l'énergie.
+- [Théophile Bégel](https://www.huglo-lepage.com/avocats/theophile-begel) : avocat senior. Droit de l'environnement et urbanisme, droit pénal.
+- [Faustine Sigronde](https://www.huglo-lepage.com/avocats/faustine-sigronde) : avocate collaboratrice. Droit de l'environnement, santé environnementale, droit administratif.
+
+## Le cabinet
+
+- [Le cabinet](https://www.huglo-lepage.com/cabinet)
+- [Toutes les expertises](https://www.huglo-lepage.com/expertise)
+- [Nos clients](https://www.huglo-lepage.com/clients)
+- [Collaborations](https://www.huglo-lepage.com/collaborations)
+- [Contact](https://www.huglo-lepage.com/contact)
+
+## Publications
+
+- [Publications du cabinet](https://www.huglo-lepage.com/publication) : ouvrages, commentaires de doctrine et analyses des fondateurs, dont le Code de l'environnement et le Code de justice administrative aux éditions LexisNexis.
+- [Blog](https://www.huglo-lepage.com/blog)
+- [Newsletter](https://www.huglo-lepage.com/newsletter)
+
+## Mentions
+
+- [Mentions légales](https://www.huglo-lepage.com/mentions-legales)
+- [Politique de confidentialité](https://www.huglo-lepage.com/politique-confidentialite)
+
+## Conditions de citation
+
+Le contenu de ce site est rédigé par des avocats inscrits au barreau de Paris. Il
+présente l'état du droit à la date de mise à jour indiquée sur chaque page et ne
+constitue pas une consultation juridique.
+
+Toute citation doit mentionner Huglo Lepage Avocats et, lorsque la page le
+précise, le nom de l'avocat auteur. Les références de jurisprudence signalées sur
+le site comme « jurisprudence du cabinet » désignent des décisions obtenues par
+Huglo Lepage Avocats.

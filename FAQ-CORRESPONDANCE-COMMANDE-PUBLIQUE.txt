@@ -1,0 +1,151 @@
+===============================================================================
+FICHE COMMANDE PUBLIQUE, FAQ : CORRESPONDANCE DU BALISAGE AU TEXTE DE LA PAGE
+===============================================================================
+
+Etabli le [DATE A COMPLETER]. Fiche /expertises/commande-publique.
+
+Cette fiche affichait six questions frequentes sur la page, sous le titre
+« FAQ : Droit des contrats et marches publics », et son balisage n'en portait
+aucune. Les six sont desormais balisees, en texte litteral.
+
+Nous ne les avons pas redigees : elles etaient deja dans votre gestionnaire de
+contenu, publiees depuis le 2 juin 2026.
+
+-------------------------------------------------------------------------------
+Q1  Comment choisir un avocat en commande publique ?
+-------------------------------------------------------------------------------
+  QUESTION AFFICHEE SUR LA PAGE
+    Q1 : Comment choisir un avocat en commande publique ?
+  QUESTION BALISEE (numerotation d'affichage retiree)
+    Comment choisir un avocat en commande publique ?
+
+  REPONSE BALISEE
+    Il est conseillé de choisir librement votre avocat en vérifiant son
+    expérience en droit public, sa connaissance des collectivités et sa
+    capacité à gérer les opérations tant en conseil (passation) qu'en
+    contentieux.
+
+  CONTROLE
+    identique au texte affiche ......... oui
+    question presente sur la page ...... oui
+    longueur ........................... 214 caracteres
+
+-------------------------------------------------------------------------------
+Q2  Quelles sont les étapes de passation d'un marché public ?
+-------------------------------------------------------------------------------
+  QUESTION AFFICHEE SUR LA PAGE
+    Q2 : Quelles sont les étapes de passation d'un marché public ?
+  QUESTION BALISEE (numerotation d'affichage retiree)
+    Quelles sont les étapes de passation d'un marché public ?
+
+  REPONSE BALISEE
+    La procédure comprend : la définition préalable du besoin, la rédaction
+    des pièces du marché, la publication de l'avis d'appel à la concurrence,
+    la réception et l'analyse des candidatures et des offres, les
+    éventuelles phases de négociation, l'attribution au candidat proposant
+    l'offre économiquement la plus avantageuse, et enfin la notification.
+
+  CONTROLE
+    identique au texte affiche ......... oui
+    question presente sur la page ...... oui
+    longueur ........................... 347 caracteres
+
+-------------------------------------------------------------------------------
+Q3  Quels sont les droits des acheteurs publics ?
+-------------------------------------------------------------------------------
+  QUESTION AFFICHEE SUR LA PAGE
+    Q3 : Quels sont les droits des acheteurs publics ?
+  QUESTION BALISEE (numerotation d'affichage retiree)
+    Quels sont les droits des acheteurs publics ?
+
+  REPONSE BALISEE
+    Le pouvoir adjudicateur a le droit de définir librement ses exigences
+    (techniques, financières, environnementales), de modifier le contrat
+    unilatéralement pour un motif d'intérêt général, et d'exiger une
+    garantie de la part du titulaire, le tout dans les limites posées
+    notamment par le code de la commande publique.
+
+  CONTROLE
+    identique au texte affiche ......... oui
+    question presente sur la page ...... oui
+    longueur ........................... 316 caracteres
+
+-------------------------------------------------------------------------------
+Q4  Comment contester un marché public ?
+-------------------------------------------------------------------------------
+  QUESTION AFFICHEE SUR LA PAGE
+    Q4 : Comment contester un marché public ?
+  QUESTION BALISEE (numerotation d'affichage retiree)
+    Comment contester un marché public ?
+
+  REPONSE BALISEE
+    Une entreprise s'estimant lésée peut saisir le tribunal via un référé
+    précontractuel (avant signature) pour stopper la procédure, ou un référé
+    contractuel / recours au fond (après signature) pour demander
+    l'annulation ou une indemnisation.
+
+  CONTROLE
+    identique au texte affiche ......... oui
+    question presente sur la page ...... oui
+    longueur ........................... 239 caracteres
+
+-------------------------------------------------------------------------------
+Q5  Quels sont les enjeux de la commande publique ?
+-------------------------------------------------------------------------------
+  QUESTION AFFICHEE SUR LA PAGE
+    Q5 : Quels sont les enjeux de la commande publique ?
+  QUESTION BALISEE (numerotation d'affichage retiree)
+    Quels sont les enjeux de la commande publique ?
+
+  REPONSE BALISEE
+    Ils sont multiples : efficacité de l'action de l'administration,
+    stimulation économique du tissu entrepreneurial local et notamment des
+    TPE/PME, et accélération de la transition écologique via le verdissement
+    des achats publics.
+
+  CONTROLE
+    identique au texte affiche ......... oui
+    question presente sur la page ...... oui
+    longueur ........................... 228 caracteres
+
+-------------------------------------------------------------------------------
+Q6  Comment gérer la phase d'exécution d'un marché ?
+-------------------------------------------------------------------------------
+  QUESTION AFFICHEE SUR LA PAGE
+    Q6 : Comment gérer la phase d'exécution d'un marché ?
+  QUESTION BALISEE (numerotation d'affichage retiree)
+    Comment gérer la phase d'exécution d'un marché ?
+
+  REPONSE BALISEE
+    Cette phase implique une parfaite maitrise des documents contractuels,
+    un suivi rigoureux des prestations techniques, le règlement financier
+    via les décomptes, et la gestion des avenants en cas de modification du
+    secteur ou du besoin initial. L'assistance d'un expert juridique est
+    souvent requise en cas de retard ou de pénalités.
+
+  CONTROLE
+    identique au texte affiche ......... oui
+    question presente sur la page ...... oui
+    longueur ........................... 331 caracteres
+
+-------------------------------------------------------------------------------
+RECAPITULATIF
+-------------------------------------------------------------------------------
+  Questions affichees sur la page ................... 6
+  Questions balisees avant .......................... 0
+  Questions balisees apres .......................... 6
+  Reponses identiques au texte affiche .............. 6 sur 6
+
+  Longueur du graphe de la fiche avant .......... 1 451 caracteres
+  Longueur du graphe de la fiche apres .......... 3 743 caracteres
+
+Deux remarques de forme, sans incidence sur le balisage.
+
+Les six questions sont affichees en paragraphe gras souligne et non en titre.
+Les passer en titre de niveau 3, comme sur la fiche Urbanisme, rendrait le plan
+de la page lisible et permettrait un sommaire. C'est un geste d'editeur.
+
+La reponse a la premiere question est enregistree dans une balise de code
+informatique dans votre gestionnaire de contenu. Elle s'affiche donc
+probablement en police a chasse fixe, differente du reste de la page. A verifier
+a l'ecran, la correction se fait en deux clics.

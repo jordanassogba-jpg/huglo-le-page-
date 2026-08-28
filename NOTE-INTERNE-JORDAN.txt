@@ -275,3 +275,26 @@ Le champ prenom de la collection EQUIPE contient le nom complet, pas le prenom,
 pour les douze avocats. Ce n'est pas genant maintenant que la description utilise
 main-collection-primary-field, mais si quelqu'un se sert un jour de prenom en
 croyant avoir un prenom, il aura le nom complet.
+
+
+===============================================================================
+SECONDE PASSE DU 28 AOUT 2026
+===============================================================================
+
+Voir NOUVELLES-TROUVAILLES.txt, tout y est detaille. Resume de ce qui a bouge
+en ligne :
+
+  - FAQ de la fiche Commande publique : 6 questions balisees, 0 avant. Elles
+    venaient de la collection FAQEXPERTISES, publiees le 2 juin, affichees sur
+    la page et absentes du balisage. Verifiees identiques a l'affichage.
+  - Gabarit SEO de la page dynamique NOS CLIENTS (dp82b) : la description
+    annoncait « Expertise en Particuliers ». Corrigee sur les 4 pages.
+
+Deux choses a retenir pour la suite :
+
+  - dp82b est identifiee. Ce n'etait pas une ancienne page Expertise, c'est
+    NOS CLIENTS. La piste EXPERTISES_TEMP_RESTORE etait fausse sur ce point,
+    mais cette collection pose un autre probleme, voir NOUVELLES-TROUVAILLES C.2.
+  - Je n'ai aucun acces reseau au domaine, c'est la politique de sortie de mon
+    environnement et non une limite de Wix. Le controle du code source servi ne
+    peut etre fait que par toi. C'est structurel, ca ne changera pas.
