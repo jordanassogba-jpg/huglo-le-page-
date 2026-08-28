@@ -103,9 +103,18 @@ personnalisé :
     o3_kXYahzM3BOvM-aj3DHzTPJSGAFRDF5c6i4Horflg
     rh34Kr1r_7qnekVhqlAkLgfL2eIu_LtuTolxIMrxHYI
 
-Nous ne savons pas laquelle correspond à la propriété Search Console que vous
-utilisez, et nous ne voulons pas supprimer celle qui vous sert. Indiquez-nous
-laquelle conserver, nous retirons l'autre.
+Laquelle est active ne se lit ni dans le site ni par une interface de
+programmation : l'API de validation de Google expose les propriétés vérifiées et
+leurs propriétaires, jamais le jeton qui a servi à les valider. La réponse se
+trouve en revanche dans votre Search Console, à Paramètres puis Validation de la
+propriété : l'écran affiche la méthode en vigueur et, pour la balise HTML, le jeton
+correspondant. Il suffit de le comparer aux deux valeurs ci-dessus.
+
+Notre hypothèse, à confirmer par cet écran, est que la première est celle que Wix a
+posée lors de la connexion à Search Console, la seconde ayant été ajoutée à la main
+dans le code personnalisé. Sauf indication contraire de votre part, nous
+conserverons la première et retirerons la seconde. Précisons que les garder toutes
+les deux ne nuit pas : Google n'exige qu'une correspondance.
 
 L'ancien site. Nous devons vous dire franchement que nous n'avons pas les accès à
 l'ancien site. Nous ne pouvons donc pas en produire l'inventaire exhaustif des
