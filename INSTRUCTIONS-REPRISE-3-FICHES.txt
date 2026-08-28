@@ -1,0 +1,125 @@
+===============================================================================
+INSTRUCTIONS DE REPRISE
+Droit pénal de l'environnement, Environnement industriel, Crédits carbone
+===============================================================================
+
+Méthode : nous avons mesuré ces trois fiches et la fiche Urbanisme, qui sert de
+référence depuis sa reprise. L'écart n'est pas une impression, il se chiffre.
+
+
+LE RELEVÉ
+
+                              Urbanisme   Pénal env.  Env. indus.  Carbone
+    Mots                          8 014       3 861       6 134      2 207
+    Titres H2                        12           6          16          3
+    Titres H3                        26          22           8         15
+    Sommaire « Sur cette page »     oui         non         non        non
+    Bloc auteur                     oui         non         non        non
+    Bloc contact                    oui         non         non        non
+    Bloc « Nos avocats en... »      oui         non         non        non
+    Citations de juridictions        23           0           2          1
+    Mentions « jurisprudence
+    du cabinet »                      7           0           0          0
+
+
+CE QUE CE RELEVÉ DIT
+
+Trois manques sont communs aux trois fiches, et ce sont les plus lourds.
+
+Aucune ne porte de bloc auteur. La fiche Urbanisme nomme son auteure, son barreau,
+son année de prestation de serment et son référencement. C'est le signal
+d'expertise le plus direct qu'une page puisse porter, et c'est celui que le cabinet
+a lui-même désigné comme décisif. Son absence sur trois fiches sur douze est
+l'écart le plus coûteux du lot.
+
+Aucune ne cite de décision. Zéro, deux et une, contre vingt-trois. Une page de
+droit qui n'énonce aucune décision reste une page de présentation. C'est ce qui
+sépare une fiche qui informe d'une fiche qui fait autorité.
+
+Aucune ne revendique de jurisprudence du cabinet. La fiche Urbanisme le fait sept
+fois, en signalant les décisions obtenues par le cabinet. C'est une preuve
+d'antériorité que personne d'autre ne peut copier.
+
+À quoi s'ajoutent, sur les trois, l'absence de sommaire, de bloc contact et de bloc
+« Nos avocats en [matière] ».
+
+
+FICHE PAR FICHE, PAR ORDRE DE PRIORITÉ
+
+1. CRÉDITS CARBONE ET CRÉDITS BIODIVERSITÉ
+
+C'est la plus faible des trois, et de loin. 2 207 mots et trois titres H2 seulement,
+dont un intitulé « L'accompagnement de Huglo Lepage Avocats » placé en tête. La
+page s'ouvre donc sur le cabinet avant d'avoir traité la matière.
+
+  a. Réordonner. La matière d'abord, le cabinet ensuite. « Les enjeux juridiques
+     des marchés carbone » doit précéder « L'accompagnement ».
+  b. Éclater le corps en sections autonomes. La meta description annonce déjà les
+     sujets : quotas SEQE-UE, CBAM, CRCF, Label bas-carbone, article 6 de l'Accord
+     de Paris, crédits biodiversité. Chacun mérite son H2. On passe de trois à sept
+     ou huit.
+  c. Viser 5 000 à 6 000 mots. Le doublement n'est pas un objectif de volume, il
+     découle du a et du b.
+  d. Ajouter les décisions et les textes datés, comme le fait la fiche Urbanisme
+     pour chaque réforme.
+
+2. DROIT PÉNAL DE L'ENVIRONNEMENT
+
+3 861 mots, six H2 mais vingt-deux H3 : la structure est déséquilibrée, l'essentiel
+du contenu est enfoui à un niveau trop bas pour être lu comme une section.
+
+  a. Remonter en H2 les sous-sections qui traitent une matière autonome. Six H2
+     pour vingt-deux H3 signifie que des sujets entiers sont traités en sous-partie.
+  b. Homogénéiser l'intitulé de la FAQ. La fiche porte « FAQ : comprendre le droit
+     pénal de l'environnement », les autres portent « Questions fréquentes ». Une
+     seule formulation sur les douze fiches.
+  c. Documenter le contentieux. Zéro citation de juridiction sur une matière
+     pénale est le défaut le plus visible de cette fiche. Écocide, ICPE, CJIPE et
+     référé pénal appellent chacun une décision.
+  d. Le H2 « Références d'affaires » est une bonne base : c'est là que doivent
+     figurer les mentions « jurisprudence du cabinet ».
+
+3. ENVIRONNEMENT INDUSTRIEL ET INSTALLATIONS CLASSÉES
+
+6 134 mots, c'est la plus fournie des trois. Son problème est inverse : seize H2
+pour huit H3. La page est plate et fragmentée, seize sections de même niveau sans
+hiérarchie entre elles.
+
+  a. Regrouper. Seize H2 doivent devenir huit à dix, les autres passant en H3 sous
+     leur section de rattachement. Par exemple « Produits chimiques et gaz fluorés »,
+     « Eau, air, bruit et nuisances » et « Fiscalité environnementale » relèvent de
+     regroupements plus larges.
+  b. Renommer « Notre accompagnement » en « Notre accompagnement en droit de
+     l'environnement industriel », comme le cabinet l'a demandé pour l'urbanisme.
+  c. Compléter les citations, deux décisions sur une matière aussi contentieuse
+     étant très en deçà.
+
+
+CE QUI S'APPLIQUE AUX TROIS, SANS EXCEPTION
+
+  1. Bloc auteur en fin de corps de page, sur le modèle exact de la fiche
+     Urbanisme : nom, qualité, matières, barreau et année, référencement, adresse
+     du cabinet, date de dernière mise à jour, avertissement juridique.
+  2. Bloc contact, sur le même modèle.
+  3. Titre H2 « Nos avocats en [intitulé de la matière] » en dernière position,
+     suivi des avocats de la matière dans l'ordre validé par le cabinet. Cet ordre
+     est déjà enregistré dans le gestionnaire de contenu pour les douze fiches.
+  4. Sommaire « Sur cette page » après le chapeau introductif, reprenant
+     exactement les titres H2 de la page, ni plus ni moins.
+  5. Une FAQ dont chaque réponse est un extrait littéral du corps de la page. La
+     règle vaut désormais pour toutes les fiches : une réponse balisée qui s'écarte
+     du texte publié est appelée à être citée telle quelle sous la signature du
+     cabinet.
+  6. Une date de mise à jour renseignée, le champ existe désormais dans le
+     gestionnaire de contenu.
+
+
+ORDRE DE TRAITEMENT RECOMMANDÉ
+
+Crédits carbone d'abord, l'écart y étant le plus grand pour l'effort le plus
+faible. Droit pénal ensuite, la restructuration des niveaux de titre étant
+mécanique. Environnement industriel en dernier, le regroupement des seize sections
+demandant un arbitrage éditorial du cabinet.
+
+Les points 1 à 4 de la liste commune peuvent être appliqués aux trois fiches sans
+attendre la réécriture, et produisent un effet immédiat.
