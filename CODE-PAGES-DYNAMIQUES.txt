@@ -1,89 +1,39 @@
 ===============================================================================
-LIRE CECI D'ABORD : POURQUOI LE PANNEAU WIX REFUSE LA VARIABLE
+CODE À COLLER, VERSION FINALE
+Le cabinet a donné son accord. Trois collages, puis publier.
 ===============================================================================
 
-Ce que tu as vu à l'écran est normal, et ce n'est pas une erreur de ta part.
+CE QUE CE CODE FAIT
+  - chaque fiche Expertise émet son propre graphe JSON-LD, construit sur son
+    adresse : nœud WebPage, BreadcrumbList, rattachement aux avocats de la
+    matière, et la FAQ pour les deux fiches qui en portent une ;
+  - og:type passe à « article » sur les Expertises et à « profile » sur les
+    fiches avocats ;
+  - le bloc ld+json vide et le nœud ImageObject isolé disparaissent, parce que
+    setStructuredData remplace le balisage que Wix génère par défaut.
 
-La case « Rédigez votre balisage au format JSON-LD » est validée par Wix au moment
-où tu écris, pas au moment où la page est servie. À cet instant, la case ne contient
-pas du JSON : elle contient une puce de variable. Wix ne sait pas ce qu'il y aura
-dedans une fois la page affichée, il voit quelque chose qui n'est pas un objet JSON,
-et il refuse.
+OÙ IL VA
+Dans le code DE LA PAGE, pas dans celui du site. Un garde-fou est prévu dans les
+deux extraits : mal collé, le code s'arrête sans rien modifier.
 
-Autrement dit, la variable est acceptée seulement À L'INTÉRIEUR d'un JSON déjà
-valide, à la place d'une valeur. Jamais seule.
-
-Cela laisse deux chemins, et ils ne se valent pas.
-
-
-CHEMIN A, RECOMMANDÉ : LE CODE DE PAGE (étapes 0 à 3 ci-dessous)
-  Trois gestes. Couvre les douze fiches, le fil d'Ariane, og:type, et la FAQ de la
-  fiche Urbanisme. C'est le seul chemin qui fait sortir les neuf questions.
-
-CHEMIN B, SANS CODE : LE GABARIT JSON À TROUS (tout en bas de ce fichier)
-  Tu colles un JSON valide dans la case, puis tu remplaces huit emplacements par des
-  puces de variable. Ça marche pour les douze fiches, mais ça ne peut pas porter la
-  FAQ, parce qu'une FAQ est une structure et non une valeur.
+CE QUI EST DÉJÀ PRÊT DANS LE CMS, TU N'AS RIEN À Y FAIRE
+Les douze graphes sont écrits et contrôlés : URL, @id et fil d'Ariane cohérents
+sur les douze, description présente sur les douze, zéro anomalie.
 
 
 ===============================================================================
-AVANT TOUT, DEUX CLICS QUI RÈGLENT UN REPROCHE DU CABINET
+ÉTAPE 1. INSTALLER LES DEUX PAQUETS
 ===============================================================================
 
-Sur la capture, la section « Balisage de données structurées » contient déjà une
-entrée nommée « Balisage d'image ». C'est elle qui produit l'ImageObject généré
-automatiquement par Wix, celui que Roxane a relevé au point 2 de son audit et qui
-déclare la photo de carrousel de Benoît Denis comme image de la page.
-
-Supprime cette entrée. C'est deux clics, ça ne demande ni code ni arbitrage, et ça
-fait tomber un des défauts de sa liste.
-
-Fais-le que tu choisisses le chemin A ou le chemin B.
-
-
-===============================================================================
-CODE À COLLER DANS LES PAGES DYNAMIQUES
-===============================================================================
-
-TA QUESTION D'ABORD : EST-CE QUE ÇA S'APPLIQUE À TOUT LE SITE ?
-
-Non. Wix distingue deux endroits où coller du code :
-
-    Code du site .... s'exécute sur toutes les pages
-    Code de la page . s'exécute uniquement sur la page ouverte
-
-Tout ce qui suit va dans le CODE DE LA PAGE. Il ne tourne donc que sur la page
-dynamique concernée, et nulle part ailleurs.
-
-Et sur cette page dynamique, il ne produit pas le même résultat partout : il
-commence par regarder quelle fiche est affichée, va chercher le balisage de cette
-fiche-là dans le CMS, et n'applique que celui-ci. Douze fiches, douze balisages
-différents, un seul code.
-
-Par précaution, j'ai ajouté un garde-fou dans les deux extraits : si le code se
-retrouve par erreur sur une page qui n'est pas la bonne, il s'arrête sans rien
-modifier. Même mal collé, il ne peut rien casser.
-
-
-===============================================================================
-ÉTAPE 0. INSTALLER LES DEUX PAQUETS
-===============================================================================
-
-Une seule fois pour le site, depuis le gestionnaire de paquets du panneau de code
-de l'éditeur :
+Une seule fois pour le site, depuis le gestionnaire de paquets du panneau de code :
 
     @wix/site-seo
     @wix/site-location
 
-S'ils apparaissent déjà comme installés, passe à l'étape 1.
-
 
 ===============================================================================
-ÉTAPE 1. PAGE DYNAMIQUE EXPERTISES
+ÉTAPE 2. PAGE DYNAMIQUE EXPERTISES
 ===============================================================================
-
-Ouvre l'éditeur, va sur la page dynamique des Expertises, ouvre le panneau de code
-et vérifie que tu es bien dans le code DE LA PAGE, pas dans celui du site. Colle :
 
 -------------------------------------------------------------------------------
 import { seo } from '@wix/site-seo';
@@ -98,7 +48,6 @@ $w.onReady(async () => {
       .filter(Boolean)
       .join('/');
 
-    // Va chercher le balisage propre a cette fiche
     const res = await wixData
       .query('EXPERTISES')
       .eq('link-expertises-title', slug)
@@ -122,12 +71,8 @@ $w.onReady(async () => {
 
 
 ===============================================================================
-ÉTAPE 2. PAGE DYNAMIQUE AVOCATS
+ÉTAPE 3. PAGE DYNAMIQUE AVOCATS
 ===============================================================================
-
-Même endroit, sur la page dynamique des Avocats. Ici il n'y a pas de balisage à
-injecter : les avocats sont déjà décrits dans le JSON-LD d'identité que j'ai posé
-dans le head du site. Seul og:type est à corriger.
 
 -------------------------------------------------------------------------------
 import { seo } from '@wix/site-seo';
@@ -149,136 +94,35 @@ $w.onReady(async () => {
 
 
 ===============================================================================
-ÉTAPE 3. PUBLIER, PUIS VÉRIFIER
+ÉTAPE 4. PUBLIER, PUIS VÉRIFIER AVANT D'ENVOYER LE MAIL
 ===============================================================================
 
-Publie le site, puis ouvre :
+Publie, puis ouvre :
 https://www.huglo-lepage.com/expertises/droit-urbanisme-amenagement
 
-Fais un clic droit, « afficher le code source de la page ». Pas l'inspecteur
-d'éléments : l'inspecteur montre la page après exécution du JavaScript, le code
-source montre ce qui a été servi. C'est exactement la distinction sur laquelle le
-cabinet nous attend.
+Clic droit, « afficher le code source de la page ». Pas l'inspecteur d'éléments :
+l'inspecteur montre la page après exécution du JavaScript, le code source montre ce
+qui a été servi. C'est la distinction sur laquelle le cabinet nous attend.
 
 Cherche dans le code source :
 
-    ld+json           tu dois trouver DEUX blocs :
-                      celui du cabinet et des neuf avocats,
-                      et celui de la fiche avec "@type":["WebPage","FAQPage"]
-    og:type           doit valoir article, une seule fois
-    description       doit toujours etre la, inchangee
+    BreadcrumbList     doit apparaitre
+    FAQPage            doit apparaitre, avec les neuf questions
+    <script type="application/ld+json">{}</script>   ne doit PLUS apparaitre
+    ImageObject        ne doit plus apparaitre isole
+    og:type            doit valoir article, une seule fois
+    description        doit toujours etre la, inchangee
 
-Ce dernier point compte. La documentation dit que setMetaTags remplace les balises
-existantes, sans préciser si c'est balise par balise ou en bloc. Si la description
-a disparu, retire la ligne setMetaTags et garde seulement setStructuredData, puis
-dis-le moi.
+Ce dernier point est le seul risque réel. La documentation dit que setMetaTags
+remplace les balises existantes, sans préciser si c'est balise par balise ou en
+bloc. Si la meta description a disparu, retire la ligne setMetaTags et garde
+seulement setStructuredData, puis dis-le moi : on traitera og:type autrement.
 
-Puis sur https://www.huglo-lepage.com/avocats/roxane-sageloli, og:type doit valoir
+Puis https://www.huglo-lepage.com/avocats/roxane-sageloli, og:type doit valoir
 profile.
 
-Enfin, passe l'URL de la fiche Urbanisme dans le test des résultats enrichis de
-Google et dans validator.schema.org. Ce sont les deux captures que le cabinet
-attend.
+Enfin, passe la fiche Urbanisme dans le test des résultats enrichis de Google et
+dans validator.schema.org. Ce sont les deux captures que le cabinet attend.
 
-
-===============================================================================
-CE QUI N'EST PAS DANS CE CODE, ET POURQUOI
-===============================================================================
-
-L'image de partage n'y est pas. Elle est réglée autrement, et c'est déjà fait :
-j'ai renseigné le champ image des douze fiches dans le CMS, et le gabarit s'en
-sert pour produire og:image et twitter:image. Rien à faire de ton côté.
-
-Un seul point à surveiller là-dessus : ce champ image peut aussi s'afficher dans
-le corps de la page. Ouvre une fiche et regarde. Si une image apparaît là où il n'y
-en avait pas, dis-le moi, je vide les douze champs en un appel et on repasse
-l'image sociale par le code.
-
-
-===============================================================================
-SI LE BALISAGE NE SORT PAS DANS LE CODE SOURCE
-===============================================================================
-
-C'est le seul scénario que je ne peux pas écarter d'avance, faute d'accès au site
-depuis mon environnement. La documentation Wix dit que l'appel dans onReady() est
-précisément fait pour que les moteurs le lisent, mais c'est le reproche central du
-cabinet et il vaut mieux le constater que le supposer.
-
-Si le balisage n'apparaît pas dans le code source servi, préviens-moi.
-
-Correction d'une chose que j'avais écrite trop vite : j'avais annoncé un repli
-consistant à poser douze blocs de code personnalisé dans le head, un par fiche. Ce
-n'est pas possible. Le ciblage par page du code personnalisé est en lecture seule
-côté API, un bloc s'applique donc forcément à tout le site. Le vrai repli, si le
-chemin B ne suffit pas, reste le chemin A.
-
-
-===============================================================================
-CHEMIN B. LE GABARIT JSON À TROUS, SI TU PRÉFÈRES ÉVITER LE CODE
-===============================================================================
-
-Dans la fenêtre « Ajouter un nouveau balisage » :
-
-  1. Nom : Balisage de page et fil d'Ariane
-  2. Dans la case, colle le JSON ci-dessous TEL QUEL. Il est valide, Wix
-     l'acceptera et le voyant rouge disparaîtra.
-  3. Puis remplace chacun des huit repères par une puce de variable, en
-     sélectionnant le repère et en insérant la variable correspondante :
-
-         ADRESSE_DE_LA_FICHE  ->  l'URL de la page d'element        (5 fois)
-         TITRE_DE_LA_FICHE    ->  le champ affiche « Title »        (2 fois)
-         META_DE_LA_FICHE     ->  le champ « Meta Description »     (1 fois)
-
-     Garde bien les guillemets autour de chaque puce.
-
--------------------------------------------------------------------------------
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "ADRESSE_DE_LA_FICHE#webpage",
-      "url": "ADRESSE_DE_LA_FICHE",
-      "name": "TITRE_DE_LA_FICHE",
-      "description": "META_DE_LA_FICHE",
-      "inLanguage": "fr",
-      "isPartOf": { "@id": "https://www.huglo-lepage.com/#website" },
-      "about": { "@id": "https://www.huglo-lepage.com/#cabinet" },
-      "publisher": { "@id": "https://www.huglo-lepage.com/#cabinet" },
-      "breadcrumb": { "@id": "ADRESSE_DE_LA_FICHE#breadcrumb" }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "ADRESSE_DE_LA_FICHE#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Accueil",
-          "item": "https://www.huglo-lepage.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Expertises",
-          "item": "https://www.huglo-lepage.com/expertise"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "TITRE_DE_LA_FICHE",
-          "item": "ADRESSE_DE_LA_FICHE"
-        }
-      ]
-    }
-  ]
-}
--------------------------------------------------------------------------------
-
-CE QUE CE CHEMIN NE FAIT PAS
-  - la FAQ de la fiche Urbanisme, ses neuf questions ne sortiront pas ;
-  - og:type, qui reste alors a corriger separement.
-
-Le champ « Balisage JSON-LD (head) » que j'ai rempli dans le CMS ne sert pas dans
-ce chemin. Laisse-le, il ne gêne pas, et il servira si tu passes au chemin A plus
-tard.
+N'ENVOIE LE MAIL QU'APRÈS CES VÉRIFICATIONS. Il affirme que le balisage est servi,
+et c'est vérifiable en trente secondes par le cabinet.

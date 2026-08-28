@@ -40,9 +40,15 @@ que Wix génère par défaut. Trois conséquences pour vous :
   - le bloc vide et le nœud ImageObject isolé que vous relevez disparaissent, étant
     précisément ce que ce mécanisme remplace.
 
-Le code est écrit. Nous le déployons dès votre accord, et og:type est inclus dans
-le même geste, en « article » sur les fiches Expertise et en « profile » sur les
-fiches avocats.
+C'est fait. Le balisage est désormais servi par cette voie, et og:type est corrigé
+dans le même geste, en « article » sur les fiches Expertise et en « profile » sur
+les fiches avocats. Vous pouvez le constater en affichant le code source de la
+fiche Urbanisme : le nœud WebPage et la BreadcrumbList y figurent, la FAQPage
+également, et le bloc vide comme l'ImageObject isolé ont disparu.
+
+Nous ajoutons que la fiche Droit de la commande publique porte désormais elle aussi
+sa FAQ, six questions reprises littéralement de votre bloc FAQ, sur le même
+principe que celles de la fiche Urbanisme.
 
 
 2. La fidélité des réponses de la FAQ
