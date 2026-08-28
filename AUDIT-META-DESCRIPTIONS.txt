@@ -1,0 +1,104 @@
+===============================================================================
+CONTROLE DES DOUZE META DESCRIPTIONS, CARACTERE PAR CARACTERE
+===============================================================================
+
+Etabli le [DATE A COMPLETER]. Etat du site au 28 aout 2026.
+
+Nous vous avions annonce ce controle et ecrit qu'il ne restait aucun defaut.
+Le voici rendu, avec ses chiffres, pour que vous puissiez le verifier vous-meme.
+
+Les defauts de forme que vous auditiez, espace de debut ou de fin, double espace
+et retour a la ligne, sont bien absents des douze. Restent deux points de fond
+que nous n'avions pas mesures et que nous vous signalons.
+
+-------------------------------------------------------------------------------
+Droit de l’énergie et des énergies renouvelables
+   /expertises/droit-de-l-energie
+   longueur : 197 caracteres
+   A REPRENDRE : depasse 160 caracteres
+   A REPRENDRE : pas de ponctuation finale
+-------------------------------------------------------------------------------
+RSE/Audits réglementaires
+   /expertises/rse-audits-reglementaires
+   longueur : 152 caracteres
+   conforme
+-------------------------------------------------------------------------------
+Droit des collectivités territoriales
+   /expertises/droit-des-collectivites-territoriales
+   longueur : 158 caracteres
+   conforme
+-------------------------------------------------------------------------------
+Droit de la Commande publique
+   /expertises/commande-publique
+   longueur : 145 caracteres
+   conforme
+-------------------------------------------------------------------------------
+Droit de l'expropriation et du domaine public
+   /expertises/domanialite-et-expropriation
+   longueur : 146 caracteres
+   A REPRENDRE : pas de ponctuation finale
+-------------------------------------------------------------------------------
+Economie circulaire
+   /expertises/economie-circulaire
+   longueur : 186 caracteres
+   A REPRENDRE : depasse 160 caracteres
+-------------------------------------------------------------------------------
+Droit pénal de l'environnement
+   /expertises/droit-penal-de-l-environnement
+   longueur : 148 caracteres
+   conforme
+-------------------------------------------------------------------------------
+Protection de l'environnement et de la santé
+   /expertises/protection-de-l-environnement
+   longueur : 161 caracteres
+   A REPRENDRE : depasse 160 caracteres
+-------------------------------------------------------------------------------
+Environnement industriel et installations classées
+   /expertises/environnement-industriel
+   longueur : 171 caracteres
+   A REPRENDRE : depasse 160 caracteres
+-------------------------------------------------------------------------------
+RSE/Vigilance/Audits volontaires
+   /expertises/rse-vigilance
+   longueur : 155 caracteres
+   conforme
+-------------------------------------------------------------------------------
+Crédits carbone & Crédits biodiversité
+   /expertises/credits-marches-carbone
+   longueur : 178 caracteres
+   A REPRENDRE : depasse 160 caracteres
+-------------------------------------------------------------------------------
+Avocat droit de l'urbanisme et de l'aménagement
+   /expertises/droit-urbanisme-amenagement
+   longueur : 156 caracteres
+   conforme
+-------------------------------------------------------------------------------
+
+RECAPITULATIF
+
+  Fiches controlees ................................... 12
+  Espace de debut ou de fin ........................... 0
+  Double espace ....................................... 0
+  Retour a la ligne ................................... 0
+  Depassent 160 caracteres ............................ 5
+  Sans ponctuation finale ............................. 2
+  Entierement conformes ............................... 6
+
+Les descriptions trop longues, par longueur decroissante :
+    197  Droit de l’énergie et des énergies renouvelables
+    186  Economie circulaire
+    178  Crédits carbone & Crédits biodiversité
+    171  Environnement industriel et installations classées
+    161  Protection de l'environnement et de la santé
+
+Au-dela d'environ 160 caracteres, la description est coupee dans les resultats
+de recherche. La fin de la phrase est donc perdue pour le lecteur. Ce n'est pas
+une erreur, c'est un arbitrage de redaction, et il vous appartient : nous ne
+reecrivons pas votre positionnement sans votre accord.
+
+Celles qui ne se terminent par aucune ponctuation :
+   Droit de l’énergie et des énergies renouvelables
+   Droit de l'expropriation et du domaine public
+
+Nous pouvons reprendre ces cinq descriptions a votre main. Dites-nous
+simplement si vous preferez couper la fin ou reformuler plus court.

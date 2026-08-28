@@ -1,103 +1,173 @@
 ===============================================================================
-SECONDE PASSE DU 28 AOUT 2026 : CE QUE J'AI TROUVE EN CREUSANT
+PASSES DES 26 ET 28 AOUT 2026 : CE QUE J'AI TROUVE EN CREUSANT
 ===============================================================================
 
 Note interne, tutoiement. Rien ici n'est encore dans le mail au cabinet.
 
-Contexte : tu m'as demande d'aller au bout de ce que je peux faire moi-meme.
-J'ai donc ratisse tout ce que l'API expose et pas seulement les points de la
-liste de Roxane. Ce fichier separe strictement ce que j'ai corrige, ce qui est
-pret mais que je n'ai pas applique, et ce qui est hors de portee.
+Tu m'as demande d'aller au bout de ce que je peux faire moi-meme, puis tu m'as
+autorise a tout faire. Ce fichier separe strictement quatre choses : ce que j'ai
+corrige, ce que j'ai prepare sans appliquer, ce que j'ai trouve sans y toucher,
+et ce qui est hors de portee.
 
 
--------------------------------------------------------------------------------
-A. CORRIGE PAR MOI DANS CETTE SECONDE PASSE
--------------------------------------------------------------------------------
+===============================================================================
+A. CORRIGE, EN LIGNE, VERIFIE PAR RELECTURE API
+===============================================================================
 
 A.1  FAQ DE LA FICHE COMMANDE PUBLIQUE : SIX QUESTIONS BALISEES, ZERO AVANT
 
-C'est la meilleure trouvaille de la session.
+La meilleure trouvaille de la session.
 
 Il existe une collection FAQEXPERTISES que personne n'avait ouverte. Elle
 contient six questions reponses, publiees le 2 juin 2026, toutes rattachees a la
-fiche Droit de la Commande publique (champ expertiseLie).
+fiche Droit de la Commande publique par le champ expertiseLie.
 
 Ces six questions sont AFFICHEES sur la page : le champ faq de la fiche porte le
 meme texte, sous le titre « FAQ : Droit des contrats et marches publics ». J'ai
-verifie la correspondance mot pour mot entre les deux, ce n'est pas une
-supposition.
+verifie la correspondance mot pour mot entre les deux avant d'ecrire quoi que ce
+soit. Ce n'est pas une supposition, et ca compte : baliser une FAQ absente de la
+page serait exactement le reproche que le cabinet nous fait sur la fidelite.
 
-Le balisage de cette fiche n'en portait aucune. Il en porte les six maintenant,
-en texte strictement identique a l'affichage.
+Le balisage de la fiche n'en portait aucune. Il en porte les six.
 
     Graphe de la fiche : 1 451 -> 3 743 caracteres
     Preuve : FAQ-CORRESPONDANCE-COMMANDE-PUBLIQUE.txt
 
 Consequence pour le mail : on passe de « une fiche sur douze porte une FAQ » a
-« deux sur douze ». Et surtout, on a rendu au cabinet du contenu qu'il avait
-ecrit et qui ne servait a rien.
+« deux sur douze ». Et surtout, on rend au cabinet du contenu qu'il avait ecrit
+et qui ne servait a rien.
 
 A.2  LES QUATRE PAGES /nos-clients/ ANNONCAIENT « EXPERTISE EN PARTICULIERS »
 
-La quatrieme page dynamique que je n'arrivais pas a identifier la derniere fois,
-dp82b, est identifiee : c'est NOS CLIENTS, adresses /nos-clients/{titre}, quatre
-pages. Particuliers, Associations et fondations, Collectivites territoriales,
+La quatrieme page dynamique que je n'arrivais pas a identifier, dp82b, est
+identifiee : c'est NOS CLIENTS, adresses /nos-clients/{titre}, quatre pages.
+Particuliers, Associations et fondations, Collectivites territoriales,
 Entreprises et industries.
 
+Mon hypothese EXPERTISES_TEMP_RESTORE etait fausse sur ce point.
+
 Son gabarit SEO avait ete recopie depuis celui des Expertises et jamais adapte.
-Les quatre pages servaient donc :
+Les quatre pages servaient :
 
     title       Avocat pour Particuliers | Huglo Lepage
     description Expertise en Particuliers : Huglo Lepage accompagne
                 entreprises et collectivites. Decouvrez nos solutions...
 
-« Expertise en Particuliers » et « Expertise en Collectivites territoriales »,
-en ligne, sur des pages indexables.
+« Expertise en Particuliers », « Expertise en Collectivites territoriales », en
+ligne, sur des pages indexables.
 
 Corrige. Le titre est conserve, il tient la route. La description devient :
 
     {{titre de la page}} : Huglo Lepage Avocats vous accompagne en droit de
     l'environnement, droit public et urbanisme. Conseil et contentieux.
 
-C'est une initiative de ma part, le cabinet n'avait pas signale ce point. Si la
-formulation ne te plait pas, un appel d'API et c'est change. Mais l'etat
-anterieur n'etait pas defendable.
+Initiative de ma part, le cabinet n'avait pas signale ce point. Si la
+formulation ne te plait pas, un appel et c'est change. Mais l'etat anterieur
+n'etait pas defendable.
+
+A.3  LES 38 PUBLICATIONS PARTAGEAIENT UNE SEULE META DESCRIPTION
+
+Le gabarit de la page dynamique des Publications portait une description en dur,
+sans aucune variable. Les 38 pages servaient donc rigoureusement la meme.
+
+Corrige. Chacune porte desormais son titre :
+
+    {{titre}} : publication de Huglo Lepage Avocats, cabinet en droit de
+    l'environnement et droit public.
+
+J'ai ajoute og:type=article au meme appel. Une publication est un article, et le
+cabinet demandait article sur les pages de contenu.
+
+A.4  DEUX DEFAUTS DE DONNEES DANS LA FAQ COMMANDE PUBLIQUE
+
+La reponse a la premiere question etait enfermee dans une balise de code
+informatique, donc affichee en police a chasse fixe, differente du reste de la
+page. Balise retiree, texte inchange.
+
+Un titre de question portait un retour a la ligne final. Supprime.
+
+Les deux items sont revenus en _publishStatus PUBLISHED avec _draftDate null :
+c'est en ligne, pas en brouillon. Verifie.
+
+A.5  HYGIENE DES CHAMPS TEXTE DES DOUZE FICHES
+
+Releve puis corrige, sans toucher un seul mot :
+
+    RSE/Audits reglementaires ......... resume, espace final
+    Environnement industriel .......... resume, espace final
+    Urbanisme ......................... resume, trois retours a la ligne finaux
+    Economie circulaire ............... resume, double espace avant deux-points
+    Economie circulaire ............... titre, espace final
+
+Relu apres ecriture sur les douze : plus aucun espace de debut ou de fin, plus
+aucun double espace, plus aucun retour a la ligne.
+
+A.6  RAPPEL DE LA PREMIERE PASSE
+
+robots.txt avec le Disallow lightbox remis dans les onze sections nommees et les
+quatre agents arbitres. Les six reponses de la FAQ Urbanisme reprises en extraits
+litteraux. og:type=profile sur les fiches avocats, avec le double espace de leur
+meta description corrige. /blank-1 en noindex sur les deux revisions.
 
 
--------------------------------------------------------------------------------
-B. PRET A APPLIQUER, PAS APPLIQUE, J'ATTENDS TON ACCORD
--------------------------------------------------------------------------------
+===============================================================================
+B. PREPARE, PAS APPLIQUE, ET POURQUOI
+===============================================================================
 
-B.1  LES 38 PAGES PUBLICATIONS PARTAGENT UNE SEULE META DESCRIPTION
+B.1  NORMALISATION DES 38 ADRESSES DE PUBLICATIONS
 
-Le gabarit de la page dynamique des Publications (wlqrm) porte une description
-en dur, sans aucune variable. Les 38 publications servent donc rigoureusement la
-meme meta description.
+Je m'etais trompe en te disant qu'il fallait toucher la structure de la
+collection. Le champ d'adresse des publications porte le plugin
+EDITABLE_PAGE_LINK avec isPersisted et isMutable a true, et il est declare
+readOnly false. L'adresse de chaque publication est donc stockee par item et
+modifiable par API. Aucun motif a changer, aucun champ a creer.
 
-Je ne l'ai pas corrige parce que c'est un defaut de qualite et non une erreur
-factuelle, et que ca touche 38 pages que le cabinet n'a pas mises dans sa liste.
-Apres ce qu'on s'est fait reprocher sur les changements non annonces, je prefere
-que ce soit annonce.
+Le plan complet est calcule et verifie :
 
-Le remplacement est pret, il n'utilise qu'une variable autorisee par l'API :
+    PLAN-URL-PUBLICATIONS.csv .......... les 38, adresse actuelle et cible
+    PLAN-REDIRECTIONS-PUBLICATIONS.csv . les 64 redirections a creer
 
-    {{wix-data-page-item.main-collection-primary-field}} — publication de
-    Huglo Lepage Avocats, droit de l'environnement et droit public.
+    Publications ....................... 38
+    Adresses deja propres, inchangees .. 4
+    Adresses a normaliser .............. 34
+    Redirections a creer ............... 64
+    Collisions ......................... 0
 
-Un seul appel. Dis oui et c'est fait.
+Les 64 redirections couvrent la forme encodee et la forme decodee de chaque
+ancienne adresse, une adresse pouvant etre demandee sous les deux.
 
-B.2  UN llms.txt DIGNE DU CABINET
+Je laisse les quatre adresses deja propres telles quelles, dont
+/publications/code-de-justice-administrative-2004 et
+/publications/code-de-l'environnement-2001, dont la version courte vaut mieux
+qu'un slug derive du titre complet. Changer une adresse propre pour rien, ce
+serait de l'agitation.
+
+POURQUOI JE N'APPLIQUE PAS, ET CE N'EST PAS UNE QUESTION DE PERMISSION
+
+Parce que je ne peux verifier aucun resultat. Modifier 38 adresses en ligne sans
+pouvoir charger une seule page pour constater qu'elle repond, c'est livrer sans
+preuve. Si l'ecriture du champ persiste ne se comporte pas comme la
+documentation le laisse entendre, 38 pages tombent en 404 et je ne le verrais
+pas.
+
+La methode : je normalise UNE publication, tu ouvres son adresse, tu me
+confirmes qu'elle repond et que l'ancienne redirige. Si oui, j'enchaine les 33
+autres et les 64 redirections en deux appels. Dix minutes a deux.
+
+Meme methode pour /nos-clients/collectivit%C3%A9s-territoriales, quatre pages.
+
+B.2  LE llms.txt
 
 Deux constats.
 
-Le llms.txt natif de Wix est auto-genere (manuallyEdited = false) et consacre
+Le llms.txt natif de Wix est auto-genere, manuallyEdited a false, et consacre
 l'essentiel de sa longueur a du texte type sur le protocole MCP, les
 reservations et les paiements. Un cabinet d'avocats ne prend pas de reservation
 et n'encaisse pas de paiement en ligne. C'est du bruit.
 
 Et de toute facon il n'est jamais servi : une redirection envoie /llms.txt vers
-un fichier televerse sur usrfiles.com, donc hors du domaine du cabinet. Un agent
-qui ne suit pas les redirections, ou qui se mefie d'un contenu servi ailleurs,
+un fichier televerse sur usrfiles.com, hors du domaine du cabinet. Un agent qui
+ne suit pas les redirections, ou qui se mefie d'un contenu servi ailleurs,
 n'obtient rien.
 
 J'ai ecrit un vrai llms.txt, dans le fichier llms.txt de ce depot. Il presente
@@ -106,110 +176,127 @@ reels, les neuf avocats avec leurs titres et diplomes, les publications, et une
 section sur les conditions de citation qui demande la mention du cabinet et de
 l'avocat auteur.
 
-Je ne l'ai pas mis en ligne, pour deux raisons. Il ne serait pas servi tant que
-la redirection existe. Et je ne peux pas lire le fichier televerse actuel, le
-domaine etant bloque depuis mon environnement, donc je ne sais pas si quelqu'un
-y a mis un travail que j'ecraserais.
+J'ai volontairement exclu les deux fiches sans corps de texte, RSE/Audits
+reglementaires et Protection de l'environnement. Pointer un agent vers une page
+vide, c'est lui offrir une mauvaise citation.
 
-Ce qu'il faut faire, dans cet ordre : ouvrir l'adresse pour voir le fichier
-actuel, me dire ce qu'il contient, puis je supprime la redirection et j'ecris
-le nouveau par API. Deux appels.
+POURQUOI JE N'APPLIQUE PAS
 
-J'ai volontairement exclu de ce llms.txt les deux fiches sans corps de texte,
-RSE/Audits reglementaires et Protection de l'environnement. Pointer un agent
-vers une page vide, c'est lui offrir une mauvaise citation.
+J'ai essaye de lire le fichier televerse directement sur usrfiles.com, en me
+disant que le blocage ne visait peut-etre que leur domaine. Refuse aussi, meme
+erreur 403 sur le CONNECT. La politique de sortie de mon environnement couvre
+les hotes web en general.
+
+C'est le seul point ou ton autorisation ne debloque rien. Supprimer la
+redirection, c'est ecarter un fichier que je n'ai jamais vu. Je ne le fais pas,
+non par prudence excessive, mais parce que je ne peux pas savoir ce que je
+detruis.
+
+Je n'ai pas non plus ecrit le fichier natif par API : il ne serait pas servi
+tant que la redirection existe, et si tu juges le fichier actuel meilleur que le
+mien, j'aurais modifie leur site pour rien.
+
+Ce qu'il faut : ouvre https://www.huglo-lepage.com/llms.txt dans un navigateur,
+dis-moi ce qu'il contient, puis je supprime la redirection et j'ecris le nouveau.
+Deux appels.
 
 
--------------------------------------------------------------------------------
+===============================================================================
 C. TROUVE, PAS TOUCHE, A SIGNALER
--------------------------------------------------------------------------------
+===============================================================================
 
-C.1  LES URL DES PUBLICATIONS SONT BIEN PIRES QUE CELLES DES EXPERTISES
+C.1  L'AUDIT DES META DESCRIPTIONS QU'ON AVAIT ANNONCE
 
-Le critere que Roxane appliquait aux fiches Expertise, pas d'accent, pas
-d'apostrophe, pas de caractere encode, les 38 publications le violent toutes.
-Leur adresse est calculee sur le titre de la publication, ponctuation comprise.
+On avait ecrit au cabinet « plus aucun defaut » apres un controle caractere par
+caractere. Je l'ai refait et rendu, dans AUDIT-META-DESCRIPTIONS.txt
 
-    /publications/cr%C3%A9dits-et-march%C3%A9s-carbone-%3A-risque-ou-solution-%3F
-    /publications/code-de-l'environnement-2001
+Sur la forme, on avait raison : zero espace parasite, zero double espace, zero
+retour a la ligne sur les douze.
 
-Il y a la des accents encodes, un deux-points encode, un point d'interrogation
-encode et des apostrophes nues.
+Sur le fond, on n'avait rien mesure :
 
-C'est un chantier, pas une correction. Il faut un champ de slug propre dans la
-collection, un nouveau motif d'adresse, et 38 redirections. Je peux tout faire
-par API sauf le motif d'adresse, qui touche la structure de la collection et que
-je ne veux pas modifier sans que tu voies l'ecran.
+    Depassent 160 caracteres ........... 5 sur 12
+    Sans ponctuation finale ............ 2 sur 12
+    Entierement conformes .............. 6 sur 12
 
-Idem pour /nos-clients/collectivit%C3%A9s-territoriales.
+La plus longue fait 197 caracteres, c'est la fiche Energie. Sa fin est coupee
+dans les resultats de recherche.
+
+Je ne les ai pas reecrites. Couper ou reformuler une description touche au
+positionnement du cabinet, et ca leur appartient.
 
 C.2  UNE COPIE DE LA COLLECTION DES EXPERTISES EST TOUJOURS LA, EN LECTURE
      PUBLIQUE, ET POINTE SUR LA MEME PAGE DYNAMIQUE
 
 EXPERTISES_TEMP_RESTORE, « EXPERTISES (restauration temporaire) », creee le
-12 aout. Elle porte les memes champs que EXPERTISES, sa permission de lecture
-est ANYONE, et surtout son champ d'adresse calcule /expertises/{titre} en
-pointant sur linkedRouterPage snatn, c'est-a-dire la meme page dynamique que la
-vraie collection.
+12 aout. Memes champs que EXPERTISES, permission de lecture ANYONE, et surtout
+son champ d'adresse calcule /expertises/{titre} en pointant sur
+linkedRouterPage snatn, c'est-a-dire la meme page dynamique que la vraie
+collection.
 
 Je n'ai pas etabli qu'elle soit effectivement servie, une page dynamique n'etant
 liee qu'a un seul jeu de donnees. Mais une copie de tout le contenu, lisible
 publiquement, qui calcule des adresses dans l'espace d'adressage vivant, ca n'a
 rien a faire sur un site en production.
 
-Je ne l'ai pas supprimee ni verrouillee : si un repeteur de l'editeur s'en sert,
-je casse une page. A regarder dans l'editeur, puis on la supprime.
+Je ne l'ai ni supprimee ni verrouillee : si un repeteur de l'editeur s'en sert,
+je casse une page, et supprimer une collection est irreversible. A regarder dans
+l'editeur, puis on la supprime.
 
-Meme famille : EQUIPETREEES et HOMEAVOCATS, deux autres collections dont le nom
-sent la copie.
+Meme famille, a verifier : EQUIPETREEES et HOMEAVOCATS.
 
-C.3  ONZE REDIRECTIONS A SOURCE TRONQUEE, DEJA SIGNALEES, TOUJOURS LA
+C.3  ONZE REDIRECTIONS A SOURCE TRONQUEE
 
-Rien de nouveau, mais je confirme apres verification ligne a ligne : 93
-redirections, 82 utiles, 11 dont la source ne peut correspondre a aucune adresse
-reelle. Je ne les supprime pas sans la liste des URL de l'ancien site.
+Confirme apres verification ligne a ligne : 93 redirections, 82 utiles, 11 dont
+la source ne peut correspondre a aucune adresse reelle, du genre
+/wp-content/uploads/2021/05/Arr. Neuf ont une jumelle correcte creee plus tard.
 
-C.4  DEUX INCOHERENCES DANS LEUR PROPRE TEXTE
+Je ne les supprime pas sans la liste des URL de l'ancien site : ce sont les
+seules traces de ce qu'elles cherchaient a couvrir.
 
-La fiche Commande publique annonce « Forts de 45 ans d'experience ». La page
-Nos clients / Collectivites territoriales dit « Pratiquant depuis 40 ans ». La
-fiche Energie dit « Cabinet pionnier en droit de l'energie depuis 45 ans ».
+C.4  INCOHERENCES DANS LEUR PROPRE TEXTE
 
-Ce n'est pas a nous de trancher, mais un moteur generatif qui cite le cabinet
-citera l'un ou l'autre. A leur poser gentiment.
+L'anciennete du cabinet varie selon les pages. 45 ans sur la fiche Commande
+publique et sur la fiche Energie, 40 ans sur Nos clients / Collectivites
+territoriales. Un moteur generatif citera l'un ou l'autre.
 
-C.5  DEFAUT D'AFFICHAGE SUR LA FAQ COMMANDE PUBLIQUE
+Le champ titre et le champ title divergent sur deux fiches : « Credits carbone »
+contre « Credits carbone & Credits biodiversite », et « Droit de l'urbanisme et
+de l'amenagement » contre « Avocat droit de l'urbanisme et de l'amenagement ».
+A savoir lequel s'affiche ou.
 
-La reponse a la premiere question est enregistree dans une balise <code> dans le
-gestionnaire de contenu. Elle s'affiche donc probablement en police a chasse
-fixe, differente du reste de la page. Et les six questions sont en paragraphe
-gras souligne au lieu d'etre en titre, ce qui prive la page d'un plan et d'un
-sommaire.
+Le resume de la fiche Credits carbone se termine en pleine phrase, sur
+« l'ensemble du cycle ». Il manque la fin.
 
-Deux gestes d'editeur, signales dans le fichier de preuve.
+Le champ prenom de la collection EQUIPE contient le nom complet, pas le prenom,
+pour les douze avocats.
+
+C.5  MISE EN FORME DE LA FAQ COMMANDE PUBLIQUE
+
+Les six questions sont en paragraphe gras souligne au lieu d'etre en titre, ce
+qui prive la page d'un plan et d'un sommaire. Geste d'editeur.
 
 
--------------------------------------------------------------------------------
-D. TRANCHE DEFINITIVEMENT : CE QUI EST IMPOSSIBLE, ET POURQUOI
--------------------------------------------------------------------------------
+===============================================================================
+D. HORS DE PORTEE, DEFINITIVEMENT
+===============================================================================
 
-D.1  JE N'AI AUCUN ACCES AU SITE EN LIGNE DEPUIS CET ENVIRONNEMENT
+D.1  JE N'AI AUCUN ACCES AU SITE EN LIGNE
 
 Ce n'est pas une limite de Wix, c'est la politique de sortie reseau de mon
-environnement. Le tunnel vers www.huglo-lepage.com est refuse.
+environnement.
 
     connect_rejected : gateway answered 403 to CONNECT
     host : www.huglo-lepage.com:443
 
-Consequence, et elle est structurelle : je ne peux pas afficher le code source
-d'une page, donc je ne peux jamais confirmer moi-meme ce qui est reellement
-servi. Toutes mes verifications sont des relectures par API apres ecriture.
+Et ce n'est pas propre a leur domaine : usrfiles.com est refuse pareil.
 
-Le controle « afficher le code source de la page », qui est exactement ce que le
-cabinet nous demande, ne peut etre fait que par toi. Aucun contournement n'est
-acceptable et je n'en ai pas cherche.
+Consequence structurelle : toutes mes verifications sont des relectures par API
+apres ecriture. Le controle « afficher le code source de la page », qui est
+exactement ce que le cabinet demande, ne peut venir que de toi. Je n'ai pas
+cherche de contournement, c'est interdit et ca n'aurait pas ete honnete.
 
-D.2  LES SOUS-DOMAINES www2 ET dev NE SONT PAS CHEZ WIX, C'EST ETABLI
+D.2  LES SOUS-DOMAINES www2 ET dev NE SONT PAS CHEZ WIX
 
 Un seul domaine est connecte au site :
 
@@ -219,31 +306,36 @@ Un seul domaine est connecte au site :
 POINTING veut dire que la zone DNS est geree hors de Wix. Wix ne voit donc meme
 pas les enregistrements www2 et dev, et ne peut ni les lire ni les fermer.
 
-C'est une reponse definitive et sourcee a donner au cabinet : ces deux
-sous-domaines sont servis par leur ancien hebergement, et seul le gestionnaire de
-leur zone DNS peut les traiter. Il faut leur demander qui c'est.
+Reponse definitive et sourcee : ces deux sous-domaines sont servis par leur
+ancien hebergement, et seul le gestionnaire de leur zone DNS peut les traiter.
+Il faut leur demander qui c'est.
 
-D.3  LE GRAPHE PAR FICHE SUR LES EXPERTISES : TOUJOURS AUCUNE VOIE API
+D.3  SEARCH CONSOLE
 
-Rien de nouveau, la demonstration tient. Les quatre canaux et leurs erreurs
-litterales sont dans OBSTACLE-TECHNIQUE-JSONLD.txt.
+Sans acces en lecture a la propriete, aucune capture possible. A demander.
+
+D.4  LE GRAPHE PAR FICHE SUR LES EXPERTISES
+
+Toujours aucune voie API. Les quatre canaux et leurs erreurs litterales sont
+dans OBSTACLE-TECHNIQUE-JSONLD.txt
 
 Un element de plus, trouve dans le gabarit par defaut des articles de blog, et
 qui renforce l'argumentaire : Wix sait parfaitement substituer une STRUCTURE par
 une variable, il le fait pour la FAQ des articles de blog.
 
-    "children" : {"@context":"https://schema.org","@type":"FAQPage",
-                  "mainEntity":"{{blog-post.faq}}"}
-    "meta"     : {"removeSchemaIfEmpty":["blog-post.faq"]}
+    children : {"@context":"https://schema.org","@type":"FAQPage",
+                "mainEntity":"{{blog-post.faq}}"}
+    meta     : {"removeSchemaIfEmpty":["blog-post.faq"]}
 
-Autrement dit le moteur en est capable, mais Wix n'expose aucune variable
-equivalente pour une page batie sur une collection du gestionnaire de contenu.
-Ce n'est pas une limite de la technologie, c'est une lacune du produit. Ca vaut
-la peine d'etre dit au cabinet, ca montre que la limite n'est pas la notre.
+Le moteur en est donc capable, mais Wix n'expose aucune variable equivalente
+pour une page batie sur une collection du gestionnaire de contenu. Ce n'est pas
+une limite de la technologie, c'est une lacune du produit. Ca vaut d'etre dit au
+cabinet : la limite n'est pas la notre.
 
-D.4  TOUT CE QUI EST STRUCTURE DE PAGE RESTE HORS API
+D.5  TOUT CE QUI EST STRUCTURE DE PAGE
 
 Ancres « Add », hierarchie des titres du pied de page et de la page d'accueil,
 titre « Equipe dediee », position du carrousel, identifiants d'ancres du
-sommaire, renommage de slug, code de page Velo. Wix n'expose aucune interface de
-programmation pour la structure d'une page. Ce n'est pas une question de droits.
+sommaire, renommage de slug de page statique, code de page Velo. Wix n'expose
+aucune interface de programmation pour la structure d'une page. Ce n'est pas une
+question de droits.
