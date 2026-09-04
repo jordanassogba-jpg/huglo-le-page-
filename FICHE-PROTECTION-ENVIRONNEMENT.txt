@@ -1,0 +1,136 @@
+===============================================================================
+FICHE PROTECTION DE L'ENVIRONNEMENT ET DE LA SANTÉ
+Intégration de la version VDEF, sur le modèle de la fiche Urbanisme
+===============================================================================
+
+Adresse : https://www.huglo-lepage.com/expertises/protection-de-l-environnement
+Collection EXPERTISES, item 7435cbb9-6a89-4908-a2fe-31a84c86b48a
+Slug et H1 inchangés, aucune redirection nécessaire.
+
+La fiche était vide avant cette intervention : intro, bloc 1, bloc 2, faq et
+résumé ne portaient aucun contenu. Le chapô hérité de l'ancien site était le
+seul texte publié.
+
+
+-------------------------------------------------------------------------------
+CE QUI EST ÉCRIT DANS LE CMS
+-------------------------------------------------------------------------------
+
+  text (chapô)      5 paragraphes, dont le lien vers RSE/Audits réglementaires
+  intro             sommaire « Sur cette page : » (15 entrées) + H2 n° 1
+  blocDeContenu1    H2 n° 2 à 7      125 nœuds, 6 H2, 16 H3, 2 encadrés
+  blocDeContenu2    H2 n° 8 à 13     129 nœuds, 6 H2, 18 H3, 1 tableau
+  faq               H2 n° 14 et 15    57 nœuds, 2 H2, 10 H3
+  contact           bloc « Nous contacter » + bloc auteur + avertissement
+
+  title             Avocat protection de l'environnement et santé
+  mtaDescription    reprise mot pour mot du document (152 caractères)
+  resume            phrase courte tirée du chapô, le document n'en fournit pas
+  dateMaj           2026-08-28
+  ordreAvocats      les 7 avocats dans l'ordre du document
+  jsonldGraph       WebPage + FAQPage (10 questions) + BreadcrumbList
+  EQUIPE_expertises 7 références remplacées, bloc « Équipe dédiée » conforme
+
+Un H1, quinze H2, quarante-quatre H3, dans l'ordre exact du document. 11 638
+mots de corps de page, contre 8 014 pour l'Urbanisme.
+
+Le texte publié est identique caractère pour caractère au document, à une
+normalisation typographique près : espace insécable devant les deux-points,
+points-virgules, points d'interrogation et d'exclamation, et à l'intérieur des
+guillemets français. Le document en portait déjà à trois endroits, la règle est
+maintenant appliquée partout sur la fiche.
+
+
+-------------------------------------------------------------------------------
+CE QUI A ÉTÉ RESPECTÉ DU DOCUMENT, POINT PAR POINT
+-------------------------------------------------------------------------------
+
+  - Hiérarchie de titres : style « Titre » en H1, « Titre 1 » en H2,
+    « Titre 2 » en H3. Aucun saut de niveau, aucun titre déplacé.
+  - Les entrées du sommaire sont des ancres cliquables vers les quinze H2.
+    Contrôle automatique : zéro ancre morte.
+  - Les deux encadrés en gras sont rendus comme blocs mis en exergue, pas comme
+    des paragraphes ordinaires.
+  - Le bloc « Notre accompagnement » est rendu comme le tableau à quatre entrées
+    du document, sur le modèle de la fiche Urbanisme.
+  - Les 27 hyperliens du document sont conservés : Légifrance, Conseil d'État,
+    EUR-Lex, AIDA/INERIS, Agir Collectivement, courriel du cabinet.
+  - Les 10 ancres internes en gras pointent vers les fiches d'expertise, avec
+    les slugs relevés sur /expertise.
+  - Les noms des sept avocats sont des liens vers leur page profil, dans le bloc
+    « Nos avocats » comme dans le bloc auteur.
+  - « Prendre contact » pointe vers /contact.
+  - Le mot « avocat » est absent du H1, présent dans le title et la meta.
+
+Total : 56 liens distincts, dont 41 externes.
+
+
+-------------------------------------------------------------------------------
+BALISAGE
+-------------------------------------------------------------------------------
+
+Le champ jsonldGraph porte un graphe de 8 384 caractères :
+
+  - WebPage + FAQPage, avec datePublished et dateModified au 28 août 2026,
+    author sur Corinne Lepage et Roxane Sageloli, mentions sur les sept avocats,
+    rattachement au nœud #cabinet et au nœud #website.
+  - FAQPage : les dix questions de la page. Chaque réponse est un extrait
+    littéral du texte publié, vérifié comme préfixe exact, coupé sur une fin de
+    phrase réelle et jamais sur une abréviation.
+  - BreadcrumbList : Accueil, Expertises, Protection de l'environnement.
+
+Le document demandait par ailleurs que le nœud LegalService déclare les cinq
+implantations et non le seul siège parisien. C'est fait dans le JSON-LD
+d'identité du site, en révision 3 : cinq nœuds branch, Paris, Montpellier,
+Marseille, Strasbourg et Bruxelles. Seul Paris porte une adresse postale
+complète, les quatre autres ne portent que la ville : nous n'avons pas les
+adresses des bureaux et nous ne les inventons pas. À compléter par le cabinet.
+
+
+-------------------------------------------------------------------------------
+CE QUI RESTE À FAIRE À LA MAIN, ET POURQUOI
+-------------------------------------------------------------------------------
+
+1. Séparateur du title SEO. Le gabarit de la page dynamique Expertises produit
+   « ...santé|Huglo Lepage », sans espaces autour de la barre. Le document
+   demande « ...santé │ Huglo Lepage ». L'API refuse de réécrire ce gabarit
+   parce qu'il contient des variables de collection, et passer outre ferait
+   perdre les douze meta descriptions. C'est un geste dans l'écran SEO de la
+   page dynamique (id snatn), et il vaut pour les douze fiches.
+
+2. Branchement du balisage. Le champ jsonldGraph ne sort dans le head qu'une
+   fois le code de page collé. Il est prêt dans CODE-PAGES-DYNAMIQUES.txt.
+   Sans ce collage, le graphe est rempli mais pas servi.
+
+3. Date de mise à jour. Le document demande qu'elle soit générée par le gabarit
+   à partir de la date de dernière modification, et non saisie en dur. Le champ
+   dateMaj est renseigné, c'est le bon véhicule, mais la liaison au gabarit est
+   un geste éditeur. En attendant, la date figure en clair dans le bloc auteur.
+
+4. Ancres « Add ». Les liens vers les profils, le retour aux expertises et le
+   pied de page portent tous l'ancre « Add ». Point site-wide déjà signalé,
+   sans API. Les liens que nous posons dans le corps de la fiche portent bien
+   le nom de l'avocat.
+
+5. Ordre du carrousel. Les sept avocats sont référencés et le champ
+   ordreAvocats porte l'ordre du document, mais un répéteur Wix trie sur un
+   champ de la collection des avocats. L'ordre demandé suppose du code.
+
+Aucune redirection n'est requise. Vérifié au passage : la 301 depuis l'URL
+accentuée /expertises/protection-de-l'environnement est en place, celle de la
+fiche droit pénal aussi.
+
+
+-------------------------------------------------------------------------------
+CE QUE NOUS N'AVONS PAS PU VÉRIFIER
+-------------------------------------------------------------------------------
+
+Le rendu à l'écran. Nous n'avons pas d'accès réseau au domaine depuis cet
+environnement, toutes nos vérifications sont des relectures par API après
+écriture. À contrôler de votre côté :
+
+  - la page en ligne, et notamment le repli des blocs sur mobile ;
+  - le code source servi, par « afficher le code source », pas par
+    l'inspecteur, pour le JSON-LD une fois le code de page collé ;
+  - le test des résultats enrichis de Google et validator.schema.org ;
+  - les liens Légifrance et EUR-Lex, un par un.
